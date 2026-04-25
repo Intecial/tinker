@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ShieldAction" format=3 uid="uid://4umo44va5mbj"]
+
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="1_76inj"]
+
+[resource]
+script = ExtResource("1_76inj")
+metadata/_custom_type_script = "uid://cyxv4cpv66pq5"

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://bxs7468dpdne"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_ilahg"]
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="2_v6she"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_x5fq5"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="3_le7yo"]
+[ext_resource type="Script" uid="uid://bwxpdrewwiie0" path="res://resources/shieldActionOnStatAction.gd" id="4_lcewi"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_1ulxh"]
+
+[sub_resource type="Resource" id="Resource_7kiv3"]
+script = ExtResource("2_v6she")
+metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
+
+[sub_resource type="Resource" id="Resource_xfidw"]
+script = ExtResource("4_lcewi")
+stat = 1
+action = SubResource("Resource_7kiv3")
+icon = ExtResource("3_le7yo")
+color = Color(0.48197332, 0.13440001, 0.56, 1)
+metadata/_custom_type_script = "uid://bwxpdrewwiie0"
+
+[resource]
+script = ExtResource("2_x5fq5")
+gearName = "Strong Guard"
+gearType = 1
+icon = ExtResource("5_1ulxh")
+actions = Array[ExtResource("1_ilahg")]([SubResource("Resource_xfidw")])
+color = Color(0.48235294, 0.13333334, 0.56078434, 1)
+isConsumable = true
+buyValue = 10
+sellValue = 5
+description = "Doubles your Shield value"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

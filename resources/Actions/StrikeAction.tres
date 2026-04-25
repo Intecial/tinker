@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageAction" format=3 uid="uid://qo800thj4acb"]
+
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="1_eagif"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="1_i5dsn"]
+
+[resource]
+script = ExtResource("1_i5dsn")
+icon = ExtResource("1_eagif")
+color = Color(0.827451, 0, 0, 1)
+metadata/_custom_type_script = "uid://ida04v675dll"

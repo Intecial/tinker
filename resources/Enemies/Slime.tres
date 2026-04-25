@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://pru0vy3i64th"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_plqr7"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="2_qn8jy"]
+[ext_resource type="Script" uid="uid://tpaac6g2141q" path="res://resources/healAction.gd" id="3_tdwpi"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="4_yeo61"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="5_lufmq"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="6_e0a88"]
+[ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="6_qn8jy"]
+
+[sub_resource type="Resource" id="Resource_ti5ir"]
+script = ExtResource("3_tdwpi")
+amount = 2
+icon = ExtResource("2_qn8jy")
+color = Color(0.37536865, 0.51521766, 0.16768089, 1)
+actionName = "Mend"
+description = "Enemy repair himself for 2 health"
+metadata/_custom_type_script = "uid://tpaac6g2141q"
+
+[sub_resource type="Resource" id="Resource_jwicp"]
+script = ExtResource("5_lufmq")
+damage = 4
+icon = ExtResource("4_yeo61")
+color = Color(0.59519243, 0.053007677, 0.08501456, 1)
+actionName = "Pounce"
+description = "Attacks you for 4 damage"
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[resource]
+script = ExtResource("6_e0a88")
+name = "Slime"
+health = 10
+actions = Array[ExtResource("1_plqr7")]([SubResource("Resource_ti5ir"), SubResource("Resource_jwicp")])
+icon = ExtResource("6_qn8jy")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2d8ibqgqdcax"]
+
+[ext_resource type="Script" uid="uid://bffhy23ekysmx" path="res://rayHandler.gd" id="1_monel"]
+
+[node name="RayHandler" type="Node3D" unique_id=526833123]
+script = ExtResource("1_monel")

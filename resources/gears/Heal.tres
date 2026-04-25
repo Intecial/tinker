@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://dojod3gfsu3ma"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_mmwvy"]
+[ext_resource type="Resource" uid="uid://c1t68rtteoty8" path="res://resources/Actions/HealAction.tres" id="2_hvtnl"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_p16nx"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_hvtnl"]
+
+[resource]
+script = ExtResource("2_p16nx")
+gearName = "Heal"
+gearType = 2
+icon = ExtResource("3_hvtnl")
+actions = Array[ExtResource("1_mmwvy")]([ExtResource("2_hvtnl")])
+color = Color(0.32759997, 0.84, 0.3788399, 1)
+isConsumable = true
+buyValue = 5
+sellValue = 2
+description = "Heal for Health for 5"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

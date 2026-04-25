@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://smxgnc1lnfkr"]
+
+[ext_resource type="Script" uid="uid://b0lqtbr2u0ag4" path="res://_Scripts/BuildingSystem/buildingManager.gd" id="1_kkhoi"]
+[ext_resource type="PackedScene" uid="uid://cgcprwealqfou" path="res://small_gear.tscn" id="2_03jls"]
+
+[node name="BuildingManager" type="Node3D" unique_id=2118265949]
+script = ExtResource("1_kkhoi")
+selectedBuilding = ExtResource("2_03jls")

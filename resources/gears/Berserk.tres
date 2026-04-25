@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://cfafkvsw2xgup"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_3vibk"]
+[ext_resource type="Resource" uid="uid://c607feaa4no40" path="res://resources/Actions/BerserkAction.tres" id="2_fkmk4"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_sk3mf"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_fkmk4"]
+
+[resource]
+script = ExtResource("2_sk3mf")
+gearName = "Berserk"
+icon = ExtResource("3_fkmk4")
+actions = Array[ExtResource("1_3vibk")]([ExtResource("2_fkmk4")])
+color = Color(0.582397, 0.00075070735, 0.00041146978, 1)
+buyValue = 10
+sellValue = 5
+description = "Gives you a Strike each round !"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

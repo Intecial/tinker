@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://dt1eu36i6lpyk"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_3tsi4"]
+[ext_resource type="Resource" uid="uid://qo800thj4acb" path="res://resources/Actions/StrikeAction.tres" id="2_kbsc6"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_s7jms"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_kbsc6"]
+
+[resource]
+script = ExtResource("2_s7jms")
+gearName = "Strike"
+icon = ExtResource("3_kbsc6")
+actions = Array[ExtResource("1_3tsi4")]([ExtResource("2_kbsc6")])
+color = Color(0.89244115, 0.25719276, 0.28959164, 1)
+isConsumable = true
+buyValue = 5
+sellValue = 2
+description = "Deal 5 Damage to the enemy"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

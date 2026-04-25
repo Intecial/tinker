@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://ck14shu7bawrs"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_6wavw"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="2_0axfe"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="3_i1q7d"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="4_xfnjb"]
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="5_1lty5"]
+[ext_resource type="Texture2D" uid="uid://3ja2xrm014pu" path="res://assets/hog.png" id="6_0axfe"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="6_uvtam"]
+
+[sub_resource type="Resource" id="Resource_jwicp"]
+script = ExtResource("3_i1q7d")
+damage = 10
+icon = ExtResource("2_0axfe")
+color = Color(0.59519243, 0.053007677, 0.08501456, 1)
+actionName = "Charge"
+description = "Enemy Charges you for 10 damage"
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[sub_resource type="Resource" id="Resource_1ynr6"]
+script = ExtResource("5_1lty5")
+icon = ExtResource("4_xfnjb")
+color = Color(0.10070107, 0.3593424, 0.5145772, 1)
+actionName = "On Guard"
+description = "Enemy stays be on guard and gain 5 shield"
+metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
+
+[resource]
+script = ExtResource("6_uvtam")
+name = "Hog"
+health = 20
+actions = Array[ExtResource("1_6wavw")]([SubResource("Resource_jwicp"), SubResource("Resource_1ynr6")])
+icon = ExtResource("6_0axfe")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

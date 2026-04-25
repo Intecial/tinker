@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://bdo7edsjb2f41"]
+
+[ext_resource type="PackedScene" uid="uid://dna74eaa8su4k" path="res://GearArray.tscn" id="1_ik7wm"]
+[ext_resource type="Script" uid="uid://bipn5c31s4yw1" path="res://PlayerDataView.gd" id="2_7ex5g"]
+[ext_resource type="PackedScene" uid="uid://cn8dx18fxlwmt" path="res://GearInventory.tscn" id="2_qqtb2"]
+[ext_resource type="Script" uid="uid://fiii11da00s4" path="res://nextRound.gd" id="2_snjlx"]
+[ext_resource type="Script" uid="uid://c1hgglc5rnr4v" path="res://_Scripts/actor.gd" id="3_qqtb2"]
+[ext_resource type="Script" uid="uid://dgph331wtok6i" path="res://_Scripts/RoundManager/roundManager.gd" id="5_2jt2i"]
+[ext_resource type="Script" uid="uid://bjarnxaksrsad" path="res://_Scripts/RoundManager/preparationState.gd" id="6_rpe3e"]
+[ext_resource type="Script" uid="uid://ctowd4yydc0cn" path="res://_Scripts/RoundManager/combatState.gd" id="7_a763d"]
+[ext_resource type="Script" uid="uid://c3gxfa2imechk" path="res://_Scripts/RoundManager/shopState.gd" id="8_6vjbp"]
+[ext_resource type="Script" uid="uid://dhcu687uw1l0q" path="res://enemyManager.gd" id="10_eui2k"]
+[ext_resource type="PackedScene" uid="uid://cbi8jwvwrmel0" path="res://Enemy.tscn" id="10_f5mbx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5mbx"]
+bg_color = Color(0.627451, 0.4862745, 0.3137255, 1)
+
+[sub_resource type="Theme" id="Theme_rgdgm"]
+Panel/styles/panel = SubResource("StyleBoxFlat_f5mbx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2hu8"]
+bg_color = Color(0.79159886, 0.57607645, 0.31008926, 1)
+
+[sub_resource type="Theme" id="Theme_3ha1o"]
+Panel/styles/panel = SubResource("StyleBoxFlat_g2hu8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgdgm"]
+bg_color = Color(0.2292032, 0.3122726, 0.35052544, 1)
+corner_radius_top_left = 18
+
+[sub_resource type="Theme" id="Theme_g2hu8"]
+Panel/styles/panel = SubResource("StyleBoxFlat_rgdgm")
+
+[node name="MainUI" type="Control" unique_id=649745380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="Node" parent="." unique_id=898199651]
+script = ExtResource("3_qqtb2")
+isPlayer = true
+
+[node name="Panel" type="Panel" parent="." unique_id=719654854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rgdgm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=652304049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer" unique_id=406147924]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GearArray" parent="Panel/HBoxContainer/MarginContainer" unique_id=15351892 node_paths=PackedStringArray("player") instance=ExtResource("1_ik7wm")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+player = NodePath("../../../../Player")
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer" unique_id=283620375]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_3ha1o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel" unique_id=1718304160]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=2120200586]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel2" type="Panel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=426808619]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme = SubResource("Theme_g2hu8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2" unique_id=1329743132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=817690860]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2" unique_id=1900247278]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1495779255]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_7ex5g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=961716997]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=629148747]
+layout_mode = 2
+text = "Health"
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1781991162]
+layout_mode = 2
+text = "Shield"
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1657283733]
+layout_mode = 2
+text = "Knowledge"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=126580157]
+layout_mode = 2
+
+[node name="NextRound" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2" unique_id=1889213547 node_paths=PackedStringArray("player", "gearArray")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Next Round"
+script = ExtResource("2_snjlx")
+player = NodePath("../../../../../../../../../../Player")
+gearArray = NodePath("../../../../../../../../MarginContainer/GearArray")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=1562643755]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.26
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GearInventory" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=456807329 instance=ExtResource("2_qqtb2")]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.4
+theme_override_constants/h_separation = 23
+
+[node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "gearArray")]
+script = ExtResource("5_2jt2i")
+initialState = NodePath("PreparationState")
+gearArray = NodePath("../Panel/HBoxContainer/MarginContainer/GearArray")
+
+[node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274 node_paths=PackedStringArray("endRoundButton")]
+script = ExtResource("6_rpe3e")
+endRoundButton = NodePath("../../Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
+
+[node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
+script = ExtResource("7_a763d")
+
+[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275]
+script = ExtResource("8_6vjbp")
+
+[node name="EnemyManager" type="Node" parent="." unique_id=2007530008]
+script = ExtResource("10_eui2k")
+enemyPackedScene = ExtResource("10_f5mbx")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5s8u6tgmbgg0"]
+
+[ext_resource type="PackedScene" uid="uid://b72quf4tvb4xt" path="res://MainUiWhite.tscn" id="1_glv2v"]
+
+[node name="Control" type="Control" unique_id=578252944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainUI" parent="." unique_id=649745380 instance=ExtResource("1_glv2v")]
+layout_mode = 1
+offset_bottom = 6.1035156e-05
