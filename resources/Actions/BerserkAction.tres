@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b37ka5w58b2nu" path="res://resources/spawnGearAction.gd" id="1_7ailw"]
 [ext_resource type="Resource" uid="uid://dt1eu36i6lpyk" path="res://resources/gears/Strike.tres" id="1_urpdp"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="2_jnv8e"]
 
 [resource]
 script = ExtResource("1_7ailw")
 gear = ExtResource("1_urpdp")
+icon = ExtResource("2_jnv8e")
 color = Color(0.47803563, 0, 0, 1)
 metadata/_custom_type_script = "uid://b37ka5w58b2nu"

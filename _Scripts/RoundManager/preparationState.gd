@@ -2,7 +2,6 @@ extends RoundState
 class_name PreparationState
 
 @export var endRoundButton: Button
-@export var targetStatView: EnemyStatView
 
 var stateRoundManager: RoundManager
 #func _enter_tree() -> void:
@@ -14,20 +13,20 @@ var stateRoundManager: RoundManager
 func onEnter(roundManager: RoundManager) -> void:
 	endRoundButton.disabled = false
 	endRoundButton.button_down.connect(endRound)
-	Constant.SHOP_PANEL.hide()
-	Constant.ENEMY_PANEL.show()
-	Constant.TEXT_CONTAINER.showText("[center] [b]Preparation [center] [b]Phase")
+	Constant.PANEL_MANAGER.switchPanel("Enemy")
+	
 	stateRoundManager = roundManager
-	Constant.GEAR_INVENTORY.incomeGears()
+	Constant.PLAYER.resetShields()
 	roundManager.gearArray.enableArraySlots()
 	if Constant.PLAYER.target != null and Constant.PLAYER.target.health <= 0:
 		Constant.PLAYER.target = null
 	if Constant.PLAYER.target == null:
-		Constant.PLAYER.target =await Constant.ENEMY_MANAGER.spawnEnemy()
-		targetStatView.connectTarget(Constant.PLAYER.target as EnemyActor)
+		Constant.PLAYER.target = Constant.ENEMY_MANAGER.spawnEnemy()
+		var enemyPanel: EnemyPanel = Constant.PANEL_MANAGER.getPanel("Enemy")
+		enemyPanel.connectTargetView(Constant.PLAYER.target as EnemyActor)
+	await Constant.TEXT_CONTAINER.showText("[center] [b]Preparation [center] [b]Phase")
 	
 	Constant.ENEMY_MANAGER.prepare()
-	print(Constant.PLAYER.target.health)
 
 func endRound() -> void:
 	stateRoundManager.transitionState("COMBATSTATE")

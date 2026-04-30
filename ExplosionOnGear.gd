@@ -8,7 +8,7 @@ func _ready() -> void:
 	amount = 16
 	lifetime = 0.5
 	
-	var material := ParticleProcessMaterial.new()
+	var material : = ParticleProcessMaterial.new()
 	material.direction = Vector3(0, 0, 0)
 	material.spread = 180.0
 	material.initial_velocity_min = 50.0

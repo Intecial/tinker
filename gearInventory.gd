@@ -8,12 +8,21 @@ func _ready() -> void:
 	Constant.GEAR_INVENTORY = self
 	for gearArraySlot: GearArraySlot in get_children():
 		inventory.append(gearArraySlot)
+	
+	await get_tree().process_frame
+	inventory[0].setGear(Constant.GEAR_DICT["Income"])
+	inventory[1].setGear(Constant.GEAR_DICT["Berserk"])
+	
+#	inventory[0].setGear(Constant.GEAR_DICT["Strike"])
+#	inventory[1].setGear(Constant.GEAR_DICT["Defend"])
+#	inventory[2].setGear(Constant.GEAR_DICT["Sentry"])
 
 func incomeGears() -> void:
-	var i : int = income
-	for gearArraySlot: GearArraySlot in get_children():
-		if gearArraySlot.gear == null && i > 0:
-			var randomKey : String = Constant.BASIC_GEAR_DICT.keys().pick_random()
-			var randomGear : GearResource = Constant.BASIC_GEAR_DICT.get(randomKey)
-			gearArraySlot.setGear(randomGear)
-			i -= 1
+	pass
+#	var i : int = income
+#	for gearArraySlot: GearArraySlot in get_children():
+#		if gearArraySlot.gear == null && i > 0:
+#			var randomKey : String = Constant.BASIC_GEAR_DICT.keys().pick_random()
+#			var randomGear : GearResource = Constant.BASIC_GEAR_DICT.get(randomKey)
+#			gearArraySlot.setGear(randomGear)
+#			i -= 1

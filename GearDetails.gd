@@ -1,8 +1,11 @@
 extends Panel
 class_name GearDetails
 
-@onready var nameLabel : RichTextLabel = $VBoxContainer/MarginContainer2/RichTextLabel
-@onready var descriptionLabel : RichTextLabel = $VBoxContainer/MarginContainer/RichTextLabel
+@onready var nameLabel : RichTextLabel = $VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/Name
+@onready var descriptionLabel : RichTextLabel = $VBoxContainer/MarginContainer/Desc
+@onready var priceLabel: RichTextLabel = $VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/Price
+@onready var permanentLabel: PanelContainer = $VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer3
+#@onready var permanentLabel: 
 	
 func _ready() -> void:
 	await get_tree().process_frame
@@ -23,10 +26,17 @@ func showDetails(gear_array_slot: GearArraySlot) -> void:
 		return
 	nameLabel.text = gear_array_slot.gear.gearName
 	if gear_array_slot.isShop:
-		nameLabel.text += "[indent]$" + str(gear_array_slot.gear.buyValue)
+		priceLabel.text += "$"+str(gear_array_slot.gear.buyValue)
 	descriptionLabel.text = gear_array_slot.gear.description
+	if gear_array_slot.gear.isConsumable:
+		permanentLabel.visible = false
+	else:
+		permanentLabel.visible = true
+		
 	
 
 func clearDetails() -> void:
 	nameLabel.text = ""
 	descriptionLabel.text = ""
+	permanentLabel.visible = false
+	priceLabel.text = ""

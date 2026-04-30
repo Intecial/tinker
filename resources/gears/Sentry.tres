@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://yyk7c4xoua35"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_gtks1"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_elm8f"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="2_qxtop"]
+[ext_resource type="Script" uid="uid://b6i0ihsfo6dla" path="res://resources/damageOnGearType.gd" id="3_7ph3x"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="4_f1by5"]
+
+[sub_resource type="Resource" id="Resource_wcpv6"]
+script = ExtResource("2_qxtop")
+damage = 0
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[sub_resource type="Resource" id="Resource_rmvd5"]
+script = ExtResource("3_7ph3x")
+action = SubResource("Resource_wcpv6")
+multiplier = 2
+metadata/_custom_type_script = "uid://b6i0ihsfo6dla"
+
+[resource]
+script = ExtResource("2_elm8f")
+gearName = "Sentry"
+icon = ExtResource("4_f1by5")
+actions = Array[ExtResource("1_gtks1")]([SubResource("Resource_rmvd5")])
+color = Color(0.6565778, 0.26189736, 0.34371555, 1)
+buyValue = 12
+sellValue = 5
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

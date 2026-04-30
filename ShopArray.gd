@@ -12,7 +12,8 @@ func populateShop() -> void:
 		await gearArrSlot.setGear(randomValue)
 
 func clearShop() -> void:
-	Constant.SHOP_PANEL.initSellSlot()
+	var shopPanel: ShopPanel = Constant.PANEL_MANAGER.getPanel("Shop")
+	shopPanel.initSellSlot()
 	for gearArrSlot: GearArraySlot in get_children():
 		await gearArrSlot.initLoc()
 		gearArrSlot.setGear(null)

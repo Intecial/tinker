@@ -31,7 +31,7 @@ func calculateEnemyHealth(enemyActor: EnemyActor) -> int:
 		
 	var multiplier: float = enemyHealthCurve.sample(t)
 	
-	return int(enemyActor.health + baseHealthIncrement * multiplier)
+	return int(enemyActor.health + (baseHealthIncrement + enemyActor.health) * multiplier)
 	
 func increaseRound(enemy_actor: EnemyActor) -> void:
 	enemy_actor.onDeath.disconnect(increaseRound.bind(enemy_actor))
@@ -53,7 +53,6 @@ func spawnEnemy() -> EnemyActor:
 	var resource :EnemyResource = Constant.ENEMY_RESOURCES[randomInt]
 	actor.initEnemy(resource)
 	actor.health = calculateEnemyHealth(actor)
-	print(actor.health)
 	self.add_child(actor)
 	self.activeEnemy = actor
 	actor.onDeath.connect(increaseRound.bind(actor))
@@ -68,5 +67,6 @@ func prepare() -> void:
 func performAction() -> void:
 	if activeEnemy == null :
 		return
+	activeEnemy.resetShields()
 	activeEnemy.performPreparedAction()
 	

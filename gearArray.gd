@@ -8,7 +8,14 @@ func _ready() -> void:
 	Constant.GEAR_ARRAY = self
 	for gearSlot: GearArraySlot in get_children():
 		gearSlot.spinContent = true
+		gearSlot.onGearSet.connect(onGearArrayChange)
+		gearSlot.onGearRemoved.connect(onGearArrayChange)
 
+func _exit_tree() -> void:
+	for gearSlot: GearArraySlot in get_children():
+		gearSlot.onGearSet.disconnect(onGearArrayChange)
+		gearSlot.onGearRemoved.disconnect(onGearArrayChange)
+	
 func disableArraySlots() -> void:
 	for gearArraySlot: GearArraySlot in get_children():
 		gearArraySlot.disableSlot()
@@ -27,3 +34,6 @@ func resolveGears() -> void:
 				gearArrSlot.removeGear()
 		if Constant.PLAYER.target == null:
 			return
+
+func onGearArrayChange(gear: GearArraySlot) -> void:
+	print(gear.name)

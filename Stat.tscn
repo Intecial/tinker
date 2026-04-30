@@ -29,7 +29,6 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="CenterContainer" unique_id=1905106532]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-text = "99"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=656735487]
 position = Vector2(4, 4)

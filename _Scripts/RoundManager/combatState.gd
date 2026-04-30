@@ -9,9 +9,9 @@ func onEnter(roundManager: RoundManager) -> void:
 	await roundManager.gearArray.resolveGears()
 	if Constant.PLAYER.target != null:
 		await Constant.TEXT_CONTAINER.showText("[center] [b]Enemy [center] [b]Phase")
-		await Constant.ENEMY_MANAGER.performAction()
+		Constant.ENEMY_MANAGER.performAction()
 	if Constant.PLAYER.target == null:	
-		roundManager.transitionState("SHOPSTATE")
+		roundManager.transitionState("ROUTESTATE")
 		return
 	else:
 		roundManager.transitionState("PREPARATIONSTATE")

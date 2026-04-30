@@ -2,7 +2,10 @@ extends Node
 class_name Actor
 
 @export var isPlayer : bool = false
+@export var maxHealth: int = 100
 var target: Actor
+var statusEffects: Array[StatusEffectResource] = []
+
 var _health: int = 35
 var health: int:
 	get:
@@ -11,9 +14,7 @@ var health: int:
 		_health = value
 		print("Health Added")
 		health_changed.emit(value)
-
 signal health_changed(value: int)
-@export var maxHealth: int = 100
 
 var _shield: int = 0
 var shield: int:
@@ -23,10 +24,9 @@ var shield: int:
 		_shield = value
 		print("Shield Added")
 		shield_changed.emit(value)
-
 signal shield_changed(value: int)
-var _knowledge: int = 0
 
+var _knowledge: int = 0
 var knowledge: int:
 	get:
 		return _knowledge
@@ -34,19 +34,18 @@ var knowledge: int:
 		_knowledge = value
 		print("Shield Added")
 		knowledge_changed.emit(value)
-
 signal knowledge_changed(value: int)
-
 signal onDeath
+
 
 func _ready() -> void:
 	if isPlayer:
 		Constant.PLAYER = self
-	
 	await get_tree().process_frame
 	health_changed.emit(_health)
 	shield_changed.emit(_shield)
 	knowledge_changed.emit(knowledge)
+	
 func addHealth(amt: int) -> void:
 	health += amt
 	if health > maxHealth:
@@ -84,3 +83,12 @@ func useKnowledge(amt: int) -> bool:
 		knowledge -= amt
 		return true
 	return false
+
+func resetShields() -> void:
+	if shield == 0:
+		return
+	shield = 0
+	
+func triggerStatusEffects() -> void:
+	for sfx: StatusEffectResource in statusEffects:
+		sfx.evaluate(self)

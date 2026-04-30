@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://rmvhdewxo1rr"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_fvof0"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="2_hpbhs"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_vbxpv"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="4_u3dnb"]
+
+[sub_resource type="Resource" id="Resource_2avbk"]
+script = ExtResource("2_hpbhs")
+damage = 2
+actionName = "Pew"
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[resource]
+script = ExtResource("4_u3dnb")
+gearName = "AttackEveryTurn"
+icon = ExtResource("3_vbxpv")
+actions = Array[ExtResource("1_fvof0")]([SubResource("Resource_2avbk")])
+color = Color(0.36625078, 0.020095468, 0.091449715, 1)
+buyValue = 5
+sellValue = 2
+description = "Attacks an enemy with 2 damage every turn"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

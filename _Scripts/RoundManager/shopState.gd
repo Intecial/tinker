@@ -5,16 +5,14 @@ class_name ShopState
 @export var endRoundButton: Button
 var stateRoundManager: RoundManager
 func onEnter(roundManager: RoundManager) -> void:
-	print("Shopping")
-	Constant.ENEMY_PANEL.hide()
+	Constant.PANEL_MANAGER.switchPanel("Shop")
 	
 	endRoundButton.button_down.connect(endRound)
 	endRoundButton.disabled = false
 	stateRoundManager = roundManager
-	Constant.SHOP_PANEL.show()
 	Constant.SHOP_ARRAY.clearShop()
 	await Constant.TEXT_CONTAINER.showText("[center] [b]Shop [center] [b]Phase")
-	roundManager.gearArray.disableArraySlots()
+	roundManager.gearArray.enableArraySlots()
 	await Constant.SHOP_ARRAY.populateShop()
 #	await roundManager.gearArray.resolveGears()
 #	if Constant.PLAYER.target != null:

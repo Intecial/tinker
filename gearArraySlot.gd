@@ -15,7 +15,13 @@ var isDisabled : bool = false
 signal onHovered(slot: GearArraySlot)
 signal onExit
 
+signal onGearSet(slot: GearArraySlot)
+signal onGearRemoved(slot: GearArraySlot)
+
 @onready var iconRect: TextureRect = $TextureRect
+@onready var disabledRect: TextureRect = $MarginContainer/DisabledTexture
+@onready var borderRect: TextureRect = $MarginContainer/BorderRect
+@onready var disabledColorRect: ColorRect = $ColorRect
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -33,32 +39,34 @@ func _process(delta: float) -> void:
 		else:
 			iconRect.rotation -= 2.0 * delta
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	if isDisabled:
 		return
 	if gear == null:
 		return null
 	
-	var preview := TextureRect.new()
+	var preview : TextureRect = TextureRect.new()
 	preview.texture = gear.icon
 	preview.modulate = gear.color
 	preview.size = Vector2(80, 80)
 	preview.position = -preview.size / 2  # center on mouse
 	
-	var control := Control.new()
+	var control : Control = Control.new()
 	control.add_child(preview)
 	set_drag_preview(control)
 		
 	return self
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data is GearArraySlot 
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if isDisabled:
 		return
+	
 	if !(data is GearArraySlot):
-			return
+		return
+	@warning_ignore("unsafe_cast")
 	var fromSlot : GearArraySlot = data as GearArraySlot
 	if fromSlot.isShop && self.isShop:
 		return
@@ -68,15 +76,18 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	swapGear(fromSlot)
 
 func swapGear(other: GearArraySlot) -> void:
-	var temp := gear
+	var temp : GearResource = gear
+	
 	setGear(other.gear)
+	
 	other.setGear(temp)
 
 func setGear(newGear: GearResource) -> void:
+	var temp: GearResource = gear
 	gear = newGear
 	if gear != null:
-		$TextureRect.texture = gear.icon
-		$TextureRect.modulate = gear.color
+		iconRect.texture = gear.icon
+		iconRect.modulate = gear.color
 		
 		if shakeScreen:
 			screenShake()
@@ -85,14 +96,16 @@ func setGear(newGear: GearResource) -> void:
 		if isShop:
 			explode()
 			await get_tree().create_timer(0.5).timeout
+		onGearSet.emit(self)
 	else:
-		$TextureRect.texture = null
-		$TextureRect.modulate = Color.WHITE
+		iconRect.texture = null
+		iconRect.modulate = Color.WHITE
+		onGearRemoved.emit(self)
 
 func screenShake() -> void:
-	var root := get_tree().current_scene
-	print("shaking: ", root.name, " at ", root.position)
-	var tween := root.create_tween()
+	var root : Node = get_tree().current_scene
+	
+	var tween : Tween = root.create_tween()
 	var original := Vector2(root.position)
 	
 	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
@@ -100,11 +113,17 @@ func screenShake() -> void:
 	tween.tween_property(root, "position", original + Vector2(5, 0), 0.05)
 	tween.tween_property(root, "position", original, 0.05)
 
-func disableSlot():
+func disableSlot() -> void:
 	isDisabled = true
+	disabledRect.visible = true
+	disabledColorRect.visible = true
+	borderRect.visible = false
 	
-func enableSlot():
+func enableSlot() -> void:
 	isDisabled = false
+	disabledRect.visible = false
+	disabledColorRect.visible = false
+	borderRect.visible = true
 
 func _mouse_entered() -> void:
 	onHovered.emit(self)

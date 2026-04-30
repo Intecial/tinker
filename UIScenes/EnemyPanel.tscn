@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cb8an3miecq65"]
+
+[ext_resource type="Script" uid="uid://cpi2ax7w3eno1" path="res://enemyPanel.gd" id="1_602w5"]
+[ext_resource type="Script" uid="uid://dkxyh2es4knef" path="res://EnemyStatView.gd" id="2_rg3p2"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://ToolTip.tscn" id="3_gpb5l"]
+[ext_resource type="PackedScene" uid="uid://bsw1aixygmbh7" path="res://Stat.tscn" id="4_o37cp"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="5_qv0nu"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://actionLabel.gd" id="6_517fm"]
+
+[node name="EnemyPanel" type="Panel" unique_id=2080467824]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_602w5")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=115032248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyStatView" type="VBoxContainer" parent="VBoxContainer2" unique_id=2033320014]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+script = ExtResource("2_rg3p2")
+toolTip = ExtResource("3_gpb5l")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/EnemyStatView" unique_id=1443086957]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/EnemyStatView/MarginContainer2" unique_id=2000821429]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EnemyName" type="RichTextLabel" parent="VBoxContainer2/EnemyStatView/MarginContainer2/PanelContainer" unique_id=1818650857]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/EnemyStatView" unique_id=1063684505]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Health" parent="VBoxContainer2/EnemyStatView/HBoxContainer" unique_id=396479028 instance=ExtResource("4_o37cp")]
+layout_mode = 2
+icon = ExtResource("5_qv0nu")
+color = Color(0.85490197, 0.7058824, 0.7647059, 1)
+
+[node name="Shield" parent="VBoxContainer2/EnemyStatView/HBoxContainer" unique_id=79478264 instance=ExtResource("4_o37cp")]
+layout_mode = 2
+
+[node name="ActionLabel" type="PanelContainer" parent="VBoxContainer2/EnemyStatView" unique_id=786144171]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+script = ExtResource("6_517fm")
+toolTipScene = ExtResource("3_gpb5l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/EnemyStatView/ActionLabel" unique_id=1068658550]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ActionIcon" type="TextureRect" parent="VBoxContainer2/EnemyStatView/ActionLabel/HBoxContainer" unique_id=175402920]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 3
+
+[node name="ActionText" type="RichTextLabel" parent="VBoxContainer2/EnemyStatView/ActionLabel/HBoxContainer" unique_id=1194674999]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1662093288]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/MarginContainer" unique_id=223493854]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyIcon" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer" unique_id=1867514584]
+layout_mode = 2
+stretch_mode = 5
