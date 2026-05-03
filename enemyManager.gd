@@ -62,11 +62,12 @@ func spawnEnemy() -> EnemyActor:
 func prepare() -> void:
 	if activeEnemy == null :
 		return
-	activeEnemy.prepareAction()
+	activeEnemy.prepareGear()
 
 func performAction() -> void:
 	if activeEnemy == null :
 		return
 	activeEnemy.resetShields()
-	activeEnemy.performPreparedAction()
+	activeEnemy.performPreparedGear()
+#	activeEnemy.performPreparedAction()
 	

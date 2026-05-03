@@ -1,33 +1,15 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://8bxpxc5ux5iv"]
 
-[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_ky1iy"]
-[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="2_t4h0d"]
-[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="3_eibt1"]
-[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="4_eibt1"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="1_t4h0d"]
+[ext_resource type="Resource" uid="uid://dt1eu36i6lpyk" path="res://resources/gears/Strike.tres" id="2_eibt1"]
+[ext_resource type="Resource" uid="uid://nonsbjkfwx4f" path="res://resources/gears/Defend.tres" id="3_hsfkj"]
 [ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="4_hsfkj"]
-[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="5_hsfkj"]
 [ext_resource type="Texture2D" uid="uid://bh3lm34cv6g4d" path="res://assets/Skeleton.png" id="6_hsfkj"]
-
-[sub_resource type="Resource" id="Resource_iiwen"]
-script = ExtResource("3_eibt1")
-icon = ExtResource("2_t4h0d")
-color = Color(0.3388496, 0.07027685, 0.09521773, 1)
-actionName = "Strike"
-description = "Strike for 5 damage"
-metadata/_custom_type_script = "uid://ida04v675dll"
-
-[sub_resource type="Resource" id="Resource_andmp"]
-script = ExtResource("5_hsfkj")
-shieldAmount = 3
-icon = ExtResource("4_eibt1")
-color = Color(0.2987037, 0.32760456, 0.6258061, 1)
-description = "Enemy guards for 3"
-metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
 
 [resource]
 script = ExtResource("4_hsfkj")
 name = "Skeleton"
 health = 15
-actions = Array[ExtResource("1_ky1iy")]([SubResource("Resource_iiwen"), SubResource("Resource_andmp")])
+gears = Array[ExtResource("1_t4h0d")]([ExtResource("2_eibt1"), ExtResource("3_hsfkj")])
 icon = ExtResource("6_hsfkj")
 metadata/_custom_type_script = "uid://bep6elq4ywc6q"

@@ -21,6 +21,11 @@ func _ready() -> void:
 		gearArrSlot.onHovered.connect(showDetails)
 		gearArrSlot.onExit.connect(clearDetails)
 	
+	var enemyPanel: EnemyPanel = Constant.PANEL_MANAGER.getPanel("Enemy")
+	enemyPanel.gearSlot.onHovered.connect(showDetails)
+	enemyPanel.gearSlot.onExit.connect(clearDetails)
+	
+	
 func showDetails(gear_array_slot: GearArraySlot) -> void:
 	if(gear_array_slot.gear == null):
 		return

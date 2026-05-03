@@ -3,26 +3,27 @@ class_name EnemyActor
 
 @export var enemyResource: EnemyResource
 
-var _preparedAction: ActionResource = null
-var preparedAction: ActionResource :
+signal gear_prepared(value: GearResource)
+var _preparedGear: GearResource = null
+var preparedGear: GearResource : 
 	get:
-		return _preparedAction
+		return _preparedGear
 	set(value):
-		_preparedAction = value
-		action_prepared.emit(value)
+		_preparedGear = value
+		gear_prepared.emit(value)
 
-signal action_prepared(value: ActionResource)
+signal on_gear_performed()
+		
 
-#signal actionPrepared
-
-func initEnemy(initEnemyResource: EnemyResource):
+func initEnemy(initEnemyResource: EnemyResource) -> void:
 	self.enemyResource = initEnemyResource
 	self.health = initEnemyResource.health
 	self.target = Constant.PLAYER
 
-func prepareAction() -> void:
-	var randomInt : int = randi_range(0, len(enemyResource.actions) - 1)
-	preparedAction = enemyResource.actions[randomInt]
+func prepareGear() -> void:
+	var randomInt : int = randi_range(0, len(enemyResource.gears) - 1)
+	preparedGear = enemyResource.gears[randomInt]
 
-func performPreparedAction() -> void:
-	preparedAction.execute(self)
+func performPreparedGear() -> void:
+	preparedGear.evaluate(self)
+	on_gear_performed.emit()
