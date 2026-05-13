@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ShieldAction" format=3 uid="uid://4umo44va5mbj"]
 
-[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="1_76inj"]
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="1_76inj"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_vp185"]
 
 [resource]

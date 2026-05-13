@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://nonsbjkfwx4f"]
 
-[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_gf7lk"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_gf7lk"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_bqkkn"]
 [ext_resource type="Resource" uid="uid://4umo44va5mbj" path="res://resources/Actions/DefendAction.tres" id="2_v2tfo"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_v2tfo"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d0t3sllpm5tk1"]
+
+[ext_resource type="Script" uid="uid://c1lil2v2w4dcq" path="res://_Scripts/Route/routeGenerator.gd" id="1_1vy2n"]
+[ext_resource type="PackedScene" uid="uid://585gtg0wygw8" path="res://RouteIcon.tscn" id="2_7sb8h"]
+
+[node name="RouteGenerator" type="Node2D" unique_id=690507080]
+script = ExtResource("1_1vy2n")
+route_icon = ExtResource("2_7sb8h")
+num_of_node = null
+tree_height = null
+horizontal_spacing = null
+vertical_spacing = null

@@ -48,7 +48,6 @@ size_flags_horizontal = 3
 [node name="Name" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=1788716337]
 layout_mode = 2
 bbcode_enabled = true
-text = "Test"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
@@ -59,7 +58,6 @@ layout_mode = 2
 [node name="Price" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2" unique_id=1034334112]
 layout_mode = 2
 bbcode_enabled = true
-text = "Test"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
@@ -70,7 +68,6 @@ layout_mode = 2
 [node name="PermanentLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer3" unique_id=89660491]
 layout_mode = 2
 bbcode_enabled = true
-text = "Permanent"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
@@ -86,5 +83,4 @@ theme_override_constants/margin_bottom = 8
 [node name="Desc" type="RichTextLabel" parent="VBoxContainer/MarginContainer" unique_id=121626994]
 layout_mode = 2
 bbcode_enabled = true
-text = "Test other"
 fit_content = true

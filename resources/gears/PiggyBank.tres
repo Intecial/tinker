@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://bmoq1rkw8fkax"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_hvd1s"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_1afij"]
+[ext_resource type="Script" uid="uid://bjyhhkebsbke7" path="res://resources/stack_sell_value_action.gd" id="2_6q6ox"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_76mqm"]
+
+[sub_resource type="Resource" id="Resource_et1b6"]
+script = ExtResource("2_6q6ox")
+increment_value = 2
+metadata/_custom_type_script = "uid://bjyhhkebsbke7"
+
+[resource]
+script = ExtResource("2_1afij")
+gearName = "PiggyBank"
+gearType = 3
+icon = ExtResource("3_76mqm")
+actions = Array[ExtResource("1_hvd1s")]([SubResource("Resource_et1b6")])
+color = Color(0.8524679, 0.7681111, 0.39626563, 1)
+buyValue = 5
+sellValue = 1
+description = "Every turn, sell value increases by 2"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

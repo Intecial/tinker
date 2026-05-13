@@ -5,8 +5,7 @@ class_name GearDetails
 @onready var descriptionLabel : RichTextLabel = $VBoxContainer/MarginContainer/Desc
 @onready var priceLabel: RichTextLabel = $VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/Price
 @onready var permanentLabel: PanelContainer = $VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer3
-#@onready var permanentLabel: 
-	
+
 func _ready() -> void:
 	await get_tree().process_frame
 	for gearArrSlot : GearArraySlot in Constant.GEAR_INVENTORY.get_children():

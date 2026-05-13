@@ -43,17 +43,20 @@ shakeScreen = true
 activateExplosion = true
 
 [node name="GearArraySlot7" parent="." unique_id=477271371 instance=ExtResource("2_gsrre")]
+visible = false
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
 [node name="GearArraySlot8" parent="." unique_id=1945764788 instance=ExtResource("2_gsrre")]
+visible = false
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 
 [node name="GearArraySlot9" parent="." unique_id=2133336612 instance=ExtResource("2_gsrre")]
+visible = false
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true

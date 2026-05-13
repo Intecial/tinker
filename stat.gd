@@ -6,6 +6,7 @@ class_name Stat
 @onready var label: Label = $CenterContainer/Label
 @onready var textureRect: TextureRect = $TextureRect
 @onready var explosion: ExplosionOnGear = $GPUParticles2D
+@onready var popUpManager: PopUpManager = $PopUpManager
 var currentTween: Tween
 
 func _ready() -> void:
@@ -20,3 +21,7 @@ func render(value: int) -> void:
 	self.label.text = str(value)
 	await get_tree().create_timer(0.2).timeout
 	explosion.burst(color)
+
+func invoke_pop_up(value: int, front: String) -> void:
+	if popUpManager:
+		popUpManager.invoke(value, self, front) 

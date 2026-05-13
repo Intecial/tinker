@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://onj0h433u4hm"]
+
+[ext_resource type="PackedScene" uid="uid://b72quf4tvb4xt" path="res://MainUiWhite.tscn" id="1_5s8la"]
+[ext_resource type="PackedScene" uid="uid://bydchvfo363wu" path="res://TutorialSystem.tscn" id="2_fr6qw"]
+
+[node name="Tutorial" type="Control" unique_id=1812330956]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainUI" parent="." unique_id=649745380 instance=ExtResource("1_5s8la")]
+layout_mode = 1
+
+[node name="TutorialSystem" parent="." unique_id=1877101682 instance=ExtResource("2_fr6qw")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialSystem" unique_id=2076684582]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -272.0
+offset_bottom = 219.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialSystem/MarginContainer" unique_id=994597442]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialSystem/MarginContainer/PanelContainer" unique_id=778849534]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialSystem/MarginContainer/PanelContainer/MarginContainer" unique_id=468598116]
+layout_mode = 2
+text = "Welcome to Tinker"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="TutorialSystem" unique_id=443132445]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 373.0
+offset_top = 410.0
+offset_right = 1.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialSystem/MarginContainer2" unique_id=1431696447]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialSystem/MarginContainer2/PanelContainer" unique_id=1092813057]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialSystem/MarginContainer2/PanelContainer/MarginContainer" unique_id=931818296]
+layout_mode = 2
+text = "This is your inventory system"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="TutorialSystem" unique_id=737450039]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 361.0
+offset_right = -694.0
+offset_bottom = -472.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialSystem/MarginContainer3" unique_id=1409453330]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialSystem/MarginContainer3/PanelContainer" unique_id=796572418]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialSystem/MarginContainer3/PanelContainer/MarginContainer" unique_id=1739238346]
+layout_mode = 2
+text = "This is your workstation,
+Drag and drop gears from
+your inventory to here to
+activate it"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="TutorialSystem" unique_id=706651271]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = 440.0
+offset_right = -3.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialSystem/MarginContainer4" unique_id=1240173634]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialSystem/MarginContainer4/PanelContainer" unique_id=1455290938]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialSystem/MarginContainer4/PanelContainer/MarginContainer" unique_id=159630190]
+layout_mode = 2
+text = "Once You're ready,
+Click next round:"
+fit_content = true
+autowrap_mode = 0

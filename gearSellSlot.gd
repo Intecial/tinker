@@ -24,16 +24,16 @@ func initLocal() -> void:
 	sellAmount.pivot_offset = sellAmount.size / 2
 	explosionOnGear.position = sellAmount.size / 2
 	
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	var fromSlot := data as GearArraySlot
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	var fromSlot : GearArraySlot = data as GearArraySlot
 	
 	sellAmount.text = str(fromSlot.gear.sellValue)
 	return data is GearArraySlot 
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if isDisabled:
 		return
-	var fromSlot := data as GearArraySlot
+	var fromSlot : GearArraySlot = data as GearArraySlot
 	if fromSlot.isShop:
 		return
 	if fromSlot.gear == null:
@@ -45,10 +45,9 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	fromSlot.setGear(null) # remove from original slot
 
 func screenShake() -> void:
-	var root := get_tree().current_scene
-	print("shaking: ", root.name, " at ", root.position)
-	var tween := root.create_tween()
-	var original := Vector2(root.position)
+	var root : Control = get_tree().current_scene
+	var tween : Tween = root.create_tween()
+	var original : Vector2 = Vector2(root.position)
 	
 	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
 	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://c3vsrhnhp3nip"]
 
-[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_gcg8j"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_gcg8j"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_3qc5m"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="2_cy2u8"]
-[ext_resource type="Script" uid="uid://ida04v675dll" path="res://resources/damageAction.gd" id="2_mt626"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_mt626"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="3_36i6k"]
-[ext_resource type="Script" uid="uid://d2pof0tv3gl3m" path="res://resources/damageActionOnStatAction.gd" id="4_5dvhv"]
+[ext_resource type="Script" uid="uid://d2pof0tv3gl3m" path="res://_Scripts/ActionScripts/damageActionOnStatAction.gd" id="4_5dvhv"]
 
 [sub_resource type="Resource" id="Resource_niwbs"]
 script = ExtResource("2_mt626")

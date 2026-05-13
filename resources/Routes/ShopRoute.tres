@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StateRoute" format=3 uid="uid://bqfh13g4r6mun"]
+
+[ext_resource type="Script" uid="uid://cd56172dlgcpf" path="res://_Scripts/Route/stateRoute.gd" id="1_7orkm"]
+[ext_resource type="Texture2D" uid="uid://c8sck6ehn5ew8" path="res://assets/Gear 3 - Silver_00.png" id="1_ej6ba"]
+
+[resource]
+script = ExtResource("1_7orkm")
+state_to_move = "SHOPSTATE"
+route_name = "ShopRoute"
+route_icon = ExtResource("1_ej6ba")
+metadata/_custom_type_script = "uid://cd56172dlgcpf"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StateRoute" format=3 uid="uid://bs7nqavmhf5sx"]
+
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_gsbo4"]
+[ext_resource type="Script" uid="uid://cd56172dlgcpf" path="res://_Scripts/Route/stateRoute.gd" id="2_8gwei"]
+
+[resource]
+script = ExtResource("2_8gwei")
+state_to_move = "FORGESTATE"
+route_name = "ForgeRoute"
+route_icon = ExtResource("1_gsbo4")
+metadata/_custom_type_script = "uid://cd56172dlgcpf"

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c1hgglc5rnr4v" path="res://_Scripts/actor.gd" id="1_wvkau"]
 [ext_resource type="PackedScene" uid="uid://dna74eaa8su4k" path="res://GearArray.tscn" id="2_wqd14"]
 [ext_resource type="Script" uid="uid://bipn5c31s4yw1" path="res://PlayerDataView.gd" id="3_cyx3f"]
+[ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="3_ttft5"]
 [ext_resource type="PackedScene" uid="uid://dvu3vtx283nfo" path="res://GearInfo.tscn" id="4_37ycu"]
 [ext_resource type="PackedScene" uid="uid://bsw1aixygmbh7" path="res://Stat.tscn" id="4_cyx3f"]
 [ext_resource type="Script" uid="uid://fiii11da00s4" path="res://nextRound.gd" id="4_r5wt7"]
@@ -15,7 +16,7 @@
 [ext_resource type="Script" uid="uid://b7ucfwrppfs2w" path="res://resources/panelResource.gd" id="7_tdr68"]
 [ext_resource type="Script" uid="uid://ctowd4yydc0cn" path="res://_Scripts/RoundManager/combatState.gd" id="8_8px1f"]
 [ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="8_ldkep"]
-[ext_resource type="PackedScene" uid="uid://dujrcdag3v5ei" path="res://resources/gears/RoutePanel.tscn" id="8_pdqtw"]
+[ext_resource type="PackedScene" uid="uid://dujrcdag3v5ei" path="res://RoutePanel.tscn" id="8_pdqtw"]
 [ext_resource type="Script" uid="uid://c3gxfa2imechk" path="res://_Scripts/RoundManager/shopState.gd" id="9_hn2o6"]
 [ext_resource type="Texture2D" uid="uid://g4njt8ea6vgm" path="res://assets/Knowledge.png" id="9_ojolf"]
 [ext_resource type="Script" uid="uid://dhcu687uw1l0q" path="res://enemyManager.gd" id="10_64u45"]
@@ -179,6 +180,10 @@ theme = SubResource("Theme_tdr68")
 script = ExtResource("1_wvkau")
 isPlayer = true
 maxHealth = 35
+
+[node name="ActorContext" type="Node" parent="Player" unique_id=1186348624]
+script = ExtResource("3_ttft5")
+metadata/_custom_type_script = "uid://4gnwqlxbknga"
 
 [node name="Panel" type="Panel" parent="." unique_id=719654854]
 layout_mode = 1

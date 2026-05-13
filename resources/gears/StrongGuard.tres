@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://bxs7468dpdne"]
 
-[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://resources/actionResource.gd" id="1_ilahg"]
-[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://resources/shieldAction.gd" id="2_v6she"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_ilahg"]
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="2_v6she"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_x5fq5"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="3_le7yo"]
-[ext_resource type="Script" uid="uid://bwxpdrewwiie0" path="res://resources/shieldActionOnStatAction.gd" id="4_lcewi"]
+[ext_resource type="Script" uid="uid://bwxpdrewwiie0" path="res://_Scripts/ActionScripts/shieldActionOnStatAction.gd" id="4_lcewi"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_1ulxh"]
 
 [sub_resource type="Resource" id="Resource_7kiv3"]

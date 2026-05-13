@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://585gtg0wygw8"]
+
+[ext_resource type="Script" uid="uid://u7f8538cna2e" path="res://_Scripts/Route/routeIcon.gd" id="1_32t4h"]
+[ext_resource type="Texture2D" uid="uid://c8sck6ehn5ew8" path="res://assets/Gear 3 - Silver_00.png" id="2_q6vai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waixw"]
+radius = 23.021729
+
+[node name="RouteIcon" type="Area2D" unique_id=1898891655]
+script = ExtResource("1_32t4h")
+
+[node name="RouteSprite" type="Sprite2D" parent="." unique_id=1335374578]
+texture = ExtResource("2_q6vai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1348949634]
+shape = SubResource("CircleShape2D_waixw")

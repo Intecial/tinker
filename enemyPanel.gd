@@ -10,3 +10,9 @@ class_name EnemyPanel
 
 func connectTargetView(enemyActor: EnemyActor) -> void:
 	enemyStatView.connectTarget(enemyActor)
+#
+#func _input(event: InputEvent) -> void:
+#	if Input.is_action_pressed("space"):
+#		print("Test")
+#		enemyStatView.show_damage(50)
+#		

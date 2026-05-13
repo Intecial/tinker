@@ -1,16 +1,20 @@
-extends ActionResource
-class_name SpawnGearAction
+@abstract
+extends Resource
+class_name ActionResource
 
-@export var gear:GearResource
+@export var icon: Texture2D
+@export var color: Color
+@export var actionName: String = ""
+@export_multiline var description: String = ""
 
-func execute(actor: Actor) -> void:
-	for gearArrSlot: GearArraySlot in Constant.GEAR_INVENTORY.inventory:
-		if gearArrSlot.gear == null:
-			gearArrSlot.setGear(gear)
-			
-			await self.flash(Constant.FX_LAYER)
-			return
-	
+var gear: GearResource
+var animSpeed : float = 0.8
+
+@abstract
+func execute(actor: Actor) -> void
+
+func on_gear_sold() -> void:
+	pass
 
 func flash(layer: FXLayer) -> void:
 	var rect : ColorRect = ColorRect.new()
@@ -24,7 +28,7 @@ func flash(layer: FXLayer) -> void:
 	tween.tween_callback(func() -> void: onFlashDone(rect)) 
 	
 	await tween.finished
-	
+
 
 func onFlashDone(rect: ColorRect) -> void:
 	rect.queue_free()

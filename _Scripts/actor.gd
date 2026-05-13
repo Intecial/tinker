@@ -5,6 +5,7 @@ class_name Actor
 @export var maxHealth: int = 100
 var target: Actor
 var statusEffects: Array[StatusEffectResource] = []
+@onready var actorContext: ActorContext = $ActorContext
 
 var _health: int = 35
 var health: int:
@@ -37,10 +38,11 @@ var knowledge: int:
 signal knowledge_changed(value: int)
 signal onDeath
 
-
+signal on_damage(value: int)
 func _ready() -> void:
 	if isPlayer:
 		Constant.PLAYER = self
+	actorContext.init(self)
 	await get_tree().process_frame
 	health_changed.emit(_health)
 	shield_changed.emit(_shield)
@@ -66,6 +68,7 @@ func resolveDamage(amt: int) -> void:
 			hurtHealth(overflow)
 	else:
 		hurtHealth(amt)
+	on_damage.emit(amt)
 
 func hurtShield(amt: int) -> void:
 	shield -= amt

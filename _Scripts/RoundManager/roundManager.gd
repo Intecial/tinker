@@ -10,7 +10,7 @@ var stateDict : Dictionary[String, RoundState]
 
 func _ready() -> void:
 	Constant.ROUND_MANAGER = self
-	for childState in get_children():
+	for childState: Node in get_children():
 		stateDict.get_or_add(childState.name.to_upper(), childState)
 	
 	await get_tree().process_frame
@@ -22,7 +22,7 @@ func gameOver() -> void:
 #	get_tree().paused = true
 	self.transitionState("GAMEOVERSTATE")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.currentState.onUpdate(self)
 
 func transitionState(newStateName: String) -> void:

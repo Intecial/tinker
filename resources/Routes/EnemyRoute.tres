@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StateRoute" format=3 uid="uid://dkonpjmvohteg"]
+
+[ext_resource type="Texture2D" uid="uid://bh3lm34cv6g4d" path="res://assets/Skeleton.png" id="1_7e2ag"]
+[ext_resource type="Script" uid="uid://cd56172dlgcpf" path="res://_Scripts/Route/stateRoute.gd" id="2_ehf3v"]
+
+[resource]
+script = ExtResource("2_ehf3v")
+state_to_move = "ENEMYSTATE"
+route_name = "EnemyRoute"
+route_icon = ExtResource("1_7e2ag")
+metadata/_custom_type_script = "uid://cd56172dlgcpf"

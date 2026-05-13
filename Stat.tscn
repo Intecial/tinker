@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://brlwcopgi4dlr" path="res://stat.gd" id="1_m2js2"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_ool46"]
 [ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://ExplosionOnGear.gd" id="3_3k4li"]
+[ext_resource type="Script" uid="uid://bve6esw0b120r" path="res://popUpManager.gd" id="4_fqjhp"]
+[ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://DamagePopUp.tscn" id="5_kx4vd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fqjhp"]
 particle_flag_disable_z = true
@@ -38,3 +40,9 @@ lifetime = 0.5
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_fqjhp")
 script = ExtResource("3_3k4li")
+
+[node name="PopUpManager" type="Control" parent="." unique_id=1237707148]
+layout_mode = 2
+script = ExtResource("4_fqjhp")
+popUp = ExtResource("5_kx4vd")
+metadata/_custom_type_script = "uid://bve6esw0b120r"

@@ -23,6 +23,8 @@ func onForgeClick() -> void:
 	
 func forge(firstGear: GearResource, secondGear: GearResource) -> GearResource:
 	var forgedGear : GearResource = GearResource.new()
+	if firstGear.isMerged or secondGear.isMerged:
+		return null
 	if !firstGear or !secondGear:
 		return null
 	if firstGear.isConsumable != secondGear.isConsumable:
@@ -35,4 +37,5 @@ func forge(firstGear: GearResource, secondGear: GearResource) -> GearResource:
 	forgedGear.isConsumable = false
 	forgedGear.sellValue = firstGear.sellValue + secondGear.sellValue
 	forgedGear.description = firstGear.description + " \n " + secondGear.description
+	forgedGear.isMerged = true
 	return forgedGear

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HealAction" format=3 uid="uid://c1t68rtteoty8"]
 
-[ext_resource type="Script" uid="uid://tpaac6g2141q" path="res://resources/healAction.gd" id="1_53bl3"]
+[ext_resource type="Script" uid="uid://tpaac6g2141q" path="res://_Scripts/ActionScripts/healAction.gd" id="1_53bl3"]
 [ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_j24sr"]
 
 [resource]

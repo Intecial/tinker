@@ -9,7 +9,8 @@ func populateShop() -> void:
 	for gearArrSlot: GearArraySlot in get_children():
 		var randomKey : String = Constant.GEAR_DICT.keys().pick_random()
 		var randomValue : GearResource = Constant.GEAR_DICT.get(randomKey)
-		await gearArrSlot.setGear(randomValue)
+		var duplicatedResource : GearResource = randomValue.duplicate(true)
+		await gearArrSlot.setGear(duplicatedResource)
 
 func clearShop() -> void:
 	var shopPanel: ShopPanel = Constant.PANEL_MANAGER.getPanel("Shop")

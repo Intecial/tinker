@@ -10,8 +10,10 @@ func _ready() -> void:
 		inventory.append(gearArraySlot)
 	
 	await get_tree().process_frame
+	var piggyBank: GearResource = Constant.GEAR_DICT["PiggyBank"].duplicate(true)
 	inventory[0].setGear(Constant.GEAR_DICT["Income"])
 	inventory[1].setGear(Constant.GEAR_DICT["Berserk"])
+	inventory[2].setGear(piggyBank)
 	
 #	inventory[0].setGear(Constant.GEAR_DICT["Strike"])
 #	inventory[1].setGear(Constant.GEAR_DICT["Defend"])

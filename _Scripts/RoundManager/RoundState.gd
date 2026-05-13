@@ -1,12 +1,12 @@
 extends Node
 class_name RoundState
 
-func onEnter(roundManager: RoundManager) -> void:
+func onEnter(_roundManager: RoundManager) -> void:
 	pass
 	
-func onExit(roundManager: RoundManager) -> void:
+func onExit(_roundManager: RoundManager) -> void:
 	pass
 	
-func onUpdate(roundManager: RoundManager) -> void:
+func onUpdate(_roundManager: RoundManager) -> void:
 	pass
 

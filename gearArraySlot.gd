@@ -83,7 +83,6 @@ func swapGear(other: GearArraySlot) -> void:
 	other.setGear(temp)
 
 func setGear(newGear: GearResource) -> void:
-	var temp: GearResource = gear
 	gear = newGear
 	if gear != null:
 		iconRect.texture = gear.icon
@@ -103,10 +102,10 @@ func setGear(newGear: GearResource) -> void:
 		onGearRemoved.emit(self)
 
 func screenShake() -> void:
-	var root : Node = get_tree().current_scene
+	var root : Control = get_tree().current_scene
 	
 	var tween : Tween = root.create_tween()
-	var original := Vector2(root.position)
+	var original : Vector2 = Vector2(root.position)
 	
 	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
 	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)
