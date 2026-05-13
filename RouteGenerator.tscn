@@ -6,7 +6,3 @@
 [node name="RouteGenerator" type="Node2D" unique_id=690507080]
 script = ExtResource("1_1vy2n")
 route_icon = ExtResource("2_7sb8h")
-num_of_node = null
-tree_height = null
-horizontal_spacing = null
-vertical_spacing = null

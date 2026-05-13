@@ -12,7 +12,7 @@ static func load_folder(folder_path: String) -> Dictionary:
 	var file_name : String = dir.get_next()
 
 	while file_name != "":
-		if not dir.is_current_is_dir():
+		if not dir.current_is_dir():
 			var full_path : String= folder_path + "/" + file_name
 			paths_to_load.append(full_path)
 			ResourceLoader.load_threaded_request(full_path)
@@ -28,11 +28,11 @@ static func load_folder(folder_path: String) -> Dictionary:
 
 static func _await_resource(path: String) -> Resource:
 	while true:
-		var status :int = ResourceLoader.load_threaded_get_status(path)
+		var status : int = ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			return ResourceLoader.load_threaded_get(path)
 		elif status == ResourceLoader.THREAD_LOAD_FAILED:
 			push_error("Failed to load: " + path)
 			return null
-		await get_tre.process_frame
+		await Engine.get_main_loop().process_frame
 	return null
