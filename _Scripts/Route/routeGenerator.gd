@@ -7,14 +7,11 @@ class_name RouteGenerator
 @export var vertical_spacing: float = 150.0
 @export var line_point_offset_distance: float = 50.0
 @export var max_route_per_height: int = 3
-var routes: Array[RouteResource]
+@export var routes: Array[RouteResource]
 var route_icons: Array[RouteIcon]
 
 
 func _ready() -> void:
-	var dict: Dictionary = await ResourceFolderLoader.load_folder("res://resources/Routes/")
-	for key: String in dict.keys():
-		routes.append(dict.get(key))
 	generate_routes()
 	
 func generate_routes() -> void:
