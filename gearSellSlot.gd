@@ -45,14 +45,15 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	fromSlot.setGear(null) # remove from original slot
 
 func screenShake() -> void:
-	var root : Control = get_tree().current_scene
-	var tween : Tween = root.create_tween()
-	var original : Vector2 = Vector2(root.position)
-	
-	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
-	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)
-	tween.tween_property(root, "position", original + Vector2(5, 0), 0.05)
-	tween.tween_property(root, "position", original, 0.05)
+	pass
+#	var root : Control = get_tree().current_scene
+#	var tween : Tween = root.create_tween()
+#	var original : Vector2 = Vector2(root.position)
+#	
+#	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
+#	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)
+#	tween.tween_property(root, "position", original + Vector2(5, 0), 0.05)
+#	tween.tween_property(root, "position", original, 0.05)
 
 
 #func explode() -> void:

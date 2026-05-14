@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://585gtg0wygw8"]
 
 [ext_resource type="Script" uid="uid://u7f8538cna2e" path="res://_Scripts/Route/routeIcon.gd" id="1_32t4h"]
-[ext_resource type="Texture2D" uid="uid://c8sck6ehn5ew8" path="res://assets/Gear 3 - Silver_00.png" id="2_q6vai"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="2_32t4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_waixw"]
 radius = 23.021729
@@ -10,7 +10,11 @@ radius = 23.021729
 script = ExtResource("1_32t4h")
 
 [node name="RouteSprite" type="Sprite2D" parent="." unique_id=1335374578]
-texture = ExtResource("2_q6vai")
+texture = ExtResource("2_32t4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1348949634]
 shape = SubResource("CircleShape2D_waixw")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

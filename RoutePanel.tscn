@@ -1,38 +1,8 @@
 [gd_scene format=3 uid="uid://dujrcdag3v5ei"]
 
 [ext_resource type="Script" uid="uid://63eyxswgwdcl" path="res://RoutePanel.gd" id="1_m7lyq"]
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://GearArraySlot.tscn" id="2_6amin"]
-[ext_resource type="Texture2D" uid="uid://deniqlp540jfe" path="res://assets/plus.png" id="3_7n1tq"]
-[ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://ExplosionOnGear.gd" id="4_vlqp2"]
-[ext_resource type="Texture2D" uid="uid://vk46wfh0mh0b" path="res://assets/equals.png" id="5_4tpdo"]
+[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://RouteGenerator.tscn" id="3_3077l"]
 [ext_resource type="PackedScene" uid="uid://bi6ay5qm56xac" path="res://UIScenes/RouteCard.tscn" id="6_m7lyq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufeor"]
-bg_color = Color(0.8980392, 0.92156863, 0.79607844, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh5re"]
-bg_color = Color(0.8980392, 0.92156863, 0.79607844, 1)
-border_width_left = 4
-border_width_top = 4
-border_color = Color(0.8075129, 0.84300363, 0.6376167, 1)
-corner_radius_top_left = 6
-corner_radius_bottom_right = 6
-shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
-
-[sub_resource type="Theme" id="Theme_uh5re"]
-Panel/styles/panel = SubResource("StyleBoxFlat_ufeor")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_uh5re")
-
-[sub_resource type="Theme" id="Theme_ufeor"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ufeor"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
 
 [node name="RoutePanel" type="Panel" unique_id=842013050]
 anchors_preset = 15
@@ -46,91 +16,8 @@ size_flags_vertical = 3
 script = ExtResource("1_m7lyq")
 routeCard = ExtResource("6_m7lyq")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1394416083]
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -32.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2" unique_id=71746128]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="FirstGear" parent="HBoxContainer2/HBoxContainer" unique_id=1224456143 instance=ExtResource("2_6amin")]
-layout_mode = 2
-
-[node name="GearArraySlot4" type="PanelContainer" parent="HBoxContainer2/HBoxContainer" unique_id=537143324]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_uh5re")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=528518925]
-layout_mode = 2
-theme = SubResource("Theme_ufeor")
-
-[node name="BorderRect" type="TextureRect" parent="HBoxContainer2/HBoxContainer/GearArraySlot4/MarginContainer" unique_id=165010711]
-modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
-layout_mode = 2
-texture = ExtResource("3_7n1tq")
-expand_mode = 5
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=26338371]
-position = Vector2(4, 4)
-emitting = false
-amount = 16
-lifetime = 0.5
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_ufeor")
-script = ExtResource("4_vlqp2")
-
-[node name="SecondGear" parent="HBoxContainer2/HBoxContainer" unique_id=709744274 instance=ExtResource("2_6amin")]
-layout_mode = 2
-
-[node name="GearArraySlot5" type="PanelContainer" parent="HBoxContainer2/HBoxContainer" unique_id=2071068822]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-theme = SubResource("Theme_uh5re")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1196343381]
-layout_mode = 2
-theme = SubResource("Theme_ufeor")
-
-[node name="BorderRect" type="TextureRect" parent="HBoxContainer2/HBoxContainer/GearArraySlot5/MarginContainer" unique_id=609442454]
-modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
-layout_mode = 2
-texture = ExtResource("5_4tpdo")
-expand_mode = 5
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1907632117]
-position = Vector2(4, 4)
-emitting = false
-amount = 16
-lifetime = 0.5
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_ufeor")
-script = ExtResource("4_vlqp2")
-
-[node name="Result" parent="HBoxContainer2/HBoxContainer" unique_id=1380245106 instance=ExtResource("2_6amin")]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HBoxContainer2" unique_id=1148987806]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.35
-text = "Forge"
-
 [node name="RouteContainer" type="HBoxContainer" parent="." unique_id=287099849]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,8 +35,19 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[connection signal="mouse_entered" from="HBoxContainer2/HBoxContainer/GearArraySlot4" to="HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer2/HBoxContainer/GearArraySlot4" to="HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_exited"]
-[connection signal="mouse_entered" from="HBoxContainer2/HBoxContainer/GearArraySlot5" to="HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer2/HBoxContainer/GearArraySlot5" to="HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_exited"]
-[connection signal="button_down" from="HBoxContainer2/Button" to="." method="onForgeClick"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1586043160]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=665441832]
+handle_input_locally = false
+size = Vector2i(920, 720)
+render_target_update_mode = 0
+
+[node name="RouteGenerator" parent="SubViewportContainer/SubViewport" unique_id=690507080 instance=ExtResource("3_3077l")]
+visible = false

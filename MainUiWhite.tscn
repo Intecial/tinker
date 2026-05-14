@@ -28,19 +28,18 @@
 [ext_resource type="Script" uid="uid://cyl7grk3lcri0" path="res://gameOverState.gd" id="24_ttft5"]
 [ext_resource type="Script" uid="uid://dg3xuljo8ji0s" path="res://panelManager.gd" id="26_o5c4x"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://forgeState.gd" id="28_sgbvm"]
+[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://RouteGenerator.tscn" id="29_qh8ww"]
 
-[sub_resource type="Theme" id="Theme_tdr68"]
-Label/colors/font_color = Color(0.48235294, 0.6117647, 0.72156864, 1)
-Label/fonts/font = ExtResource("1_tdr68")
-RichTextLabel/colors/default_color = Color(0.48235294, 0.6117647, 0.72156864, 1)
-RichTextLabel/colors/font_outline_color = Color(0.32392424, 0.28485206, 0.2216377, 1)
-RichTextLabel/colors/font_shadow_color = Color(0.40122437, 0.25120974, 0.11991847, 1)
-RichTextLabel/constants/outline_size = 6
-RichTextLabel/fonts/bold_font = ExtResource("1_tdr68")
-RichTextLabel/fonts/normal_font = ExtResource("1_tdr68")
+[sub_resource type="Curve" id="Curve_ttft5"]
+_data = [Vector2(0, 0.35156876), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qh8ww"]
+_data = [Vector2(0, 0.19817644), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5mbx"]
-bg_color = Color(0.932411, 0.9505841, 0.86573374, 1)
+bg_color = Color(0.931475, 0.95, 0.8645, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttft5"]
 bg_color = Color(0.8039216, 0.84313726, 0.6313726, 1)
@@ -159,22 +158,10 @@ RichTextLabel/font_sizes/bold_font_size = 56
 RichTextLabel/fonts/bold_font = ExtResource("1_tdr68")
 RichTextLabel/fonts/normal_font = ExtResource("1_tdr68")
 
-[sub_resource type="Curve" id="Curve_ttft5"]
-_data = [Vector2(0, 0.35156876), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[node name="MainUI" type="Node2D" unique_id=115053855]
 
-[sub_resource type="Curve" id="Curve_qh8ww"]
-_data = [Vector2(0, 0.19817644), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[node name="MainUI" type="Control" unique_id=649745380]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_tdr68")
+[node name="RouteGenerator" parent="." unique_id=690507080 instance=ExtResource("29_qh8ww")]
+visible = false
 
 [node name="Player" type="Node" parent="." unique_id=898199651]
 script = ExtResource("1_wvkau")
@@ -185,8 +172,43 @@ maxHealth = 35
 script = ExtResource("3_ttft5")
 metadata/_custom_type_script = "uid://4gnwqlxbknga"
 
-[node name="Panel" type="Panel" parent="." unique_id=719654854]
-layout_mode = 1
+[node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "gearArray", "mainUI")]
+script = ExtResource("6_ldkep")
+initialState = NodePath("RouteState")
+gearArray = NodePath("../CanvasLayer/Panel/HBoxContainer/MarginContainer/VBoxContainer/GearArray")
+mainUI = NodePath("../CanvasLayer/Panel")
+
+[node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274 node_paths=PackedStringArray("endRoundButton")]
+script = ExtResource("7_ojolf")
+endRoundButton = NodePath("../../CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
+
+[node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
+script = ExtResource("8_8px1f")
+
+[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("endRoundButton")]
+script = ExtResource("9_hn2o6")
+endRoundButton = NodePath("../../CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
+
+[node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
+script = ExtResource("24_ttft5")
+
+[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761 node_paths=PackedStringArray("endRoundButton")]
+script = ExtResource("28_sgbvm")
+endRoundButton = NodePath("../../CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
+
+[node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589 node_paths=PackedStringArray("route_parent")]
+script = ExtResource("21_nmyln")
+route_parent = NodePath("../../RouteGenerator")
+
+[node name="EnemyManager" type="Node" parent="." unique_id=2007530008]
+script = ExtResource("10_64u45")
+income = SubResource("Curve_ttft5")
+enemyPackedScene = ExtResource("11_yqicd")
+enemyHealthCurve = SubResource("Curve_qh8ww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367755293]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=719654854]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -195,7 +217,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_rgdgm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=652304049]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel" unique_id=652304049]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,7 +226,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer" unique_id=406147924]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer" unique_id=406147924]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
@@ -214,11 +236,11 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer" unique_id=1102089617]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/MarginContainer" unique_id=1102089617]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="GearArray" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer" unique_id=15351892 node_paths=PackedStringArray("player") instance=ExtResource("2_wqd14")]
+[node name="GearArray" parent="CanvasLayer/Panel/HBoxContainer/MarginContainer/VBoxContainer" unique_id=15351892 node_paths=PackedStringArray("player") instance=ExtResource("2_wqd14")]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -226,12 +248,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
-player = NodePath("../../../../../Player")
+player = NodePath("../../../../../../Player")
 
-[node name="GearInfo" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1517030648 instance=ExtResource("4_37ycu")]
+[node name="GearInfo" parent="CanvasLayer/Panel/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1517030648 instance=ExtResource("4_37ycu")]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/HBoxContainer" unique_id=283620375]
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel/HBoxContainer" unique_id=283620375]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -239,7 +261,7 @@ mouse_filter = 2
 theme = SubResource("Theme_3ha1o")
 script = ExtResource("26_o5c4x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel" unique_id=1718304160]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel" unique_id=1718304160]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -250,31 +272,33 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 12
 
-[node name="ShopPanel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=1160568435 instance=ExtResource("5_yqicd")]
+[node name="ShopPanel" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer" unique_id=1160568435 instance=ExtResource("5_yqicd")]
+visible = true
 layout_mode = 2
 panelResource = SubResource("Resource_ttft5")
 
-[node name="ForgePanel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=842013050 instance=ExtResource("6_fo0sm")]
+[node name="ForgePanel" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer" unique_id=842013050 instance=ExtResource("6_fo0sm")]
 visible = false
 layout_mode = 2
 panelResource = SubResource("Resource_qh8ww")
 
-[node name="EnemyPanel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=2080467824 instance=ExtResource("11_tdr68")]
+[node name="EnemyPanel" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer" unique_id=2080467824 instance=ExtResource("11_tdr68")]
+visible = false
 layout_mode = 2
 panelResource = SubResource("Resource_mhdvt")
 
-[node name="RoutePanel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=1722951809 instance=ExtResource("8_pdqtw")]
+[node name="RoutePanel" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer" unique_id=1722951809 instance=ExtResource("8_pdqtw")]
 visible = false
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="Panel/HBoxContainer/Panel/VBoxContainer" unique_id=426808619]
+[node name="Panel2" type="Panel" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer" unique_id=426808619]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
 mouse_filter = 2
 theme = SubResource("Theme_g2hu8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2" unique_id=1329743132]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2" unique_id=1329743132]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,7 +308,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=817690860]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=817690860]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
@@ -293,46 +317,46 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2" unique_id=1900247278]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2" unique_id=1900247278]
 layout_mode = 2
 alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1495779255]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1495779255]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 script = ExtResource("3_cyx3f")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=961716997]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=961716997]
 layout_mode = 2
 
-[node name="Health" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=451667051 instance=ExtResource("4_cyx3f")]
+[node name="Health" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=451667051 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 icon = ExtResource("8_ldkep")
 color = Color(0.8540481, 0.7046386, 0.7658525, 1)
 
-[node name="Shield" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=468972562 instance=ExtResource("4_cyx3f")]
+[node name="Shield" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=468972562 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 
-[node name="Knowledge" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=611849894 instance=ExtResource("4_cyx3f")]
+[node name="Knowledge" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=611849894 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 icon = ExtResource("9_ojolf")
 color = Color(0.7367992, 0.54149926, 0.2780195, 1)
 
-[node name="PanelContainer2" type="PanelContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=126580157]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=126580157]
 layout_mode = 2
 theme = SubResource("Theme_ttft5")
 
-[node name="NextRound" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2" unique_id=1889213547 node_paths=PackedStringArray("player", "gearArray")]
+[node name="NextRound" type="Button" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2" unique_id=1889213547 node_paths=PackedStringArray("player", "gearArray")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 18
 text = "Next Round"
 script = ExtResource("4_r5wt7")
-player = NodePath("../../../../../../../../../../Player")
+player = NodePath("../../../../../../../../../../../Player")
 gearArray = NodePath("../../../../../../../../MarginContainer/VBoxContainer/GearArray")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=1562643755]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer" unique_id=1562643755]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.26
@@ -341,47 +365,15 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="GearInventory" parent="Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=456807329 instance=ExtResource("5_l55hy")]
+[node name="GearInventory" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=456807329 instance=ExtResource("5_l55hy")]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.4
 theme_override_constants/h_separation = 23
 
-[node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "gearArray")]
-script = ExtResource("6_ldkep")
-initialState = NodePath("PreparationState")
-gearArray = NodePath("../Panel/HBoxContainer/MarginContainer/VBoxContainer/GearArray")
-
-[node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274 node_paths=PackedStringArray("endRoundButton")]
-script = ExtResource("7_ojolf")
-endRoundButton = NodePath("../../Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
-
-[node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
-script = ExtResource("8_8px1f")
-
-[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("endRoundButton")]
-script = ExtResource("9_hn2o6")
-endRoundButton = NodePath("../../Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
-
-[node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
-script = ExtResource("24_ttft5")
-
-[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761 node_paths=PackedStringArray("endRoundButton")]
-script = ExtResource("28_sgbvm")
-endRoundButton = NodePath("../../Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer2/NextRound")
-
-[node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589]
-script = ExtResource("21_nmyln")
-
-[node name="EnemyManager" type="Node" parent="." unique_id=2007530008]
-script = ExtResource("10_64u45")
-income = SubResource("Curve_ttft5")
-enemyPackedScene = ExtResource("11_yqicd")
-enemyHealthCurve = SubResource("Curve_qh8ww")
-
-[node name="Control" type="Control" parent="." unique_id=1502615002]
-layout_mode = 1
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1502615002]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -390,8 +382,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("19_hn2o6")
 
-[node name="TextContainer" type="Control" parent="." unique_id=1147944244]
-layout_mode = 1
+[node name="TextContainer" type="Control" parent="CanvasLayer" unique_id=1147944244]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -400,7 +392,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("19_64u45")
 
-[node name="Label" type="RichTextLabel" parent="TextContainer" unique_id=1646546209]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/TextContainer" unique_id=1646546209]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

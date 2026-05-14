@@ -2,12 +2,14 @@ extends Node2D
 class_name RouteGenerator
 
 @export var route_icon : PackedScene
-@export var num_of_node: int = 5
 @export var tree_height: int = 5
-@export var horizontal_spacing: float = 100.0
-@export var vertical_spacing: float = 120.0
-
+@export var horizontal_spacing: float = 150.0
+@export var vertical_spacing: float = 150.0
+@export var line_point_offset_distance: float = 50.0
+@export var max_route_per_height: int = 3
 var routes: Array[RouteResource]
+var route_icons: Array[RouteIcon]
+
 
 func _ready() -> void:
 	var dict: Dictionary = await ResourceFolderLoader.load_folder("res://resources/Routes/")
@@ -15,22 +17,54 @@ func _ready() -> void:
 		routes.append(dict.get(key))
 	generate_routes()
 	
-
 func generate_routes() -> void:
-	var root: RouteIcon = route_icon.instantiate()
-	add_child(root)
-	root.route_resource = routes.pick_random()
-	root.init()
-	root.position = Vector2(horizontal_spacing, vertical_spacing)
+	var root: RouteIcon = create_route_icon()
+	root.position = Vector2(0, horizontal_spacing + vertical_spacing)
 	root.is_root = true
+	root.is_active = true
+	root.set_active_node()
+	root.is_traversable = true
 	
-	var current_node: RouteIcon = root
-	for height: int in range(tree_height):
-		var child: RouteIcon = route_icon.instantiate()
-		add_child(child)
-		child.route_resource = routes.pick_random()
-		child.init()
-		child.position = Vector2(current_node.position.x, (height + 1) * vertical_spacing)
+	var end_route: RouteIcon = create_route_icon()
+	end_route.position = Vector2((tree_height + 2) * vertical_spacing, horizontal_spacing + vertical_spacing)
+	
+	for i: int in range(max_route_per_height):
+		var branch: RouteIcon = create_route_icon()
+		var height_space: float = vertical_spacing * (i + 1)
+		branch.position = Vector2(horizontal_spacing , height_space)
+		var current_branch: RouteIcon = branch
+		var current_node: RouteIcon = branch
+		for height: int in range(tree_height):
+			var child: RouteIcon = create_route_icon()
+			child.position = Vector2((height + 2) * horizontal_spacing, height_space)
+			draw_line_between_routes(current_node, child)
+			current_node.add_child_route(child)
+			current_node = child
+		root.add_child_route(current_branch)
+		draw_line_between_routes(root, current_branch)
+		current_node.add_child_route(end_route)
+		draw_line_between_routes(end_route, current_node)
 		
-		current_node.add_child_route(child)
-		current_node = child
+func clear_active_routes() -> void:
+	for icon: RouteIcon in route_icons:
+		icon.is_active = false
+		icon.is_traversable = false
+			
+func create_route_icon() -> RouteIcon:
+	var created_icon: RouteIcon = route_icon.instantiate()
+	add_child(created_icon)
+	created_icon.route_resource = routes.pick_random()
+	created_icon.init(self)
+	route_icons.append(created_icon)
+	return created_icon
+
+
+func draw_line_between_routes(from: RouteIcon, to: RouteIcon) -> void:
+	var line: Line2D = Line2D.new()
+	add_child(line)
+	line.width = 2.0
+	line.default_color = Color.WHITE
+
+	var direction: Vector2 = (to.position - from.position).normalized()
+	line.add_point(from.position + direction * line_point_offset_distance)
+	line.add_point(to.position - direction * line_point_offset_distance)

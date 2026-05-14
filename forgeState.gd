@@ -12,7 +12,7 @@ func onEnter(roundManager: RoundManager) -> void:
 	pass
 
 func endRound() -> void:
-	stateRoundManager.transitionState("PREPARATIONSTATE")
+	stateRoundManager.transitionState("ROUTESTATE")
 	
 
 func onExit(roundManager: RoundManager) -> void:

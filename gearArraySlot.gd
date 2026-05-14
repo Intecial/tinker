@@ -102,15 +102,16 @@ func setGear(newGear: GearResource) -> void:
 		onGearRemoved.emit(self)
 
 func screenShake() -> void:
-	var root : Control = get_tree().current_scene
-	
-	var tween : Tween = root.create_tween()
-	var original : Vector2 = Vector2(root.position)
-	
-	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
-	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)
-	tween.tween_property(root, "position", original + Vector2(5, 0), 0.05)
-	tween.tween_property(root, "position", original, 0.05)
+	pass
+#	var root : Control = get_tree().current_scene
+#	
+#	var tween : Tween = root.create_tween()
+#	var original : Vector2 = Vector2(root.position)
+#	
+#	tween.tween_property(root, "position", original + Vector2(10, 0), 0.05)
+#	tween.tween_property(root, "position", original + Vector2(-10, 0), 0.05)
+#	tween.tween_property(root, "position", original + Vector2(5, 0), 0.05)
+#	tween.tween_property(root, "position", original, 0.05)
 
 func disableSlot() -> void:
 	isDisabled = true

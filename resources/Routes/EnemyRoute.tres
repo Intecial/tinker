@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_ehf3v")
-state_to_move = "ENEMYSTATE"
+state_to_move = "PREPARATIONSTATE"
 route_name = "EnemyRoute"
 route_icon = ExtResource("1_7e2ag")
 metadata/_custom_type_script = "uid://cd56172dlgcpf"

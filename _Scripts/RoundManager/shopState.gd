@@ -22,7 +22,7 @@ func onEnter(roundManager: RoundManager) -> void:
 #	roundManager.transitionState("PREPARATIONSTATE")
 
 func endRound() -> void:
-	stateRoundManager.transitionState("PREPARATIONSTATE")
+	stateRoundManager.transitionState("ROUTESTATE")
 
 func onExit(roundManager: RoundManager) -> void:
 	roundManager.gearArray.enableArraySlots()

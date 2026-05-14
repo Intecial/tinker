@@ -3,15 +3,41 @@ class_name RouteIcon
 
 @onready var route_sprite :Sprite2D = $RouteSprite
 @export var route_resource: RouteResource
+var route_generator: RouteGenerator
 
 var child_routes: Array[RouteIcon]
 var is_root : bool = false
+
+var is_hovered: bool = false
+var is_traversable: bool = false
+var is_active: bool = false
 	
-func init() -> void:
+func init(_route_generator: RouteGenerator) -> void:
 	route_sprite.texture = route_resource.route_icon
+	self.route_generator = _route_generator
 
 func evaluate_route() -> void:
+	print("Evaluationg to")
 	route_resource.evaluate()
+	
+func set_active_node() -> void:
+	is_active = true
+	is_traversable = false
+	for child: RouteIcon in child_routes:
+		child.is_traversable = true
 
 func add_child_route(child_route: RouteIcon) -> void:
 	child_routes.append(child_route)
+
+
+func _on_mouse_entered() -> void:
+	is_hovered = true
+
+func _on_mouse_exited() -> void:
+	is_hovered = false
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("mouse_left") and is_hovered and is_traversable: 
+		evaluate_route()
+		route_generator.clear_active_routes()
+		set_active_node()

@@ -5,7 +5,7 @@ class_name RoundManager
 var currentState: RoundState
 @export var initialState: RoundState
 @export var gearArray: GearArray
-
+@export var mainUI: Control
 var stateDict : Dictionary[String, RoundState]
 
 func _ready() -> void:
