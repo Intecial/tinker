@@ -2,6 +2,7 @@ extends Area2D
 class_name RouteIcon
 
 @onready var route_sprite :Sprite2D = $RouteSprite
+@onready var disabled_sprite: Sprite2D = $Disabled
 @export var route_resource: RouteResource
 var route_generator: RouteGenerator
 
@@ -23,13 +24,20 @@ func evaluate_route() -> void:
 func set_active_node() -> void:
 	is_active = true
 	is_traversable = false
+	
 	for child: RouteIcon in child_routes:
 		child.is_traversable = true
+		child.highlight()
 
 func add_child_route(child_route: RouteIcon) -> void:
 	child_routes.append(child_route)
 
+func highlight() -> void:
+	disabled_sprite.visible = false
 
+func unhighlight() -> void:
+	disabled_sprite.visible = true
+	
 func _on_mouse_entered() -> void:
 	is_hovered = true
 

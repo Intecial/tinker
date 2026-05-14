@@ -21,6 +21,7 @@ func generate_routes() -> void:
 	root.is_active = true
 	root.set_active_node()
 	root.is_traversable = true
+	root.highlight()
 	
 	var end_route: RouteIcon = create_route_icon()
 	end_route.position = Vector2((tree_height + 2) * vertical_spacing, horizontal_spacing + vertical_spacing)
@@ -46,6 +47,7 @@ func clear_active_routes() -> void:
 	for icon: RouteIcon in route_icons:
 		icon.is_active = false
 		icon.is_traversable = false
+		icon.unhighlight()
 			
 func create_route_icon() -> RouteIcon:
 	var created_icon: RouteIcon = route_icon.instantiate()

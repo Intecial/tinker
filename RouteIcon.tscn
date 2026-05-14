@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u7f8538cna2e" path="res://_Scripts/Route/routeIcon.gd" id="1_32t4h"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="2_32t4h"]
+[ext_resource type="Texture2D" uid="uid://do26kv7ax15mv" path="res://assets/disabled-border.png" id="3_q6vai"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_waixw"]
 radius = 23.021729
@@ -11,6 +12,10 @@ script = ExtResource("1_32t4h")
 
 [node name="RouteSprite" type="Sprite2D" parent="." unique_id=1335374578]
 texture = ExtResource("2_32t4h")
+
+[node name="Disabled" type="Sprite2D" parent="." unique_id=749033608]
+scale = Vector2(1.6399996, 1.6399996)
+texture = ExtResource("3_q6vai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1348949634]
 shape = SubResource("CircleShape2D_waixw")
