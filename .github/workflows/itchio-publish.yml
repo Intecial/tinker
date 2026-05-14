@@ -30,4 +30,4 @@ jobs:
           itch_user: intecial
           itch_game: tinker
           version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/tinker.zip"
+          files: "${{ steps.export.outputs.archive_directory }}/Web.zip"
