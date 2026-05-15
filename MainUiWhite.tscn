@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://dhcu687uw1l0q" path="res://enemyManager.gd" id="10_64u45"]
 [ext_resource type="PackedScene" uid="uid://cb8an3miecq65" path="res://UIScenes/EnemyPanel.tscn" id="11_tdr68"]
 [ext_resource type="PackedScene" uid="uid://cbi8jwvwrmel0" path="res://Enemy.tscn" id="11_yqicd"]
+[ext_resource type="Script" uid="uid://ck0084itxdaw3" path="res://canvasLayer.gd" id="13_mhdvt"]
 [ext_resource type="Script" uid="uid://d1no2h0clk5pd" path="res://textContainer.gd" id="19_64u45"]
 [ext_resource type="Script" uid="uid://di3dwe11p8a5m" path="res://FXLayer.gd" id="19_hn2o6"]
 [ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://routeState.gd" id="21_nmyln"]
@@ -209,6 +210,7 @@ enemyPackedScene = ExtResource("11_yqicd")
 enemyHealthCurve = SubResource("Curve_qh8ww")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367755293]
+script = ExtResource("13_mhdvt")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=719654854]
 anchors_preset = 15

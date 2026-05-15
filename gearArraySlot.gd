@@ -102,7 +102,7 @@ func setGear(newGear: GearResource) -> void:
 		onGearRemoved.emit(self)
 
 func screenShake() -> void:
-	pass
+	Constant.screenshake() 
 #	var root : Control = get_tree().current_scene
 #	
 #	var tween : Tween = root.create_tween()

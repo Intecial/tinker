@@ -41,3 +41,25 @@ var ENEMY_RESOURCES: Array[EnemyResource] = [
 	preload("uid://ck14shu7bawrs"),
 	preload("uid://8bxpxc5ux5iv")
 	]
+# Constant.gd
+var CAMERA: Camera2D
+var CANVAS_LAYER: CanvasLayer
+
+func screenshake(duration: float = 0.3, strength: float = 10.0) -> void:
+	_shake_node(CAMERA, "offset", duration, strength)
+	_shake_node(CANVAS_LAYER, "offset", duration, strength)
+
+func _shake_node(node: Node, property: String, duration: float, strength: float) -> void:
+	if not node:
+		return
+	
+	var tween :Tween = node.create_tween()
+	var original :Vector2 = node.get(property)
+	
+	for i :int in range(10):
+		tween.tween_property(node, property, Vector2(
+			randf_range(-strength, strength),
+			randf_range(-strength, strength)
+		), duration / 10.0)
+	
+	tween.tween_property(node, property, original, 0.1)
