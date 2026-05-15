@@ -6,5 +6,6 @@ class_name StatusEffectAplicator
 
 func execute(actor: Actor) -> void:
 	for num: int in num_of_effects:
-		actor.statusEffects += status_effects
+		for stat: StatusEffectResource in status_effects:
+			actor.add_status_effect(stat)
 	actor.triggerStatusEffects()

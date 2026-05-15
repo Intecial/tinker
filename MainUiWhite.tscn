@@ -27,7 +27,9 @@
 [ext_resource type="Script" uid="uid://di3dwe11p8a5m" path="res://FXLayer.gd" id="19_hn2o6"]
 [ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://routeState.gd" id="21_nmyln"]
 [ext_resource type="Script" uid="uid://cyl7grk3lcri0" path="res://gameOverState.gd" id="24_ttft5"]
+[ext_resource type="Script" uid="uid://ku7cd2nxebho" path="res://_Scripts/sfxContainer.gd" id="26_37ycu"]
 [ext_resource type="Script" uid="uid://dg3xuljo8ji0s" path="res://panelManager.gd" id="26_o5c4x"]
+[ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://UIScenes/SfxIcon.tscn" id="27_sgbvm"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://forgeState.gd" id="28_sgbvm"]
 [ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://RouteGenerator.tscn" id="29_qh8ww"]
 
@@ -331,21 +333,31 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 script = ExtResource("3_cyx3f")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=961716997]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer" unique_id=741230795]
 layout_mode = 2
 
-[node name="Health" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=451667051 instance=ExtResource("4_cyx3f")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer3" unique_id=961716997]
+layout_mode = 2
+
+[node name="Health" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer3/HBoxContainer" unique_id=451667051 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 icon = ExtResource("8_ldkep")
 color = Color(0.8540481, 0.7046386, 0.7658525, 1)
 
-[node name="Shield" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=468972562 instance=ExtResource("4_cyx3f")]
+[node name="Shield" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer3/HBoxContainer" unique_id=468972562 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 
-[node name="Knowledge" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer" unique_id=611849894 instance=ExtResource("4_cyx3f")]
+[node name="Knowledge" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer3/HBoxContainer" unique_id=611849894 instance=ExtResource("4_cyx3f")]
 layout_mode = 2
 icon = ExtResource("9_ojolf")
 color = Color(0.7367992, 0.54149926, 0.2780195, 1)
+
+[node name="SFXContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer/PanelContainer/HBoxContainer3" unique_id=847613000]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+script = ExtResource("26_37ycu")
+sfx_icon = ExtResource("27_sgbvm")
 
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Panel/HBoxContainer/Panel/VBoxContainer/Panel2/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=126580157]
 layout_mode = 2

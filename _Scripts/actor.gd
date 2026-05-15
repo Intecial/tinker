@@ -6,6 +6,9 @@ class_name Actor
 var target: Actor
 @export var statusEffects: Array[StatusEffectResource] = []
 @onready var actorContext: ActorContext = $ActorContext
+
+signal on_status_effects_changed(arr: Array[StatusEffectResource])
+
 var _health: int = 35
 var health: int:
 	get:
@@ -114,3 +117,8 @@ func triggerStatusEffects(is_upkeep: bool = false) -> void:
 		sfx.evaluate(actorContext)
 		if is_upkeep:
 			statusEffects.erase(sfx)
+	on_status_effects_changed.emit(statusEffects)
+
+func add_status_effect(status_effect: StatusEffectResource) -> void:
+	statusEffects.append(status_effect)
+	on_status_effects_changed.emit(statusEffects)
