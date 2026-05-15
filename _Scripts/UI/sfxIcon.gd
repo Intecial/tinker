@@ -3,7 +3,7 @@ class_name SfxIcon
 
 
 @onready var icon: TextureRect = $TextureRect
-@onready var amount: RichTextLabel = $Control/RichTextLabel
+@onready var amount: RichTextLabel = $NinePatchRect/Control/RichTextLabel
 
 @export var sfx_resource: StatusEffectResource
 
@@ -15,4 +15,4 @@ func init_sfx(resource: StatusEffectResource) -> void:
 	icon.texture = resource.icon
 	
 func set_amount(amt: int) -> void:
-	amount.text = str(amt)
+	amount.text = str(amt) if amt > 1 else ""
