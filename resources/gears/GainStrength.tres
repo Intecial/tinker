@@ -4,17 +4,20 @@
 [ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_yirwa"]
 [ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_ea3gj"]
 [ext_resource type="Script" uid="uid://b0l0r3wgrre1v" path="res://_Scripts/StatusEffects/strength.gd" id="4_mwl6m"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="4_yirwa"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_x4k8f"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_cnkxc"]
 
 [sub_resource type="Resource" id="Resource_3burv"]
 script = ExtResource("4_mwl6m")
 damage_mult = 2.0
+icon = ExtResource("4_yirwa")
 metadata/_custom_type_script = "uid://b0l0r3wgrre1v"
 
 [sub_resource type="Resource" id="Resource_624pk"]
 script = ExtResource("2_yirwa")
 status_effects = Array[ExtResource("3_ea3gj")]([SubResource("Resource_3burv")])
+num_of_effects = 2
 metadata/_custom_type_script = "uid://d026v135owew7"
 
 [resource]

@@ -1,9 +1,9 @@
 extends PanelContainer
 class_name PlayerDataView
 
-@onready var health: Stat = $HBoxContainer/Health
-@onready var shield: Stat = $HBoxContainer/Shield
-@onready var knowledge: Stat = $HBoxContainer/Knowledge
+@onready var health: Stat = $HBoxContainer3/HBoxContainer/Health
+@onready var shield: Stat = $HBoxContainer3/HBoxContainer/Shield
+@onready var knowledge: Stat = $HBoxContainer3/HBoxContainer/Knowledge
 
 #func _enter_tree() -> void:
 #	Constant.PLAYER.health_changed.connect(renderHealth)
