@@ -11,7 +11,7 @@ func init(init_actor: Actor) -> void:
 	actor = init_actor
 
 func try_get_data(key: String) -> Variant:
-	if data.find_key(key):
+	if data.has(key):
 		return data.get(key)
 	return false
 
@@ -22,3 +22,5 @@ func remove_data(key: String) -> void:
 	if try_get_data(key):
 		data.erase(key)
 	
+func reset() -> void:
+	data.clear()

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cyaa0e6o5j35f"]
+
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_qcrk5"]
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://GearArraySlot.tscn" id="2_6sue2"]
+
+[node name="Left" type="Control" unique_id=592554219]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1017771605]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1932487116]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1498100339]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=2056200179]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/VBoxContainer/Health" unique_id=438882610]
+layout_mode = 2
+texture = ExtResource("1_qcrk5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/Health" unique_id=934917077]
+layout_mode = 2
+text = "1234123"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Health2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=1148567549]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/VBoxContainer/Health2" unique_id=127229163]
+layout_mode = 2
+texture = ExtResource("1_qcrk5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/Health2" unique_id=204789201]
+layout_mode = 2
+text = "1234123"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Health3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=421708852]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/VBoxContainer/Health3" unique_id=1474297364]
+layout_mode = 2
+texture = ExtResource("1_qcrk5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/Health3" unique_id=1639952040]
+layout_mode = 2
+text = "1234123"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=1868840593]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2" unique_id=1484511727]
+layout_mode = 2
+
+[node name="GearArraySlot" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1224456143 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="GearArraySlot2" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=107132033 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="GearArraySlot3" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=350093882 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="GearArraySlot4" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=60509550 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="GearArraySlot5" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=792198204 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="GearArraySlot6" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1992083883 instance=ExtResource("2_6sue2")]
+layout_mode = 2
+
+[node name="ButtonContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1122527746]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=2037859536]
+layout_mode = 2
+text = "Fight"

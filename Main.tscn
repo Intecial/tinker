@@ -11,5 +11,3 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainUI" parent="." unique_id=649745380 instance=ExtResource("1_glv2v")]
-layout_mode = 1
-offset_bottom = 6.1035156e-05

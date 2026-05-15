@@ -29,7 +29,8 @@ func resolveGears() -> void:
 		if gearArrSlot.gear != null and Constant.PLAYER.target:
 			gearArrSlot.screenShake()
 			gearArrSlot.explode()
-			await gearArrSlot.gear.evaluate(player)
+			await player.perform_gear(gearArrSlot.gear)
+#			await gearArrSlot.gear.evaluate(player)
 			if gearArrSlot.gear.isConsumable:
 				gearArrSlot.removeGear()
 		if Constant.PLAYER.target == null:

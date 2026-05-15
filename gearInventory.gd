@@ -12,8 +12,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	var piggyBank: GearResource = Constant.GEAR_DICT["Investment"].duplicate(true)
 	inventory[0].setGear(Constant.GEAR_DICT["Income"])
-	inventory[1].setGear(Constant.GEAR_DICT["Berserk"])
+	inventory[1].setGear(Constant.GEAR_DICT["Strike"])
 	inventory[2].setGear(piggyBank)
+	inventory[3].setGear(Constant.GEAR_DICT["GainStrength"])
 	
 #	inventory[0].setGear(Constant.GEAR_DICT["Strike"])
 #	inventory[1].setGear(Constant.GEAR_DICT["Defend"])

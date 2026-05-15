@@ -16,7 +16,7 @@ func onEnter(roundManager: RoundManager) -> void:
 	Constant.PANEL_MANAGER.switchPanel("Enemy")
 	
 	stateRoundManager = roundManager
-	Constant.PLAYER.resetShields()
+	Constant.PLAYER.upkeep()
 	roundManager.gearArray.enableArraySlots()
 	if Constant.PLAYER.target != null and Constant.PLAYER.target.health <= 0:
 		Constant.PLAYER.target = null

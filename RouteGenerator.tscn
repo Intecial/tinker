@@ -16,4 +16,5 @@ position = Vector2(317, 199)
 script = ExtResource("1_1vy2n")
 route_icon = ExtResource("2_7sb8h")
 tree_height = 3
-routes = Array[ExtResource("4_f1fct")]([ExtResource("5_lucqb"), ExtResource("6_13jo0"), ExtResource("7_htoh4")])
+encounter_routes = Array[ExtResource("4_f1fct")]([ExtResource("7_htoh4")])
+misc_routes = Array[ExtResource("4_f1fct")]([ExtResource("6_13jo0"), ExtResource("5_lucqb")])

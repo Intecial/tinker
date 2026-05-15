@@ -4,9 +4,8 @@ class_name Actor
 @export var isPlayer : bool = false
 @export var maxHealth: int = 100
 var target: Actor
-var statusEffects: Array[StatusEffectResource] = []
+@export var statusEffects: Array[StatusEffectResource] = []
 @onready var actorContext: ActorContext = $ActorContext
-
 var _health: int = 35
 var health: int:
 	get:
@@ -70,6 +69,15 @@ func resolveDamage(amt: int) -> void:
 		hurtHealth(amt)
 	on_damage.emit(amt)
 
+func dealDamage(amt: int) -> void:
+	print("Player Dealing Damage")
+	var extra_damage: int = actorContext.try_get_data("extra_damage") if actorContext.try_get_data("extra_damage") else 0
+	var damage: int = amt + extra_damage
+	var mult_damage: float = actorContext.try_get_data("damage_multiplier") if actorContext.try_get_data("damage_multiplier") else 1.0
+	damage = int(damage * mult_damage)
+	print(damage)
+	target.resolveDamage(damage)
+	
 func hurtShield(amt: int) -> void:
 	shield -= amt
 	if shield < 0:
@@ -86,12 +94,23 @@ func useKnowledge(amt: int) -> bool:
 		knowledge -= amt
 		return true
 	return false
+	
+func perform_gear(gear: GearResource) -> void:	
+	await gear.evaluate(self)
+
+# Upkeep
+func upkeep() -> void:
+	triggerStatusEffects(true)
+	resetShields()
 
 func resetShields() -> void:
 	if shield == 0:
 		return
 	shield = 0
-	
-func triggerStatusEffects() -> void:
+
+func triggerStatusEffects(is_upkeep: bool = false) -> void:
+	actorContext.reset()
 	for sfx: StatusEffectResource in statusEffects:
-		sfx.evaluate(self)
+		sfx.evaluate(actorContext)
+		if is_upkeep:
+			statusEffects.erase(sfx)
