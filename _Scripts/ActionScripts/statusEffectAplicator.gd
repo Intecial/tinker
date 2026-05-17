@@ -8,4 +8,6 @@ func execute(actor: Actor) -> void:
 	for num: int in num_of_effects:
 		for stat: StatusEffectResource in status_effects:
 			actor.add_status_effect(stat)
+	print(actor.statusEffects)
 	actor.triggerStatusEffects()
+	print(actor.statusEffects)

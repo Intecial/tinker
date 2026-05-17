@@ -49,11 +49,11 @@ func increaseRound(enemy_actor: EnemyActor) -> void:
 
 func spawnEnemy() -> EnemyActor:
 	var actor: EnemyActor = enemyPackedScene.instantiate()
+	self.add_child(actor)
 	var randomInt: int = randi_range(0, len(Constant.ENEMY_RESOURCES) - 1)
 	var resource :EnemyResource = Constant.ENEMY_RESOURCES[randomInt]
 	actor.initEnemy(resource)
 	actor.health = calculateEnemyHealth(actor)
-	self.add_child(actor)
 	self.activeEnemy = actor
 	actor.onDeath.connect(increaseRound.bind(actor))
 	return actor
@@ -67,7 +67,7 @@ func prepare() -> void:
 func performAction() -> void:
 	if activeEnemy == null :
 		return
-	activeEnemy.resetShields()
-	activeEnemy.performPreparedGear()
+	await activeEnemy.performPreparedGear()
+	
 #	activeEnemy.performPreparedAction()
 	

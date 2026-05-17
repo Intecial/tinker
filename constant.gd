@@ -37,9 +37,9 @@ var TEXT_CONTAINER: TextContainer
 var animSpeed: float = 0.8
 
 var ENEMY_RESOURCES: Array[EnemyResource] = [
-	preload("uid://pru0vy3i64th"), 
-	preload("uid://ck14shu7bawrs"),
-	preload("uid://8bxpxc5ux5iv")
+	preload("uid://b8sssqoufa74d"), 
+#	preload("uid://ck14shu7bawrs"),
+#	preload("uid://8bxpxc5ux5iv")
 	]
 # Constant.gd
 var CAMERA: Camera2D

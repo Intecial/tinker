@@ -5,3 +5,4 @@ class_name EnemyResource
 @export var health: int = 100
 @export var gears: Array[GearResource] = []
 @export var icon: Texture 
+@export var enemy_state_machine: PackedScene

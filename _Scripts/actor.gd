@@ -9,13 +9,12 @@ var target: Actor
 
 signal on_status_effects_changed(arr: Array[StatusEffectResource])
 
-var _health: int = 35
+var _health: int = 100
 var health: int:
 	get:
 		return _health
 	set(value):
 		_health = value
-		print("Health Added")
 		health_changed.emit(value)
 signal health_changed(value: int)
 
@@ -25,7 +24,6 @@ var shield: int:
 		return _shield
 	set(value):
 		_shield = value
-		print("Shield Added")
 		shield_changed.emit(value)
 signal shield_changed(value: int)
 
@@ -45,6 +43,7 @@ func _ready() -> void:
 	if isPlayer:
 		Constant.PLAYER = self
 	actorContext.init(self)
+	print("initializing actor context"+ str(actorContext))
 	await get_tree().process_frame
 	health_changed.emit(_health)
 	shield_changed.emit(_shield)
@@ -104,7 +103,15 @@ func perform_gear(gear: GearResource) -> void:
 # Upkeep
 func upkeep() -> void:
 	triggerStatusEffects(true)
-	resetShields()
+	if isPlayer:
+		print("PLayer Upkeep")
+	else:
+		print("Enemy Upkeep")
+		print(actorContext.persitent_data)
+		print(actorContext.try_get_data("maintain_shields"))
+		print(!actorContext.try_get_data("maintain_shields"))
+	if !actorContext.try_get_data("maintain_shields"):
+		resetShields()
 
 func resetShields() -> void:
 	if shield == 0:
@@ -112,10 +119,16 @@ func resetShields() -> void:
 	shield = 0
 
 func triggerStatusEffects(is_upkeep: bool = false) -> void:
+	if !isPlayer:
+		print("Enemy Before Reset")
+		print(actorContext.persitent_data)
 	actorContext.reset()
+	if !isPlayer:
+		print("Enemy After Reset")
+		print(actorContext.persitent_data)
 	for sfx: StatusEffectResource in statusEffects:
 		sfx.evaluate(actorContext)
-		if is_upkeep:
+		if is_upkeep and !sfx.is_permanent:
 			statusEffects.erase(sfx)
 	on_status_effects_changed.emit(statusEffects)
 

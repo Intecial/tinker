@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dvkmw1k6y08lf"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_fu5li"]
+[ext_resource type="Script" uid="uid://3b8b72suyag1" path="res://_Scripts/Enemy/Clockwork/tickingState.gd" id="2_w5qqe"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="3_av87t"]
+[ext_resource type="Script" uid="uid://4x2n8t7kk2ng" path="res://_Scripts/ActionScripts/doNothingAction.gd" id="4_jl10e"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_281my"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="5_jl10e"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_2fj6y"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="6_281my"]
+[ext_resource type="Resource" uid="uid://cnxpjnuljvfcn" path="res://resources/SFXResource/RetainShield.tres" id="7_2fj6y"]
+[ext_resource type="Script" uid="uid://suvg5dk1br0u" path="res://_Scripts/Enemy/Clockwork/initState.gd" id="7_6gb4i"]
+[ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="8_7qsou"]
+[ext_resource type="Script" uid="uid://c2kv2pa7lyhqr" path="res://_Scripts/Enemy/Clockwork/explodeState.gd" id="9_qgw6b"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="10_rfknu"]
+[ext_resource type="Script" uid="uid://c6cg3wr76734p" path="res://_Scripts/ActionScripts/selfDamageAction.gd" id="14_281my"]
+
+[sub_resource type="Resource" id="Resource_f74pp"]
+script = ExtResource("4_jl10e")
+metadata/_custom_type_script = "uid://4x2n8t7kk2ng"
+
+[sub_resource type="Resource" id="Resource_6gb4i"]
+script = ExtResource("5_jl10e")
+status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
+num_of_effects = 2
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[sub_resource type="Resource" id="Resource_0tw1n"]
+script = ExtResource("6_2fj6y")
+gearName = "Tick"
+gearType = 1
+icon = ExtResource("5_281my")
+actions = Array[ExtResource("3_av87t")]([SubResource("Resource_f74pp"), SubResource("Resource_6gb4i")])
+color = Color(0.52310544, 0.33565754, 0.4857192, 1)
+isConsumable = true
+description = "Waiting..."
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
+
+[sub_resource type="Resource" id="Resource_b5pqt"]
+script = ExtResource("8_7qsou")
+shieldAmount = 25
+metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
+
+[sub_resource type="Resource" id="Resource_7qsou"]
+script = ExtResource("5_jl10e")
+status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
+num_of_effects = 2
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[sub_resource type="Resource" id="Resource_sqayf"]
+script = ExtResource("6_2fj6y")
+gearName = "Init"
+gearType = 1
+icon = ExtResource("5_281my")
+actions = Array[ExtResource("3_av87t")]([SubResource("Resource_b5pqt"), SubResource("Resource_7qsou")])
+color = Color(0.48923755, 0.4005624, 0.5795518, 1)
+description = "Initializing Destructive Sequence..."
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
+
+[sub_resource type="Resource" id="Resource_titvd"]
+script = ExtResource("10_rfknu")
+damage = 50
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[sub_resource type="Resource" id="Resource_2fj6y"]
+script = ExtResource("14_281my")
+damage = 50
+metadata/_custom_type_script = "uid://c6cg3wr76734p"
+
+[sub_resource type="Resource" id="Resource_ooxwt"]
+script = ExtResource("6_2fj6y")
+gearName = "Explode !"
+icon = ExtResource("5_281my")
+actions = Array[ExtResource("3_av87t")]([SubResource("Resource_titvd"), SubResource("Resource_2fj6y")])
+description = "Enemy Will explode with 50 damage"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
+
+[node name="ClockworkSM" type="Node" unique_id=1815280260 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_fu5li")
+initialState = NodePath("InitState")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="TickingState" type="Node" parent="." unique_id=780810059]
+script = ExtResource("2_w5qqe")
+gear = SubResource("Resource_0tw1n")
+metadata/_custom_type_script = "uid://3b8b72suyag1"
+
+[node name="InitState" type="Node" parent="." unique_id=1194540012]
+script = ExtResource("7_6gb4i")
+gear = SubResource("Resource_sqayf")
+
+[node name="ExplodeState" type="Node" parent="." unique_id=1449135992]
+script = ExtResource("9_qgw6b")
+gear = SubResource("Resource_ooxwt")
