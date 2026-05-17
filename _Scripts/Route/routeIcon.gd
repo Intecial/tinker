@@ -46,6 +46,7 @@ func _on_mouse_exited() -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("mouse_left") and is_hovered and is_traversable: 
-		evaluate_route()
 		route_generator.clear_active_routes()
+		await route_generator.move_player_to(self)
 		set_active_node()
+		evaluate_route()
