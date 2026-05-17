@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PoisonStatusEffect" format=3 uid="uid://ddmjyw13d0nsb"]
+
+[ext_resource type="Script" uid="uid://ckq2rl7aj0t0u" path="res://_Scripts/StatusEffects/poisonStatusEffect.gd" id="1_b38bj"]
+[ext_resource type="Texture2D" uid="uid://bh3lm34cv6g4d" path="res://assets/Skeleton.png" id="1_t0nxp"]
+
+[resource]
+script = ExtResource("1_b38bj")
+icon = ExtResource("1_t0nxp")
+name = "Rust"
+unique_consumption = true
+description = "Deals 1 damage"
+metadata/_custom_type_script = "uid://ckq2rl7aj0t0u"

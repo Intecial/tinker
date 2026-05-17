@@ -18,7 +18,6 @@ func init(_route_generator: RouteGenerator) -> void:
 	self.route_generator = _route_generator
 
 func evaluate_route() -> void:
-	print("Evaluationg to")
 	route_resource.evaluate()
 	
 func set_active_node() -> void:

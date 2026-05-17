@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatusEffectAplicator" format=3 uid="uid://cou2jy28kte8a"]
+
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="1_1jm5o"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="2_eu74s"]
+[ext_resource type="Resource" uid="uid://dv782ngqkgu1n" path="res://resources/SFXResource/Strength.tres" id="3_eu74s"]
+
+[resource]
+script = ExtResource("1_1jm5o")
+status_effects = Array[ExtResource("2_eu74s")]([ExtResource("3_eu74s"), ExtResource("3_eu74s")])
+is_instant = true
+actionName = "2 Strengths"
+metadata/_custom_type_script = "uid://d026v135owew7"

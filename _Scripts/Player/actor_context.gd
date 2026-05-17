@@ -38,6 +38,5 @@ func remove_data(key: String) -> void:
 func remove_persistent_data(key: String) -> void:
 	if try_get_data(key):
 		data.erase(key)	
-func reset() -> void:	
-	print("Actor Clearing Context")
+func reset() -> void:
 	data.clear()

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://cwnc3tvdcr2lt"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_0epvb"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_3o5jf"]
+[ext_resource type="Resource" uid="uid://ditm3nxfprvyl" path="res://resources/Actions/Overload/OverloadPoisonAction.tres" id="2_noj05"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="2_pmujp"]
+[ext_resource type="Resource" uid="uid://cou2jy28kte8a" path="res://resources/Actions/Overload/OverloadStrengthAction.tres" id="3_jrsbs"]
+
+[resource]
+script = ExtResource("2_3o5jf")
+gearName = "Overload"
+gearType = 2
+icon = ExtResource("2_pmujp")
+actions = Array[ExtResource("1_0epvb")]([ExtResource("2_noj05"), ExtResource("3_jrsbs")])
+color = Color(0.5015357, 0.4495179, 0.16645586, 1)
+isConsumable = true
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

@@ -33,7 +33,9 @@ func resolveGears() -> void:
 			await Constant.PLAYER.perform_gear(gearArrSlot.gear)
 #			await gearArrSlot.gear.evaluate(player)
 			if gearArrSlot.gear.isConsumable:
+				Constant.PLAYER.gear_pouch.discard(gearArrSlot.gear)
 				gearArrSlot.removeGear()
+				# Put in gear_pouch
 		if Constant.PLAYER.target == null:
 			return
 

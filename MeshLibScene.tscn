@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cmo8vdeiijnen"]
+
+[ext_resource type="Material" uid="uid://dcuj4t4q5o0lu" path="res://materials/Tile.tres" id="1_7js32"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eg3ym"]
+material = ExtResource("1_7js32")
+size = Vector3(2, 0.75, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_il3fd"]
+size = Vector3(2, 0.76, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hf2qt"]
+
+[node name="Node3D" type="Node3D" unique_id=1734838054]
+
+[node name="Tile" type="MeshInstance3D" parent="." unique_id=1346566876]
+mesh = SubResource("BoxMesh_eg3ym")
+
+[node name="StartingTile" type="MeshInstance3D" parent="." unique_id=1136939200]
+mesh = SubResource("BoxMesh_il3fd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingTile" unique_id=2081599023]
+transform = Transform3D(2.0327513, 0, 0, 0, 0.23468405, 0, 0, 0, 2.0327513, 0, 0.5883734, 0)
+mesh = SubResource("CylinderMesh_hf2qt")

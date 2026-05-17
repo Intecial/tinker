@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://da5cjas1bql5x"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_u6mrk"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_j23fw"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_rk84e"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_i0uhd"]
+
+[sub_resource type="Resource" id="Resource_33y3k"]
+script = ExtResource("2_rk84e")
+damage = 2
+color = Color(0.56733066, 0.18136108, 0.20411655, 1)
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[resource]
+script = ExtResource("2_j23fw")
+gearName = "Scrap"
+icon = ExtResource("3_i0uhd")
+actions = Array[ExtResource("1_u6mrk")]([SubResource("Resource_33y3k")])
+color = Color(0.7830466, 0.27549273, 0.25490102, 1)
+isConsumable = true
+description = "Deals 2 damage"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

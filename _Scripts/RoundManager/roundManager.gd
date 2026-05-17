@@ -35,10 +35,8 @@ func _process(_delta: float) -> void:
 func transitionState(newStateName: String) -> void:
 	var newState : RoundState = stateDict.get(newStateName)
 	if !newState:
-		print("State not found")
 		return
 	if currentState == newState:
-		print("Same as previous state")
 		return
 	
 	currentState.onExit(self)

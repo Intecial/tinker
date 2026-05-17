@@ -5,8 +5,9 @@ class_name Actor
 @export var maxHealth: int = 100
 var target: Actor
 @export var statusEffects: Array[StatusEffectResource] = []
+var next_round_sfx: Array[StatusEffectResource] = []
+@onready var gear_pouch: GearPouch = $GearPouch
 @onready var actorContext: ActorContext = $ActorContext
-
 signal on_status_effects_changed(arr: Array[StatusEffectResource])
 
 var _health: int = 100
@@ -33,7 +34,6 @@ var knowledge: int:
 		return _knowledge
 	set(value):
 		_knowledge = value
-		print("Shield Added")
 		knowledge_changed.emit(value)
 signal knowledge_changed(value: int)
 signal onDeath
@@ -102,14 +102,9 @@ func perform_gear(gear: GearResource) -> void:
 
 # Upkeep
 func upkeep() -> void:
+	statusEffects += next_round_sfx
+	next_round_sfx.clear()
 	triggerStatusEffects(true)
-	if isPlayer:
-		print("PLayer Upkeep")
-	else:
-		print("Enemy Upkeep")
-		print(actorContext.persitent_data)
-		print(actorContext.try_get_data("maintain_shields"))
-		print(!actorContext.try_get_data("maintain_shields"))
 	if !actorContext.try_get_data("maintain_shields"):
 		resetShields()
 
@@ -119,19 +114,31 @@ func resetShields() -> void:
 	shield = 0
 
 func triggerStatusEffects(is_upkeep: bool = false) -> void:
-	if !isPlayer:
-		print("Enemy Before Reset")
-		print(actorContext.persitent_data)
 	actorContext.reset()
-	if !isPlayer:
-		print("Enemy After Reset")
-		print(actorContext.persitent_data)
+	var to_remove: Array[StatusEffectResource] = []
+	var consumed: Array[String] = []
+
 	for sfx: StatusEffectResource in statusEffects:
 		sfx.evaluate(actorContext)
 		if is_upkeep and !sfx.is_permanent:
-			statusEffects.erase(sfx)
-	on_status_effects_changed.emit(statusEffects)
+			if sfx.unique_consumption:
+				# Only remove one of this type
+				if sfx.name not in consumed:
+					to_remove.append(sfx)
+					consumed.append(sfx.name)
+			else:
+				# Remove all of this type
+				to_remove.append(sfx)
+
+	for sfx: StatusEffectResource in to_remove:
+		statusEffects.erase(sfx)
+
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)
 
 func add_status_effect(status_effect: StatusEffectResource) -> void:
 	statusEffects.append(status_effect)
-	on_status_effects_changed.emit(statusEffects)
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)
+
+func add_next_round_sfx(status_effect: StatusEffectResource) -> void:
+	next_round_sfx.append(status_effect)
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)

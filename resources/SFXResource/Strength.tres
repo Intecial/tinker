@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Strength" format=3 uid="uid://dv782ngqkgu1n"]
+
+[ext_resource type="Script" uid="uid://b0l0r3wgrre1v" path="res://_Scripts/StatusEffects/strength.gd" id="1_ih1hb"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="1_pseuw"]
+
+[resource]
+script = ExtResource("1_ih1hb")
+damage_mult = 2.0
+icon = ExtResource("1_pseuw")
+name = "Strength"
+description = "Increase Damage by 2.0"
+metadata/_custom_type_script = "uid://b0l0r3wgrre1v"
