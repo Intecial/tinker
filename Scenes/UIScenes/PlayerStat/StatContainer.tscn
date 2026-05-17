@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b4kkhcbydcmhg"]
+
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_bpd0c"]
+[ext_resource type="Script" uid="uid://brlwcopgi4dlr" path="res://_Scripts/Util/stat.gd" id="1_dh74d"]
+[ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://_Scripts/ExplosionOnGear.gd" id="3_kwwkm"]
+[ext_resource type="Script" uid="uid://bve6esw0b120r" path="res://_Scripts/Util/popUpManager.gd" id="4_sloqj"]
+[ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://Scenes/UIScenes/DamagePopUp.tscn" id="5_1vknw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lyllg"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="StatContainer" type="PanelContainer" unique_id=401459813]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dh74d")
+icon = ExtResource("1_bpd0c")
+color = Color(0.91561425, 0.42305318, 0.4595003, 1)
+
+[node name="Stat" type="HBoxContainer" parent="." unique_id=1468915631]
+layout_mode = 2
+
+[node name="StatIcon" type="TextureRect" parent="Stat" unique_id=359584736]
+layout_mode = 2
+texture = ExtResource("1_bpd0c")
+stretch_mode = 5
+
+[node name="StatAmount" type="RichTextLabel" parent="Stat" unique_id=1479971606]
+layout_mode = 2
+text = "1234123"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1409117350]
+position = Vector2(4, 4)
+emitting = false
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lyllg")
+script = ExtResource("3_kwwkm")
+
+[node name="PopUpManager" type="Control" parent="." unique_id=530255002]
+layout_mode = 2
+script = ExtResource("4_sloqj")
+popUp = ExtResource("5_1vknw")
+metadata/_custom_type_script = "uid://bve6esw0b120r"

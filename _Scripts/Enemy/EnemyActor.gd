@@ -1,0 +1,57 @@
+extends Actor
+class_name EnemyActor
+
+@export var is_debug: bool
+@export var enemyResource: EnemyResource
+
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var enemy_ui_panel: EnemyUI = $CanvasLayer/EnemyUIPanel
+var enemyStateMachine: EnemyStateMachine
+
+
+
+signal gear_prepared(value: GearResource)
+var _preparedGear: GearResource = null
+var preparedGear: GearResource : 
+	get:
+		return _preparedGear
+	set(value):
+		_preparedGear = value
+		gear_prepared.emit(value)
+
+signal on_gear_performed()
+
+#func _ready() -> void:
+#	if is_debug:
+#		self.initEnemy(enemyResource)
+#
+
+#func _input(event: InputEvent) -> void:
+#	if event.is_action_pressed("space") and is_debug:
+#		print(enemyStateMachine.get_evaluated_gear().gearName)
+func initEnemy(initEnemyResource: EnemyResource) -> void:
+	self.enemyResource = initEnemyResource
+	self.health = initEnemyResource.health
+	self.target = Constant.PLAYER
+	self.sprite.texture = initEnemyResource.icon
+	enemy_ui_panel.connect_actor(self)
+	_place_ui_panel()
+	var create_sm: EnemyStateMachine = initEnemyResource.enemy_state_machine.instantiate()
+	print("Is Actor Context available?" + str(self.actorContext))
+	self.add_child(create_sm)
+	create_sm.init_sm(self)
+	self.enemyStateMachine = create_sm
+
+func _place_ui_panel() -> void:
+	var texture_size : Vector2 = sprite.texture.get_size() * sprite.scale
+	var top_right :Vector2 = sprite.global_position + Vector2(texture_size.x / 2, -texture_size.y / 2)
+	enemy_ui_panel.global_position = top_right
+
+func prepareGear() -> void:
+#	var randomInt : int = randi_range(0, len(enemyResource.gears) - 1)
+	preparedGear = enemyStateMachine.get_evaluated_gear()
+#	preparedGear = enemyResource.gears[randomInt]
+
+func performPreparedGear() -> void:
+	await preparedGear.evaluate(self)
+	on_gear_performed.emit()

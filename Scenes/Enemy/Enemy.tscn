@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cbi8jwvwrmel0"]
+
+[ext_resource type="Script" uid="uid://nm3ksp6tnoj2" path="res://_Scripts/Enemy/EnemyActor.gd" id="1_02vxf"]
+[ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="2_fw0yv"]
+[ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="3_seemo"]
+[ext_resource type="PackedScene" uid="uid://cnkphldgfdmba" path="res://Scenes/UIScenes/Enemy/EnemyUiPanel.tscn" id="4_ljmj3"]
+
+[node name="Enemy" type="Node2D" unique_id=1468783090]
+script = ExtResource("1_02vxf")
+
+[node name="ActorContext" type="Node" parent="." unique_id=168402870]
+script = ExtResource("2_fw0yv")
+metadata/_custom_type_script = "uid://4gnwqlxbknga"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918557655]
+scale = Vector2(10, 10)
+texture = ExtResource("3_seemo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=628167338]
+
+[node name="EnemyUIPanel" parent="CanvasLayer" unique_id=1788743272 instance=ExtResource("4_ljmj3")]

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cnkphldgfdmba"]
+
+[ext_resource type="Script" uid="uid://bxqbw0inbe2xh" path="res://Scenes/UIScenes/Enemy/enemyUI.gd" id="1_qkd1k"]
+[ext_resource type="PackedScene" uid="uid://chotrqv260b0j" path="res://Scenes/UIScenes/Enemy/EnemyStatContainer.tscn" id="1_qs2gu"]
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_qkd1k"]
+[ext_resource type="Script" uid="uid://cota4vk8llufb" path="res://_Scripts/Enemy/enemy_sfx_container.gd" id="4_e83k8"]
+[ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_g2nxl"]
+
+[node name="EnemyUIPanel" type="PanelContainer" unique_id=1788743272]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_bottom = 68.0
+grow_horizontal = 0
+script = ExtResource("1_qkd1k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=950593303]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1185525315]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyStatContainer" parent="HBoxContainer/VBoxContainer" unique_id=1037146929 instance=ExtResource("1_qs2gu")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=727450689]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=1432323322]
+layout_mode = 2
+
+[node name="EnemySlot" parent="HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1224456143 instance=ExtResource("2_qkd1k")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="SfxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=779041521]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_e83k8")
+sfx_icon = ExtResource("5_g2nxl")

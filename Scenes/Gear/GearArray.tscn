@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dna74eaa8su4k"]
+
+[ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="1_6bv10"]
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_gsrre"]
+
+[node name="GearArray" type="GridContainer" unique_id=55317283]
+offset_right = 47.0
+offset_bottom = 302.0
+size_flags_horizontal = 3
+script = ExtResource("1_6bv10")
+
+[node name="GearArraySlot" parent="." unique_id=1224456143 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="GearArraySlot2" parent="." unique_id=1113481655 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="GearArraySlot3" parent="." unique_id=1207153605 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="GearArraySlot4" parent="." unique_id=170062344 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="GearArraySlot5" parent="." unique_id=437127123 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="GearArraySlot6" parent="." unique_id=114831789 instance=ExtResource("2_gsrre")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="GearArraySlot7" parent="." unique_id=477271371 instance=ExtResource("2_gsrre")]
+visible = false
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="GearArraySlot8" parent="." unique_id=1945764788 instance=ExtResource("2_gsrre")]
+visible = false
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="GearArraySlot9" parent="." unique_id=2133336612 instance=ExtResource("2_gsrre")]
+visible = false
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true

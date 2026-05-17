@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cn8dx18fxlwmt"]
+
+[ext_resource type="Script" uid="uid://cpr32lovfq7g0" path="res://_Scripts/Gear/gearInventory.gd" id="1_0jeqm"]
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_7pm4x"]
+
+[node name="GearInventory" type="GridContainer" unique_id=1515899103]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+columns = 6
+script = ExtResource("1_0jeqm")
+
+[node name="GearArraySlot" parent="." unique_id=1224456143 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+
+[node name="GearArraySlot2" parent="." unique_id=947392165 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+
+[node name="GearArraySlot3" parent="." unique_id=2012823542 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+
+[node name="GearArraySlot4" parent="." unique_id=679693094 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+
+[node name="GearArraySlot5" parent="." unique_id=1326179496 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+
+[node name="GearArraySlot6" parent="." unique_id=2061299979 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
