@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d0t3sllpm5tk1"]
+
+[ext_resource type="Script" uid="uid://c1lil2v2w4dcq" path="res://_Scripts/Route/routeGenerator.gd" id="1_1vy2n"]
+[ext_resource type="Script" uid="uid://dueyogprxsksm" path="res://_Scripts/Route/routeParent.gd" id="1_socn3"]
+[ext_resource type="PackedScene" uid="uid://585gtg0wygw8" path="res://Scenes/Route/RouteIcon.tscn" id="2_7sb8h"]
+[ext_resource type="Script" uid="uid://dv7wshcxb3opu" path="res://_Scripts/Route/routeResource.gd" id="4_f1fct"]
+[ext_resource type="Resource" uid="uid://bs7nqavmhf5sx" path="res://resources/Routes/ForgeRoute.tres" id="5_lucqb"]
+[ext_resource type="Resource" uid="uid://bqfh13g4r6mun" path="res://resources/Routes/ShopRoute.tres" id="6_13jo0"]
+[ext_resource type="Resource" uid="uid://dkonpjmvohteg" path="res://resources/Routes/EnemyRoute.tres" id="7_htoh4"]
+[ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="8_lucqb"]
+
+[node name="RouteParent" type="Node2D" unique_id=1694749728]
+script = ExtResource("1_socn3")
+
+[node name="RouteGenerator" type="Node2D" parent="." unique_id=690507080]
+position = Vector2(317, 199)
+script = ExtResource("1_1vy2n")
+route_icon = ExtResource("2_7sb8h")
+tree_height = 3
+encounter_routes = Array[ExtResource("4_f1fct")]([ExtResource("7_htoh4")])
+misc_routes = Array[ExtResource("4_f1fct")]([ExtResource("6_13jo0"), ExtResource("5_lucqb")])
+
+[node name="Sprite2D" type="Sprite2D" parent="RouteGenerator" unique_id=818639120]
+position = Vector2(-317, -199)
+texture = ExtResource("8_lucqb")

@@ -1,15 +1,9 @@
 extends RoundState
 class_name ShopState
 
-
-@export var endRoundButton: Button
-var stateRoundManager: RoundManager
 func onEnter(roundManager: RoundManager) -> void:
 	Constant.PANEL_MANAGER.switchPanel("Shop")
 	
-	endRoundButton.button_down.connect(endRound)
-	endRoundButton.disabled = false
-	stateRoundManager = roundManager
 	Constant.SHOP_ARRAY.clearShop()
 	await Constant.TEXT_CONTAINER.showText("[center] [b]Shop [center] [b]Phase")
 	roundManager.gearArray.enableArraySlots()
@@ -21,10 +15,8 @@ func onEnter(roundManager: RoundManager) -> void:
 #		roundManager.transitionState("SHOPSTATE")
 #	roundManager.transitionState("PREPARATIONSTATE")
 
-func endRound() -> void:
-	stateRoundManager.transitionState("ROUTESTATE")
+func onNextRound(_roundManager: RoundManager) -> void:
+	_roundManager.transitionState("ROUTESTATE")
 
 func onExit(roundManager: RoundManager) -> void:
 	roundManager.gearArray.enableArraySlots()
-	endRoundButton.button_down.disconnect(endRound)
-	endRoundButton.disabled = true

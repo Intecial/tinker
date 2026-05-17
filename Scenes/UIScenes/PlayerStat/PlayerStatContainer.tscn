@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://1wdximxq6ijr"]
+
+[ext_resource type="PackedScene" uid="uid://b4kkhcbydcmhg" path="res://Scenes/UIScenes/PlayerStat/StatContainer.tscn" id="1_4dv15"]
+[ext_resource type="Script" uid="uid://bipn5c31s4yw1" path="res://_Scripts/UI/PlayerDataView.gd" id="1_q1dn2"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="4_26c5b"]
+[ext_resource type="Texture2D" uid="uid://g4njt8ea6vgm" path="res://assets/Knowledge.png" id="5_6xut1"]
+
+[node name="PlayerStatContainer" type="PanelContainer" unique_id=1765920809 node_paths=PackedStringArray("health", "shield", "knowledge")]
+offset_right = 101.0
+offset_bottom = 104.0
+script = ExtResource("1_q1dn2")
+health = NodePath("VBoxContainer/Health")
+shield = NodePath("VBoxContainer/Shield")
+knowledge = NodePath("VBoxContainer/Money")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1516801683]
+layout_mode = 2
+
+[node name="Health" parent="VBoxContainer" unique_id=401459813 instance=ExtResource("1_4dv15")]
+layout_mode = 2
+color = Color(0.626562, 0.18025005, 0.23406821, 1)
+
+[node name="Shield" parent="VBoxContainer" unique_id=375495589 instance=ExtResource("1_4dv15")]
+layout_mode = 2
+icon = ExtResource("4_26c5b")
+color = Color(0.41251236, 0.63625216, 0.7101936, 1)
+
+[node name="Money" parent="VBoxContainer" unique_id=1070752857 instance=ExtResource("1_4dv15")]
+layout_mode = 2
+icon = ExtResource("5_6xut1")
+color = Color(0.8190942, 0.85277575, 0.5105252, 1)

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BoolStatusEffect" format=3 uid="uid://cnxpjnuljvfcn"]
+[gd_resource type="Resource" script_class="BoolStatusEffect" format=3 uid="uid://qafrbild6rki"]
 
-[ext_resource type="Script" uid="uid://b0jgjsqxy18tj" path="res://_Scripts/StatusEffects/boolStatusEffect.gd" id="1_8o3no"]
+[ext_resource type="Script" path="res://_Scripts/StatusEffects/boolStatusEffect.gd" id="1_8o3no"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_wbjrf"]
 
 [resource]
@@ -8,6 +8,5 @@ script = ExtResource("1_8o3no")
 context_tag = "maintain_shields"
 icon = ExtResource("1_wbjrf")
 name = "Retain Shield"
-is_permanent = true
 description = "Maintain Shields for next turn"
 metadata/_custom_type_script = "uid://b0jgjsqxy18tj"

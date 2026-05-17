@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://onj0h433u4hm"]
 
-[ext_resource type="PackedScene" uid="uid://b72quf4tvb4xt" path="res://MainUiWhite.tscn" id="1_5s8la"]
+[ext_resource type="PackedScene" uid="uid://b72quf4tvb4xt" path="res://Scenes/MainUiWhite.tscn" id="1_5s8la"]
 [ext_resource type="PackedScene" uid="uid://bydchvfo363wu" path="res://TutorialSystem.tscn" id="2_fr6qw"]
 
 [node name="Tutorial" type="Control" unique_id=1812330956]
@@ -12,7 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainUI" parent="." unique_id=649745380 instance=ExtResource("1_5s8la")]
-layout_mode = 1
 
 [node name="TutorialSystem" parent="." unique_id=1877101682 instance=ExtResource("2_fr6qw")]
 layout_mode = 1

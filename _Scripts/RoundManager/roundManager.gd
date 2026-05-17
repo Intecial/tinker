@@ -4,12 +4,16 @@ class_name RoundManager
 
 var currentState: RoundState
 @export var initialState: RoundState
-@export var gearArray: GearArray
-@export var mainUI: Control
+@export var player_ui: PlayerUI
+var gearArray: GearArray
 var stateDict : Dictionary[String, RoundState]
 
+var next_round: Button
 func _ready() -> void:
 	Constant.ROUND_MANAGER = self
+	next_round = player_ui.get_next_round_button()
+	next_round.button_down.connect(next_button_click)
+	gearArray = Constant.GEAR_ARRAY
 	for childState: Node in get_children():
 		stateDict.get_or_add(childState.name.to_upper(), childState)
 	
@@ -17,6 +21,9 @@ func _ready() -> void:
 	currentState = initialState
 	currentState.onEnter(self)
 	Constant.PLAYER.onDeath.connect(gameOver)
+
+func _exit_tree() -> void:
+	next_round.button_down.disconnect(next_button_click)
 
 func gameOver() -> void:
 #	get_tree().paused = true
@@ -37,3 +44,6 @@ func transitionState(newStateName: String) -> void:
 	currentState.onExit(self)
 	currentState = newState
 	currentState.onEnter(self)
+
+func next_button_click() -> void:
+	currentState.onNextRound(self)

@@ -10,3 +10,5 @@ func onExit(_roundManager: RoundManager) -> void:
 func onUpdate(_roundManager: RoundManager) -> void:
 	pass
 
+func onNextRound(_roundManager: RoundManager) -> void:
+	pass

@@ -1,0 +1,26 @@
+extends Control
+class_name PlayerDataView
+
+#@export var health: Stat
+
+@export var health: Stat
+@export var shield: Stat 
+@export var knowledge: Stat
+
+#func _enter_tree() -> void:
+#	Constant.PLAYER.health_changed.connect(renderHealth)
+func _ready() -> void:
+	Constant.PLAYER.shield_changed.connect(shield.render)
+	Constant.PLAYER.health_changed.connect(health.render)
+	Constant.PLAYER.on_damage.connect(pop_number)
+	Constant.PLAYER.knowledge_changed.connect(knowledge.render)
+	
+func _exit_tree() -> void:
+	if Constant.PLAYER:
+		Constant.PLAYER.shield_changed.disconnect(shield.render)
+		Constant.PLAYER.health_changed.disconnect(health.render)
+		Constant.PLAYER.knowledge_changed.disconnect(knowledge.render)
+		Constant.PLAYER.on_damage.disconnect(pop_number)
+
+func pop_number(amount: int) -> void:
+	health.invoke_pop_up(amount, "-")

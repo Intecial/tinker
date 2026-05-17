@@ -1,16 +1,17 @@
 extends Control
-class_name SfxContainer
+class_name EnemySfxContainer
 
 @export var sfx_icon: PackedScene
-func _ready() -> void:
-	Constant.PLAYER.on_status_effects_changed.connect(populate_sfx_icons)
+var enemy: EnemyActor
+
+func init_cont(actor: EnemyActor) -> void:
+	self.enemy = actor
+	enemy.on_status_effects_changed.connect(populate_sfx_icons)
 	
 func _exit_tree() -> void:
-	Constant.PLAYER.on_status_effects_changed.disconnect(populate_sfx_icons)
-	
+	enemy.on_status_effects_changed.disconnect(populate_sfx_icons)
 func populate_sfx_icons(arr: Array[StatusEffectResource]) -> void:
 	clear_children()
-	
 	# Count occurrences by resource
 	var counts: Dictionary[StatusEffectResource, int] = {}
 	for stat: StatusEffectResource in arr:
