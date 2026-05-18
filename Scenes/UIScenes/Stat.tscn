@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bsw1aixygmbh7"]
+
+[ext_resource type="Script" uid="uid://brlwcopgi4dlr" path="res://_Scripts/Util/stat.gd" id="1_wo1fh"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="2_10xx3"]
+[ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://_Scripts/ExplosionOnGear.gd" id="3_lwc2n"]
+[ext_resource type="Script" uid="uid://bve6esw0b120r" path="res://_Scripts/Util/popUpManager.gd" id="4_lk0v6"]
+[ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://Scenes/UIScenes/DamagePopUp.tscn" id="5_3mx7s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fqjhp"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="Stat" type="MarginContainer" unique_id=396479028]
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("1_wo1fh")
+icon = ExtResource("2_10xx3")
+color = Color(0.46666667, 0.7529412, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=534097698]
+modulate = Color(0.46666667, 0.7529412, 1, 1)
+layout_mode = 2
+texture = ExtResource("2_10xx3")
+expand_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=109229025]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1905106532]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=656735487]
+position = Vector2(4, 4)
+emitting = false
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fqjhp")
+script = ExtResource("3_lwc2n")
+
+[node name="PopUpManager" type="Control" parent="." unique_id=1237707148]
+layout_mode = 2
+script = ExtResource("4_lk0v6")
+popUp = ExtResource("5_3mx7s")
+metadata/_custom_type_script = "uid://bve6esw0b120r"

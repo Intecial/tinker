@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegenStatusEffect" format=3 uid="uid://cff85f3b10d4v"]
+
+[ext_resource type="Script" uid="uid://d3w2q3lhwheht" path="res://_Scripts/StatusEffects/regenStatusEffect.gd" id="1_ble85"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_vm7rq"]
+
+[resource]
+script = ExtResource("1_ble85")
+icon = ExtResource("1_vm7rq")
+name = "Regen Status Effect"
+metadata/_custom_type_script = "uid://d3w2q3lhwheht"

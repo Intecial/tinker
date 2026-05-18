@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://chotrqv260b0j"]
+
+[ext_resource type="PackedScene" uid="uid://b4kkhcbydcmhg" path="res://Scenes/UIScenes/PlayerStat/StatContainer.tscn" id="1_egenc"]
+[ext_resource type="Script" uid="uid://dkxyh2es4knef" path="res://_Scripts/UI/Enemy/EnemyStatView.gd" id="1_i0oiq"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="2_i0oiq"]
+
+[node name="EnemyStatContainer" type="PanelContainer" unique_id=1037146929 node_paths=PackedStringArray("health", "shield")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i0oiq")
+health = NodePath("VBoxContainer/Health")
+shield = NodePath("VBoxContainer/Shield")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1680270954]
+layout_mode = 2
+
+[node name="EnemyName" type="RichTextLabel" parent="VBoxContainer" unique_id=1730751205]
+layout_mode = 2
+text = "Enemy Name"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Health" parent="VBoxContainer" unique_id=401459813 instance=ExtResource("1_egenc")]
+layout_mode = 2
+color = Color(0.626562, 0.18025005, 0.23406821, 1)
+
+[node name="Shield" parent="VBoxContainer" unique_id=1337792628 instance=ExtResource("1_egenc")]
+layout_mode = 2
+icon = ExtResource("2_i0oiq")
+color = Color(0.41251236, 0.63625216, 0.7101936, 1)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CounterStatusEffect" format=3 uid="uid://ds0sgw2pdeur2"]
+
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_birhk"]
+[ext_resource type="Script" path="res://_Scripts/StatusEffects/counterStatusEffect.gd" id="1_h5hrr"]
+
+[resource]
+script = ExtResource("1_h5hrr")
+icon = ExtResource("1_birhk")
+name = "Oil"
+unique_consumption = true
+description = "Slippery..."
+metadata/_custom_type_script = "uid://bis0c8mh2m5an"

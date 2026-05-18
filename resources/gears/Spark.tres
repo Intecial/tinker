@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://tg2ype0wbiad"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_8b8bs"]
+[ext_resource type="Script" path="res://_Scripts/ActionScripts/DamageByCounterAction.gd" id="2_4sh3d"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_ohipr"]
+[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_iwpho"]
+
+[sub_resource type="Resource" id="Resource_evmfj"]
+script = ExtResource("2_4sh3d")
+counter_tag = "Oil"
+consume_all = true
+metadata/_custom_type_script = "uid://cs5adc4o6apjq"
+
+[resource]
+script = ExtResource("2_ohipr")
+gearName = "Spark"
+icon = ExtResource("3_iwpho")
+actions = Array[ExtResource("1_8b8bs")]([SubResource("Resource_evmfj")])
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

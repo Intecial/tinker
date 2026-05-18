@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://de7wesj4kcats"]
+
+[ext_resource type="Script" path="res://_Scripts/Enemy/enemyManager.gd" id="1_irqhs"]
+[ext_resource type="PackedScene" uid="uid://cbi8jwvwrmel0" path="res://Scenes/Enemy/Enemy.tscn" id="2_2hr21"]
+
+[sub_resource type="Curve" id="Curve_ttft5"]
+_data = [Vector2(0, 0.35156876), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qh8ww"]
+_data = [Vector2(0, 0.19817644), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EnemyManager" type="Node2D" unique_id=566227468]
+script = ExtResource("1_irqhs")
+income = SubResource("Curve_ttft5")
+enemyPackedScene = ExtResource("2_2hr21")
+enemyHealthCurve = SubResource("Curve_qh8ww")
+
+[node name="Loc2" type="Node2D" parent="." unique_id=562255394]
+position = Vector2(649, 370)
+
+[node name="Loc1" type="Sprite2D" parent="." unique_id=2042788196]
+position = Vector2(1053, 225)

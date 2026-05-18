@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://qubk1t1xyckq"]
+
+[ext_resource type="FontFile" uid="uid://l7gvdqpktqko" path="res://assets/bn_machine/BNMachine.ttf" id="1_rfgvi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nvbf"]
+bg_color = Color(0.64734054, 0.47603887, 0.38013396, 1)
+border_color = Color(0.61932755, 0.34393647, 0.29374635, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_7nvbf")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7nvbf")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 8
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/bold_font = ExtResource("1_rfgvi")
+RichTextLabel/fonts/mono_font = ExtResource("1_rfgvi")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dl8ci6de63s21"]
+
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="1_hvl12"]
+[ext_resource type="Script" uid="uid://dkaqvmgs2mfrx" path="res://_Scripts/UI/sfxIcon.gd" id="1_nxtdj"]
+[ext_resource type="Resource" uid="uid://cff85f3b10d4v" path="res://resources/SFXResource/RegenSFX.tres" id="2_vk2g0"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://_Scripts/ToolTipManager.gd" id="4_8qmgx"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="5_sau87"]
+
+[node name="SFXIcon" type="PanelContainer" unique_id=1313490192 node_paths=PackedStringArray("tooltipManager")]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_nxtdj")
+sfx_resource = ExtResource("2_vk2g0")
+tooltipManager = NodePath("ToolTipManager")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=910053588]
+layout_mode = 2
+texture = ExtResource("1_hvl12")
+stretch_mode = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1366753157]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="NinePatchRect" unique_id=1858696450]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -41.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/Control" unique_id=1314462407]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "99"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ToolTipManager" type="Control" parent="." unique_id=2100769539]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("4_8qmgx")
+toolTipScene = ExtResource("5_sau87")
+metadata/_custom_type_script = "uid://xhg2oixelk2k"
+
+[connection signal="mouse_entered" from="." to="ToolTipManager" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="ToolTipManager" method="_on_mouse_exited"]

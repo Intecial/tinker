@@ -1,16 +1,21 @@
 [gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://dvg1nvkuobkea"]
 
 [ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_glnej"]
-[ext_resource type="Resource" uid="uid://c607feaa4no40" path="res://resources/Actions/BerserkAction.tres" id="2_id1y4"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_d8syc"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_senrj"]
-[ext_resource type="Resource" uid="uid://r6mglp3qek1q" path="res://resources/Actions/IncomeAction.tres" id="3_d8syc"]
-[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="6_llgdb"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_3nm26"]
+[ext_resource type="Resource" uid="uid://bnsdh6xvmyvjb" path="res://resources/SFXResource/Energy.tres" id="4_d8syc"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="4_id1y4"]
+
+[sub_resource type="Resource" id="Resource_3nm26"]
+script = ExtResource("2_d8syc")
+status_effects = Array[ExtResource("3_3nm26")]([ExtResource("4_d8syc"), ExtResource("4_d8syc"), ExtResource("4_d8syc")])
+metadata/_custom_type_script = "uid://d026v135owew7"
 
 [resource]
 script = ExtResource("2_senrj")
 gearName = "Income"
-icon = ExtResource("6_llgdb")
-actions = Array[ExtResource("1_glnej")]([ExtResource("3_d8syc"), ExtResource("2_id1y4")])
+actions = Array[ExtResource("1_glnej")]([SubResource("Resource_3nm26")])
 color = Color(0.4337926, 0.24957952, 0.13517788, 1)
 buyValue = 10
 sellValue = 5

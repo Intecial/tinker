@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cb8an3miecq65"]
+
+[ext_resource type="Script" path="res://_Scripts/UI/enemyPanel.gd" id="1_602w5"]
+[ext_resource type="Script" uid="uid://dkxyh2es4knef" path="res://_Scripts/UI/Enemy/EnemyStatView.gd" id="2_rg3p2"]
+[ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://Scenes/UIScenes/DamagePopUp.tscn" id="4_b8wqs"]
+[ext_resource type="PackedScene" uid="uid://bsw1aixygmbh7" path="res://Scenes/UIScenes/Stat.tscn" id="4_o37cp"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="5_qv0nu"]
+[ext_resource type="Script" uid="uid://bve6esw0b120r" path="res://_Scripts/Util/popUpManager.gd" id="7_602w5"]
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="7_b8wqs"]
+
+[node name="EnemyPanel" type="Panel" unique_id=2080467824]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_602w5")
+
+[node name="GearArraySlot" parent="." unique_id=1224456143 instance=ExtResource("7_b8wqs")]
+visible = false
+layout_mode = 0
+offset_top = -225.5
+offset_right = 1280.0
+offset_bottom = 1054.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=115032248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyStatView" type="VBoxContainer" parent="VBoxContainer2" unique_id=2033320014]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+script = ExtResource("2_rg3p2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/EnemyStatView" unique_id=1443086957]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/EnemyStatView/MarginContainer2" unique_id=2000821429]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EnemyName" type="RichTextLabel" parent="VBoxContainer2/EnemyStatView/MarginContainer2/PanelContainer" unique_id=1818650857]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/EnemyStatView" unique_id=1063684505]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Health" parent="VBoxContainer2/EnemyStatView/HBoxContainer" unique_id=396479028 instance=ExtResource("4_o37cp")]
+layout_mode = 2
+icon = ExtResource("5_qv0nu")
+color = Color(0.85490197, 0.7058824, 0.7647059, 1)
+
+[node name="Shield" parent="VBoxContainer2/EnemyStatView/HBoxContainer" unique_id=79478264 instance=ExtResource("4_o37cp")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1662093288]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/MarginContainer" unique_id=223493854]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer" unique_id=532899186]
+layout_mode = 2
+
+[node name="EnemyIcon" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer" unique_id=1867514584]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 5
+
+[node name="PopUpManager" type="Control" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/EnemyIcon" unique_id=1952132672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_602w5")
+popUp = ExtResource("4_b8wqs")
+metadata/_custom_type_script = "uid://bve6esw0b120r"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer" unique_id=439923457]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/MarginContainer" unique_id=1681665805]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+alignment = 2
+
+[node name="GearArraySlot" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1733669851 instance=ExtResource("7_b8wqs")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true

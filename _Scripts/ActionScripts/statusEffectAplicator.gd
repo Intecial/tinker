@@ -2,9 +2,13 @@ extends ActionResource
 class_name StatusEffectAplicator
 
 @export var status_effects: Array[StatusEffectResource]
-@export var num_of_effects: int = 1
+@export var is_instant: bool = false
 
 func execute(actor: Actor) -> void:
-	for num: int in num_of_effects:
-		actor.statusEffects += status_effects
+	if is_instant:
+		for stat: StatusEffectResource in status_effects:
+			actor.add_status_effect(stat)
+	else:
+		for stat: StatusEffectResource in status_effects:
+			actor.add_next_round_sfx(stat)
 	actor.triggerStatusEffects()

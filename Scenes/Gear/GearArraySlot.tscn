@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://kg6kfa1fhrpu"]
+
+[ext_resource type="Script" uid="uid://tp633fyfg8wf" path="res://_Scripts/Gear/gearArraySlot.gd" id="1_ufeor"]
+[ext_resource type="Texture2D" uid="uid://bh8lmbnw3th71" path="res://assets/CogSlot.png" id="2_umybr"]
+[ext_resource type="Script" path="res://_Scripts/ExplosionOnGear.gd" id="3_uh5re"]
+[ext_resource type="Texture2D" uid="uid://do26kv7ax15mv" path="res://assets/disabled-border.png" id="4_5mgy8"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://_Scripts/ToolTipManager.gd" id="5_3n8ad"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="6_c4ryu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n8ad"]
+
+[sub_resource type="Theme" id="Theme_ufeor"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ufeor"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="GearArraySlot" type="PanelContainer" unique_id=1224456143 node_paths=PackedStringArray("explosionOnGear", "tooltip_manager")]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3n8ad")
+script = ExtResource("1_ufeor")
+explosionOnGear = NodePath("GPUParticles2D")
+tooltip_manager = NodePath("ToolTipManager")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=655995606]
+visible = false
+layout_mode = 2
+color = Color(0.36, 0.36, 0.36, 0.4117647)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=528518925]
+layout_mode = 2
+theme = SubResource("Theme_ufeor")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1188415408]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="BorderRect" type="TextureRect" parent="MarginContainer/MarginContainer" unique_id=165010711]
+modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
+layout_mode = 2
+texture = ExtResource("2_umybr")
+expand_mode = 5
+
+[node name="DisabledTexture" type="TextureRect" parent="MarginContainer" unique_id=488879534]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_5mgy8")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1534103480]
+layout_mode = 2
+expand_mode = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=26338371]
+position = Vector2(4, 4)
+emitting = false
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ufeor")
+script = ExtResource("3_uh5re")
+
+[node name="ToolTipManager" type="Control" parent="." unique_id=820154418]
+visibility_layer = 524289
+z_index = 10
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("5_3n8ad")
+toolTipScene = ExtResource("6_c4ryu")
+metadata/_custom_type_script = "uid://xhg2oixelk2k"
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_entered"]
+[connection signal="mouse_entered" from="." to="ToolTipManager" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exited"]
+[connection signal="mouse_exited" from="." to="ToolTipManager" method="_on_mouse_exited"]

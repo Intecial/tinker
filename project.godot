@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameDevJS"
-run/main_scene="uid://dthnirin1gaw8"
+run/main_scene="uid://flg20wgb6m38"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

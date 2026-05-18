@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://blqod0y785x8b"]
+
+[ext_resource type="Script" uid="uid://c1hgglc5rnr4v" path="res://_Scripts/actor.gd" id="1_wvkau"]
+[ext_resource type="PackedScene" uid="uid://de7wesj4kcats" path="res://Scenes/Enemy/EnemyManager.tscn" id="2_ldkep"]
+[ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="3_ttft5"]
+[ext_resource type="Script" uid="uid://bd8piesxivsbe" path="res://_Scripts/Player/gearPouch.gd" id="5_0l8jk"]
+[ext_resource type="PackedScene" uid="uid://cn8dx18fxlwmt" path="res://Scenes/Gear/GearInventory.tscn" id="5_l55hy"]
+[ext_resource type="Script" uid="uid://dgph331wtok6i" path="res://_Scripts/RoundManager/roundManager.gd" id="6_ldkep"]
+[ext_resource type="Script" uid="uid://bjarnxaksrsad" path="res://_Scripts/RoundManager/preparationState.gd" id="7_ojolf"]
+[ext_resource type="Script" uid="uid://ctowd4yydc0cn" path="res://_Scripts/RoundManager/combatState.gd" id="8_8px1f"]
+[ext_resource type="Script" uid="uid://c3gxfa2imechk" path="res://_Scripts/RoundManager/shopState.gd" id="9_hn2o6"]
+[ext_resource type="Script" path="res://_Scripts/UI/canvasLayer.gd" id="13_mhdvt"]
+[ext_resource type="PackedScene" uid="uid://cyaa0e6o5j35f" path="res://Scenes/UIScenes/LeftUIDraft.tscn" id="14_puj3s"]
+[ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="14_qaclo"]
+[ext_resource type="PackedScene" uid="uid://ca7gptyvxxgqv" path="res://Scenes/UIScenes/ShopPanel.tscn" id="19_7nvbf"]
+[ext_resource type="Script" path="res://_Scripts/Util/textContainer.gd" id="19_64u45"]
+[ext_resource type="Script" path="res://_Scripts/Util/FXLayer.gd" id="19_hn2o6"]
+[ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://_Scripts/Route/routeState.gd" id="21_nmyln"]
+[ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="24_ttft5"]
+[ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="28_sgbvm"]
+[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteGenerator.tscn" id="29_qh8ww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaclo"]
+bg_color = Color(0.64734054, 0.47603887, 0.38013396, 1)
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.7336684, 0.43126756, 0.3742901, 1)
+border_blend = true
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[node name="MainUI" type="Node2D" unique_id=115053855]
+
+[node name="RouteGenerator" parent="." unique_id=690507080 instance=ExtResource("29_qh8ww")]
+visible = false
+
+[node name="EnemyManager" parent="." unique_id=566227468 instance=ExtResource("2_ldkep")]
+
+[node name="Player" type="Node" parent="." unique_id=898199651]
+script = ExtResource("1_wvkau")
+isPlayer = true
+maxHealth = 35
+
+[node name="ActorContext" type="Node" parent="Player" unique_id=1186348624]
+script = ExtResource("3_ttft5")
+metadata/_custom_type_script = "uid://4gnwqlxbknga"
+
+[node name="GearPouch" type="Node" parent="Player" unique_id=1086267115]
+script = ExtResource("5_0l8jk")
+
+[node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "player_ui")]
+script = ExtResource("6_ldkep")
+initialState = NodePath("RouteState")
+player_ui = NodePath("../CanvasLayer/Control2/PlayerUI")
+
+[node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274]
+script = ExtResource("7_ojolf")
+
+[node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
+script = ExtResource("8_8px1f")
+
+[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("shop_panel")]
+script = ExtResource("9_hn2o6")
+shop_panel = NodePath("../../CanvasLayer/ShopPanel")
+
+[node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
+script = ExtResource("24_ttft5")
+
+[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761]
+script = ExtResource("28_sgbvm")
+
+[node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589 node_paths=PackedStringArray("route_parent")]
+script = ExtResource("21_nmyln")
+route_parent = NodePath("../../RouteGenerator")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367755293]
+script = ExtResource("13_mhdvt")
+
+[node name="Control2" type="Control" parent="CanvasLayer" unique_id=1615535944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("14_qaclo")
+
+[node name="PlayerUI" parent="CanvasLayer/Control2" unique_id=1141615010 instance=ExtResource("14_puj3s")]
+layout_mode = 1
+offset_top = -352.0
+offset_right = 150.0
+offset_bottom = 353.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qaclo")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control2" unique_id=1502615002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_hn2o6")
+
+[node name="TextContainer" type="Control" parent="CanvasLayer/Control2" unique_id=1147944244]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_64u45")
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Control2/TextContainer" unique_id=1646546209]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 56
+theme_override_font_sizes/bold_font_size = 56
+bbcode_enabled = true
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control2" unique_id=2030548793]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -114.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("5_l55hy")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ShopPanel" parent="CanvasLayer" unique_id=698842130 instance=ExtResource("19_7nvbf")]
+visible = false

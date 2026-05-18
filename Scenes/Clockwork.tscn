@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://fy6l1ovi7wlj"]
+
+[ext_resource type="Script" uid="uid://nm3ksp6tnoj2" path="res://_Scripts/Enemy/EnemyActor.gd" id="1_lxp4j"]
+[ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="2_3ef37"]
+[ext_resource type="PackedScene" uid="uid://dvkmw1k6y08lf" path="res://Scenes/EnemySM/ClockworkSm.tscn" id="3_lxp4j"]
+
+[node name="Clockwork" type="Node" unique_id=1315508853]
+script = ExtResource("1_lxp4j")
+
+[node name="ActorContext" type="Node" parent="." unique_id=969895036]
+script = ExtResource("2_3ef37")
+metadata/_custom_type_script = "uid://4gnwqlxbknga"
+
+[node name="ClockworkSM" parent="." unique_id=1815280260 instance=ExtResource("3_lxp4j")]

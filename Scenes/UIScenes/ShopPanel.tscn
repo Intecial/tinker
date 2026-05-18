@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://ca7gptyvxxgqv"]
+
+[ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="1_8wck4"]
+[ext_resource type="Script" uid="uid://djji5f8ax2ada" path="res://_Scripts/Shop/shopPanel.gd" id="1_u4gvt"]
+[ext_resource type="Script" uid="uid://dne80bt2p0114" path="res://_Scripts/Gear/gearSellSlot.gd" id="2_8g2hp"]
+[ext_resource type="Texture2D" uid="uid://du5fan0887ire" path="res://assets/Border.png" id="3_2h6vv"]
+[ext_resource type="Script" path="res://_Scripts/ExplosionOnGear.gd" id="4_t1iyr"]
+[ext_resource type="Script" uid="uid://cl3auj8htgw6j" path="res://_Scripts/Shop/ShopArray.gd" id="5_ddxrt"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="6_rblae"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wck4"]
+bg_color = Color(0.55626905, 0.3987148, 0.31246567, 1)
+border_color = Color(0.61932755, 0.34393647, 0.29374635, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufeor"]
+bg_color = Color(0.8567975, 0.90980923, 0.99064654, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmyln"]
+bg_color = Color(0.69868773, 0.7415849, 0.49569684, 1)
+border_width_left = 4
+border_width_top = 4
+border_color = Color(0.8075129, 0.84300363, 0.6376167, 1)
+corner_radius_top_left = 6
+corner_radius_bottom_right = 6
+shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
+
+[sub_resource type="Theme" id="Theme_o5c4x"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ufeor")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_nmyln")
+
+[sub_resource type="Theme" id="Theme_ufeor"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ufeor"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="ShopPanel" type="Control" unique_id=698842130 node_paths=PackedStringArray("shopArray", "sellSlot", "skip_button")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -62.0
+offset_right = 157.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_8wck4")
+script = ExtResource("1_u4gvt")
+shopArray = NodePath("Panel2/HBoxContainer/ShopArray")
+sellSlot = NodePath("Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot")
+skip_button = NodePath("Panel2/HBoxContainer/VBoxContainer/MarginContainer2/PanelContainer/Button")
+
+[node name="Panel2" type="Panel" parent="." unique_id=574503456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -82.0
+offset_right = 105.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2" unique_id=184799122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopArray" type="GridContainer" parent="Panel2/HBoxContainer" unique_id=769653548 node_paths=PackedStringArray("shopPanel")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+columns = 4
+script = ExtResource("5_ddxrt")
+shopPanel = NodePath("../../..")
+
+[node name="GearArraySlot" parent="Panel2/HBoxContainer/ShopArray" unique_id=1224456143 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot2" parent="Panel2/HBoxContainer/ShopArray" unique_id=1249236274 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot3" parent="Panel2/HBoxContainer/ShopArray" unique_id=81496489 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot4" parent="Panel2/HBoxContainer/ShopArray" unique_id=1381983240 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot5" parent="Panel2/HBoxContainer/ShopArray" unique_id=43556745 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot6" parent="Panel2/HBoxContainer/ShopArray" unique_id=680753448 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot7" parent="Panel2/HBoxContainer/ShopArray" unique_id=1702829880 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="GearArraySlot8" parent="Panel2/HBoxContainer/ShopArray" unique_id=67074967 instance=ExtResource("6_rblae")]
+layout_mode = 2
+isShop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/HBoxContainer" unique_id=801240365]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2/HBoxContainer/VBoxContainer" unique_id=1734976239]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="Panel" type="PanelContainer" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer" unique_id=72840824]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8wck4")
+
+[node name="SellSlot" type="MarginContainer" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel" unique_id=1169053444 node_paths=PackedStringArray("explosionOnGear")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_o5c4x")
+script = ExtResource("2_8g2hp")
+explosionOnGear = NodePath("GPUParticles2D")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot" unique_id=1912090425]
+layout_mode = 2
+mouse_filter = 0
+theme = SubResource("Theme_ufeor")
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot/MarginContainer" unique_id=1933364528]
+visible = false
+modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
+layout_mode = 2
+texture = ExtResource("3_2h6vv")
+expand_mode = 5
+
+[node name="Amount" type="RichTextLabel" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot/MarginContainer" unique_id=38794296]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Sell"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot" unique_id=1294158083]
+layout_mode = 2
+expand_mode = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot" unique_id=1954145980]
+position = Vector2(4, 4)
+emitting = false
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ufeor")
+script = ExtResource("4_t1iyr")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel2/HBoxContainer/VBoxContainer" unique_id=118330364]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer2" unique_id=1461155451]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel2/HBoxContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=403263105]
+layout_mode = 2
+text = "Skip"
+
+[connection signal="mouse_exited" from="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot" to="Panel2/HBoxContainer/VBoxContainer/MarginContainer/Panel/SellSlot" method="_on_margin_container_mouse_exited"]

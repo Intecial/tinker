@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cgea4mnhbn65a"]
+
+[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_6ba18"]
+[ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="1_lq8eq"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1003889804 node_paths=PackedStringArray("gear_slots")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -12
+script = ExtResource("1_lq8eq")
+gear_slots = [NodePath("MarginContainer/GearArraySlot"), NodePath("MarginContainer2/GearArraySlot"), NodePath("MarginContainer3/GearArraySlot"), NodePath("MarginContainer5/GearArraySlot"), NodePath("MarginContainer4/GearArraySlot"), NodePath("MarginContainer6/GearArraySlot")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1553285887]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="GearArraySlot" parent="MarginContainer" unique_id=1224456143 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1919790433]
+layout_mode = 2
+theme_override_constants/margin_right = 12
+
+[node name="GearArraySlot" parent="MarginContainer2" unique_id=986381994 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1455046441]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="GearArraySlot" parent="MarginContainer3" unique_id=157404782 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="." unique_id=156519171]
+layout_mode = 2
+theme_override_constants/margin_right = 12
+
+[node name="GearArraySlot" parent="MarginContainer5" unique_id=1878894066 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="." unique_id=1461140280]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="GearArraySlot" parent="MarginContainer4" unique_id=1589216709 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="MarginContainer6" type="MarginContainer" parent="." unique_id=1944598829]
+layout_mode = 2
+theme_override_constants/margin_right = 12
+
+[node name="GearArraySlot" parent="MarginContainer6" unique_id=650411614 instance=ExtResource("1_6ba18")]
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+isClockwise = true

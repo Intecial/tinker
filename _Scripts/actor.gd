@@ -5,14 +5,17 @@ class_name Actor
 @export var maxHealth: int = 100
 var target: Actor
 @export var statusEffects: Array[StatusEffectResource] = []
+var next_round_sfx: Array[StatusEffectResource] = []
+@onready var gear_pouch: GearPouch = $GearPouch
 @onready var actorContext: ActorContext = $ActorContext
-var _health: int = 35
+signal on_status_effects_changed(arr: Array[StatusEffectResource])
+
+var _health: int = 100
 var health: int:
 	get:
 		return _health
 	set(value):
 		_health = value
-		print("Health Added")
 		health_changed.emit(value)
 signal health_changed(value: int)
 
@@ -22,7 +25,6 @@ var shield: int:
 		return _shield
 	set(value):
 		_shield = value
-		print("Shield Added")
 		shield_changed.emit(value)
 signal shield_changed(value: int)
 
@@ -32,7 +34,6 @@ var knowledge: int:
 		return _knowledge
 	set(value):
 		_knowledge = value
-		print("Shield Added")
 		knowledge_changed.emit(value)
 signal knowledge_changed(value: int)
 signal onDeath
@@ -42,6 +43,7 @@ func _ready() -> void:
 	if isPlayer:
 		Constant.PLAYER = self
 	actorContext.init(self)
+	print("initializing actor context"+ str(actorContext))
 	await get_tree().process_frame
 	health_changed.emit(_health)
 	shield_changed.emit(_shield)
@@ -100,8 +102,11 @@ func perform_gear(gear: GearResource) -> void:
 
 # Upkeep
 func upkeep() -> void:
+	statusEffects += next_round_sfx
+	next_round_sfx.clear()
 	triggerStatusEffects(true)
-	resetShields()
+	if !actorContext.try_get_data("maintain_shields"):
+		resetShields()
 
 func resetShields() -> void:
 	if shield == 0:
@@ -110,7 +115,30 @@ func resetShields() -> void:
 
 func triggerStatusEffects(is_upkeep: bool = false) -> void:
 	actorContext.reset()
+	var to_remove: Array[StatusEffectResource] = []
+	var consumed: Array[String] = []
+
 	for sfx: StatusEffectResource in statusEffects:
 		sfx.evaluate(actorContext)
-		if is_upkeep:
-			statusEffects.erase(sfx)
+		if is_upkeep and !sfx.is_permanent:
+			if sfx.unique_consumption:
+				# Only remove one of this type
+				if sfx.name not in consumed:
+					to_remove.append(sfx)
+					consumed.append(sfx.name)
+			else:
+				# Remove all of this type
+				to_remove.append(sfx)
+
+	for sfx: StatusEffectResource in to_remove:
+		statusEffects.erase(sfx)
+
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)
+
+func add_status_effect(status_effect: StatusEffectResource) -> void:
+	statusEffects.append(status_effect)
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)
+
+func add_next_round_sfx(status_effect: StatusEffectResource) -> void:
+	next_round_sfx.append(status_effect)
+	on_status_effects_changed.emit(statusEffects + next_round_sfx)

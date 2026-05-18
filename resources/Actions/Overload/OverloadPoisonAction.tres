@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectAplicator" format=3 uid="uid://ditm3nxfprvyl"]
+
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="1_e4xf4"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="2_v0afw"]
+[ext_resource type="Resource" uid="uid://ddmjyw13d0nsb" path="res://resources/SFXResource/Rust.tres" id="3_v0afw"]
+
+[resource]
+script = ExtResource("1_e4xf4")
+status_effects = Array[ExtResource("2_v0afw")]([ExtResource("3_v0afw"), ExtResource("3_v0afw")])
+actionName = "2 Rusts"
+metadata/_custom_type_script = "uid://d026v135owew7"

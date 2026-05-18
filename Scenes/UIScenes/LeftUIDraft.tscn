@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cyaa0e6o5j35f"]
+
+[ext_resource type="Script" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
+[ext_resource type="PackedScene" uid="uid://1wdximxq6ijr" path="res://Scenes/UIScenes/PlayerStat/PlayerStatContainer.tscn" id="1_qcrk5"]
+[ext_resource type="PackedScene" uid="uid://cgea4mnhbn65a" path="res://Scenes/UIScenes/NewGearArray.tscn" id="3_pc4b6"]
+[ext_resource type="Script" uid="uid://ku7cd2nxebho" path="res://_Scripts/sfxContainer.gd" id="4_qwi8f"]
+[ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_gdnqw"]
+
+[node name="PlayerUI" type="PanelContainer" unique_id=1141615010 node_paths=PackedStringArray("next_round_button")]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -349.5
+offset_right = 101.0
+offset_bottom = 349.5
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_6sue2")
+next_round_button = NodePath("VBoxContainer/ButtonContainer/NextRoundButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1657443587]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1351018960]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1017771605]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="PlayerStatContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317212470 instance=ExtResource("1_qcrk5")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="PanelContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=932958320]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
+layout_mode = 2
+
+[node name="SFXContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=353107045]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+script = ExtResource("4_qwi8f")
+sfx_icon = ExtResource("5_gdnqw")
+
+[node name="ButtonContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1122527746]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="NextRoundButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=2037859536]
+layout_mode = 2
+text = "Fight"
