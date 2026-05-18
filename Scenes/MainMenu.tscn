@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dthnirin1gaw8"]
+[gd_scene format=4 uid="uid://flg20wgb6m38"]
 
 [ext_resource type="FontFile" uid="uid://l7gvdqpktqko" path="res://assets/bn_machine/BNMachine.ttf" id="1_i26rj"]
 [ext_resource type="Script" uid="uid://caas7nbsxdmh6" path="res://_Scripts/RoundManager/mainMenu.gd" id="2_eiy7p"]

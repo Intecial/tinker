@@ -7,7 +7,7 @@ var spinContent : bool = false
 @export var isClockwise: bool = false
 @export var explosionOnGear: ExplosionOnGear
 @export var isShop: bool = false
-
+@export var tooltip_manager: ToolTipManager
 var gear: GearResource = null
 
 var isDisabled : bool = false
@@ -20,7 +20,7 @@ signal onGearRemoved(slot: GearArraySlot)
 
 @onready var iconRect: TextureRect = $TextureRect
 @onready var disabledRect: TextureRect = $MarginContainer/DisabledTexture
-@onready var borderRect: TextureRect = $MarginContainer/BorderRect
+@onready var borderRect: TextureRect = $MarginContainer/MarginContainer/BorderRect
 @onready var disabledColorRect: ColorRect = $ColorRect
 
 func _ready() -> void:
@@ -100,6 +100,7 @@ func setGear(newGear: GearResource) -> void:
 		iconRect.texture = null
 		iconRect.modulate = Color.WHITE
 		onGearRemoved.emit(self)
+	tooltip_manager.gear_resource = newGear
 
 func screenShake() -> void:
 	Constant.screenshake() 
@@ -117,13 +118,13 @@ func disableSlot() -> void:
 	isDisabled = true
 	disabledRect.visible = true
 	disabledColorRect.visible = true
-	borderRect.visible = false
+#	borderRect.visible = false
 	
 func enableSlot() -> void:
 	isDisabled = false
 	disabledRect.visible = false
 	disabledColorRect.visible = false
-	borderRect.visible = true
+#	borderRect.visible = true
 
 func _mouse_entered() -> void:
 	onHovered.emit(self)
@@ -159,3 +160,12 @@ func removeGear() -> void:
 	await tween.finished
 	icon.queue_free()
 	
+
+
+
+func _on_mouse_exited() -> void:
+	print("Test")
+	self._mouse_exited()
+
+func _on_mouse_entered() -> void:
+	self._mouse_entered()

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_x5fq5"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="3_le7yo"]
 [ext_resource type="Script" uid="uid://bwxpdrewwiie0" path="res://_Scripts/ActionScripts/shieldActionOnStatAction.gd" id="4_lcewi"]
-[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_1ulxh"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_v6she"]
 
 [sub_resource type="Resource" id="Resource_7kiv3"]
 script = ExtResource("2_v6she")
@@ -23,7 +23,6 @@ metadata/_custom_type_script = "uid://bwxpdrewwiie0"
 script = ExtResource("2_x5fq5")
 gearName = "Strong Guard"
 gearType = 1
-icon = ExtResource("5_1ulxh")
 actions = Array[ExtResource("1_ilahg")]([SubResource("Resource_xfidw")])
 color = Color(0.48235294, 0.13333334, 0.56078434, 1)
 isConsumable = true

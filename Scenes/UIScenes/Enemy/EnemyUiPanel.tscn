@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://cnkphldgfdmba"]
 
+[ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="1_lq66d"]
 [ext_resource type="Script" uid="uid://bxqbw0inbe2xh" path="res://Scenes/UIScenes/Enemy/enemyUI.gd" id="1_qkd1k"]
 [ext_resource type="PackedScene" uid="uid://chotrqv260b0j" path="res://Scenes/UIScenes/Enemy/EnemyStatContainer.tscn" id="1_qs2gu"]
 [ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_qkd1k"]
-[ext_resource type="Script" uid="uid://cota4vk8llufb" path="res://_Scripts/Enemy/enemy_sfx_container.gd" id="4_e83k8"]
+[ext_resource type="Script" path="res://_Scripts/Enemy/enemy_sfx_container.gd" id="4_e83k8"]
 [ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_g2nxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lq66d"]
+bg_color = Color(0.64705884, 0.4745098, 0.38039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
 
 [node name="EnemyUIPanel" type="PanelContainer" unique_id=1788743272]
 anchors_preset = 1
@@ -13,30 +24,39 @@ anchor_right = 1.0
 offset_left = -101.0
 offset_bottom = 68.0
 grow_horizontal = 0
+theme = ExtResource("1_lq66d")
 script = ExtResource("1_qkd1k")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=950593303]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=383850625]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=950593303]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1185525315]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1185525315]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EnemyStatContainer" parent="HBoxContainer/VBoxContainer" unique_id=1037146929 instance=ExtResource("1_qs2gu")]
+[node name="EnemyStatContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1037146929 instance=ExtResource("1_qs2gu")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lq66d")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=727450689]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=727450689]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1432323322]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=1432323322]
-layout_mode = 2
-
-[node name="EnemySlot" parent="HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1224456143 instance=ExtResource("2_qkd1k")]
+[node name="EnemySlot" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1224456143 instance=ExtResource("2_qkd1k")]
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 
-[node name="SfxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=779041521]
+[node name="SfxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=779041521]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_e83k8")

@@ -1,23 +1,71 @@
 [gd_scene format=3 uid="uid://cswtlw4q58ruc"]
 
 [ext_resource type="Script" uid="uid://dwrjxcn7fvth3" path="res://_Scripts/Util/toolTip.gd" id="1_ulxpo"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_m411f"]
 
-[node name="PanelContainer" type="PanelContainer" unique_id=1372637432 node_paths=PackedStringArray("label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m411f"]
+bg_color = Color(0.4453122, 0.7218154, 0.7945788, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_0v8gq"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_m411f")
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1372637432 node_paths=PackedStringArray("display_name", "icon", "label")]
+visibility_layer = 524288
+z_index = 10
+z_as_relative = false
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_0v8gq")
 script = ExtResource("1_ulxpo")
-label = NodePath("MarginContainer/RichTextLabel")
+display_name = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/RichTextLabel")
+icon = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TextureRect")
+label = NodePath("MarginContainer/VBoxContainer/PanelContainer/MarginContainer/RichTextLabel")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1301727451]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=704309047]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=340793565]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1618470689]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1937598276]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=981821633]
+layout_mode = 2
+texture = ExtResource("2_m411f")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=60274001]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1734627793]
+layout_mode = 2
+text = "Action Name"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=96626069]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1105005304]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=340793565]
 layout_mode = 2
 text = "THIS IS A DESCRIPTION"
 fit_content = true
-autowrap_mode = 0
-vertical_alignment = 1
+autowrap_mode = 2

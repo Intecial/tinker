@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5s8u6tgmbgg0"]
 
-[ext_resource type="PackedScene" uid="uid://b72quf4tvb4xt" path="res://Scenes/MainUiWhite.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://blqod0y785x8b" path="res://Scenes/MainUiWhite.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cear2kyccrxm4" path="res://_Scripts/main_camera.gd" id="2_uu6xs"]
 
 [node name="Control" type="Node" unique_id=974164979]

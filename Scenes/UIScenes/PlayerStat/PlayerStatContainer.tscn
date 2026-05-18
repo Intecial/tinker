@@ -1,13 +1,40 @@
 [gd_scene format=3 uid="uid://1wdximxq6ijr"]
 
 [ext_resource type="PackedScene" uid="uid://b4kkhcbydcmhg" path="res://Scenes/UIScenes/PlayerStat/StatContainer.tscn" id="1_4dv15"]
-[ext_resource type="Script" uid="uid://bipn5c31s4yw1" path="res://_Scripts/UI/PlayerDataView.gd" id="1_q1dn2"]
+[ext_resource type="FontFile" uid="uid://l7gvdqpktqko" path="res://assets/bn_machine/BNMachine.ttf" id="1_hxjxa"]
+[ext_resource type="Script" path="res://_Scripts/UI/PlayerDataView.gd" id="1_q1dn2"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="4_26c5b"]
 [ext_resource type="Texture2D" uid="uid://g4njt8ea6vgm" path="res://assets/Knowledge.png" id="5_6xut1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nvbf"]
+bg_color = Color(0.64734054, 0.47603887, 0.38013396, 1)
+
+[sub_resource type="Theme" id="Theme_4eqbr"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7nvbf")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 8
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/bold_font = ExtResource("1_hxjxa")
+RichTextLabel/fonts/mono_font = ExtResource("1_hxjxa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxjxa"]
+bg_color = Color(0.64705884, 0.4745098, 0.38039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
 [node name="PlayerStatContainer" type="PanelContainer" unique_id=1765920809 node_paths=PackedStringArray("health", "shield", "knowledge")]
-offset_right = 101.0
+offset_right = 109.0
 offset_bottom = 104.0
+theme = SubResource("Theme_4eqbr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hxjxa")
 script = ExtResource("1_q1dn2")
 health = NodePath("VBoxContainer/Health")
 shield = NodePath("VBoxContainer/Shield")

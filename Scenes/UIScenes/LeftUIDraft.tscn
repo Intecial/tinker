@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cyaa0e6o5j35f"]
 
-[ext_resource type="Script" uid="uid://c0ghhr3v4bvgh" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
+[ext_resource type="Script" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
 [ext_resource type="PackedScene" uid="uid://1wdximxq6ijr" path="res://Scenes/UIScenes/PlayerStat/PlayerStatContainer.tscn" id="1_qcrk5"]
-[ext_resource type="PackedScene" uid="uid://dna74eaa8su4k" path="res://Scenes/Gear/GearArray.tscn" id="2_qcrk5"]
+[ext_resource type="PackedScene" uid="uid://cgea4mnhbn65a" path="res://Scenes/UIScenes/NewGearArray.tscn" id="3_pc4b6"]
 [ext_resource type="Script" uid="uid://ku7cd2nxebho" path="res://_Scripts/sfxContainer.gd" id="4_qwi8f"]
 [ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_gdnqw"]
 
@@ -15,6 +15,7 @@ offset_top = -349.5
 offset_right = 101.0
 offset_bottom = 349.5
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_6sue2")
 next_round_button = NodePath("HBoxContainer/VBoxContainer/ButtonContainer/NextRoundButton")
 
@@ -34,10 +35,8 @@ size_flags_stretch_ratio = 0.2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
 
-[node name="GearArray" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=55317283 instance=ExtResource("2_qcrk5")]
+[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
 layout_mode = 2
 
 [node name="ButtonContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1122527746]

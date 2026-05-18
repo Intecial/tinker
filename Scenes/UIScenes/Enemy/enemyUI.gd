@@ -1,10 +1,10 @@
 extends Control
 class_name EnemyUI
 
-@onready var enemy_stat_container: EnemyStatView = $HBoxContainer/VBoxContainer/EnemyStatContainer
+@onready var enemy_stat_container: EnemyStatView = $MarginContainer/HBoxContainer/VBoxContainer/EnemyStatContainer
 
-@onready var enemy_sfx_container: EnemySfxContainer = $HBoxContainer/SfxContainer
-@onready var enemy_slot: GearArraySlot = $HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/EnemySlot
+@onready var enemy_sfx_container: EnemySfxContainer = $MarginContainer/HBoxContainer/SfxContainer
+@onready var enemy_slot: GearArraySlot = $MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/EnemySlot
 var target: EnemyActor
 func connect_actor(enemy_actor: EnemyActor) -> void:
 	self.target = enemy_actor

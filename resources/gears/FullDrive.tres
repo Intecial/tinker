@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_pyb0m"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_x3d3d"]
 [ext_resource type="Script" uid="uid://b6i0ihsfo6dla" path="res://_Scripts/ActionScripts/damageOnGearType.gd" id="3_lae6s"]
-[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="4_lae6s"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="4_lae6s"]
 
 [sub_resource type="Resource" id="Resource_5wn5t"]
 script = ExtResource("2_pyb0m")
@@ -20,7 +20,6 @@ metadata/_custom_type_script = "uid://b6i0ihsfo6dla"
 [resource]
 script = ExtResource("2_x3d3d")
 gearName = "FullDrive"
-icon = ExtResource("4_lae6s")
 actions = Array[ExtResource("1_gjg4q")]([SubResource("Resource_gim7n")])
 color = Color(0.56078434, 0.21568628, 0.14117648, 1)
 isConsumable = true

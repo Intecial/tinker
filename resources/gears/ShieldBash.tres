@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_gcg8j"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_3qc5m"]
-[ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="2_cy2u8"]
 [ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_mt626"]
 [ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="3_36i6k"]
 [ext_resource type="Script" uid="uid://d2pof0tv3gl3m" path="res://_Scripts/ActionScripts/damageActionOnStatAction.gd" id="4_5dvhv"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_mt626"]
 
 [sub_resource type="Resource" id="Resource_niwbs"]
 script = ExtResource("2_mt626")
@@ -23,7 +23,6 @@ metadata/_custom_type_script = "uid://d2pof0tv3gl3m"
 script = ExtResource("2_3qc5m")
 gearName = "Shield Bash"
 gearType = 1
-icon = ExtResource("2_cy2u8")
 actions = Array[ExtResource("1_gcg8j")]([SubResource("Resource_4dpn1")])
 color = Color(0.31975466, 0.45352912, 0.56595975, 1)
 isConsumable = true

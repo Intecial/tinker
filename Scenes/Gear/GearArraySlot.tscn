@@ -1,30 +1,13 @@
-[gd_scene format=3 uid="uid://cecwk11wuv0gn"]
+[gd_scene format=3 uid="uid://kg6kfa1fhrpu"]
 
 [ext_resource type="Script" uid="uid://tp633fyfg8wf" path="res://_Scripts/Gear/gearArraySlot.gd" id="1_ufeor"]
-[ext_resource type="Texture2D" uid="uid://du5fan0887ire" path="res://assets/Border.png" id="2_ufeor"]
-[ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://_Scripts/ExplosionOnGear.gd" id="3_uh5re"]
+[ext_resource type="Texture2D" uid="uid://bh8lmbnw3th71" path="res://assets/CogSlot.png" id="2_umybr"]
+[ext_resource type="Script" path="res://_Scripts/ExplosionOnGear.gd" id="3_uh5re"]
 [ext_resource type="Texture2D" uid="uid://do26kv7ax15mv" path="res://assets/disabled-border.png" id="4_5mgy8"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://_Scripts/ToolTipManager.gd" id="5_3n8ad"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="6_c4ryu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufeor"]
-bg_color = Color(0.8980392, 0.92156863, 0.79607844, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh5re"]
-bg_color = Color(0.8980392, 0.92156863, 0.79607844, 1)
-border_width_left = 4
-border_width_top = 4
-border_color = Color(0.8075129, 0.84300363, 0.6376167, 1)
-corner_radius_top_left = 6
-corner_radius_bottom_right = 6
-shadow_color = Color(0.627451, 0.4862745, 0.3137255, 1)
-
-[sub_resource type="Theme" id="Theme_uh5re"]
-Panel/styles/panel = SubResource("StyleBoxFlat_ufeor")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_uh5re")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n8ad"]
 
 [sub_resource type="Theme" id="Theme_ufeor"]
 
@@ -32,15 +15,16 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_uh5re")
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
-[node name="GearArraySlot" type="PanelContainer" unique_id=1224456143 node_paths=PackedStringArray("explosionOnGear")]
+[node name="GearArraySlot" type="PanelContainer" unique_id=1224456143 node_paths=PackedStringArray("explosionOnGear", "tooltip_manager")]
 custom_minimum_size = Vector2(32, 32)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
-theme = SubResource("Theme_uh5re")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3n8ad")
 script = ExtResource("1_ufeor")
 explosionOnGear = NodePath("GPUParticles2D")
+tooltip_manager = NodePath("ToolTipManager")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=655995606]
 visible = false
@@ -51,10 +35,17 @@ color = Color(0.36, 0.36, 0.36, 0.4117647)
 layout_mode = 2
 theme = SubResource("Theme_ufeor")
 
-[node name="BorderRect" type="TextureRect" parent="MarginContainer" unique_id=165010711]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1188415408]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="BorderRect" type="TextureRect" parent="MarginContainer/MarginContainer" unique_id=165010711]
 modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
 layout_mode = 2
-texture = ExtResource("2_ufeor")
+texture = ExtResource("2_umybr")
 expand_mode = 5
 
 [node name="DisabledTexture" type="TextureRect" parent="MarginContainer" unique_id=488879534]
@@ -76,5 +67,16 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ufeor")
 script = ExtResource("3_uh5re")
 
+[node name="ToolTipManager" type="Control" parent="." unique_id=820154418]
+visibility_layer = 524289
+z_index = 10
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("5_3n8ad")
+toolTipScene = ExtResource("6_c4ryu")
+metadata/_custom_type_script = "uid://xhg2oixelk2k"
+
 [connection signal="mouse_entered" from="." to="." method="_mouse_entered"]
+[connection signal="mouse_entered" from="." to="ToolTipManager" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_mouse_exited"]
+[connection signal="mouse_exited" from="." to="ToolTipManager" method="_on_mouse_exited"]
