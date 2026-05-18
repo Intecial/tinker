@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dfwchs1x5324o"]
 
 [ext_resource type="Script" uid="uid://q1wdkruy4kqy" path="res://_Scripts/Forge/forgePanel.gd" id="1_8nomo"]
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_pswy6"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_pswy6"]
 [ext_resource type="Texture2D" uid="uid://deniqlp540jfe" path="res://assets/plus.png" id="3_pdv8b"]
-[ext_resource type="Script" uid="uid://c36pa3oj33eee" path="res://_Scripts/ExplosionOnGear.gd" id="4_croh1"]
+[ext_resource type="Script" path="res://_Scripts/ExplosionOnGear.gd" id="4_croh1"]
 [ext_resource type="Texture2D" uid="uid://vk46wfh0mh0b" path="res://assets/equals.png" id="5_nbmcx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufeor"]
@@ -33,52 +33,61 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_uh5re")
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
-[node name="ForgePanel" type="Panel" unique_id=842013050]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ForgePanel" type="Control" unique_id=1111267457 node_paths=PackedStringArray("firstGearSlot", "secondGearSlot", "resultGear", "skip_button")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -30.0
+offset_right = 158.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_8nomo")
+firstGearSlot = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/FirstGear")
+secondGearSlot = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/SecondGear")
+resultGear = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/Result")
+skip_button = NodePath("VBoxContainer/Button")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1394416083]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -32.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1951674271]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1394416083]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2" unique_id=71746128]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=71746128]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FirstGear" parent="HBoxContainer2/HBoxContainer" unique_id=1224456143 instance=ExtResource("2_pswy6")]
+[node name="FirstGear" parent="VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1224456143 instance=ExtResource("2_pswy6")]
 layout_mode = 2
 
-[node name="GearArraySlot4" type="PanelContainer" parent="HBoxContainer2/HBoxContainer" unique_id=537143324]
+[node name="GearArraySlot4" type="PanelContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=537143324]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_uh5re")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=528518925]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=528518925]
 layout_mode = 2
 theme = SubResource("Theme_ufeor")
 
-[node name="BorderRect" type="TextureRect" parent="HBoxContainer2/HBoxContainer/GearArraySlot4/MarginContainer" unique_id=165010711]
+[node name="BorderRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4/MarginContainer" unique_id=165010711]
 modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
 layout_mode = 2
 texture = ExtResource("3_pdv8b")
-expand_mode = 5
+expand_mode = 2
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=26338371]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" unique_id=26338371]
 position = Vector2(4, 4)
 emitting = false
 amount = 16
@@ -87,27 +96,27 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ufeor")
 script = ExtResource("4_croh1")
 
-[node name="SecondGear" parent="HBoxContainer2/HBoxContainer" unique_id=709744274 instance=ExtResource("2_pswy6")]
+[node name="SecondGear" parent="VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=709744274 instance=ExtResource("2_pswy6")]
 layout_mode = 2
 
-[node name="GearArraySlot5" type="PanelContainer" parent="HBoxContainer2/HBoxContainer" unique_id=2071068822]
+[node name="GearArraySlot5" type="PanelContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=2071068822]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_uh5re")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1196343381]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1196343381]
 layout_mode = 2
 theme = SubResource("Theme_ufeor")
 
-[node name="BorderRect" type="TextureRect" parent="HBoxContainer2/HBoxContainer/GearArraySlot5/MarginContainer" unique_id=609442454]
+[node name="BorderRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5/MarginContainer" unique_id=609442454]
 modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
 layout_mode = 2
 texture = ExtResource("5_nbmcx")
-expand_mode = 5
+expand_mode = 3
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1907632117]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" unique_id=1907632117]
 position = Vector2(4, 4)
 emitting = false
 amount = 16
@@ -116,17 +125,21 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ufeor")
 script = ExtResource("4_croh1")
 
-[node name="Result" parent="HBoxContainer2/HBoxContainer" unique_id=1380245106 instance=ExtResource("2_pswy6")]
+[node name="Result" parent="VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1380245106 instance=ExtResource("2_pswy6")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HBoxContainer2" unique_id=1148987806]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1148987806]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 text = "Forge"
 
-[connection signal="mouse_entered" from="HBoxContainer2/HBoxContainer/GearArraySlot4" to="HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer2/HBoxContainer/GearArraySlot4" to="HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_exited"]
-[connection signal="mouse_entered" from="HBoxContainer2/HBoxContainer/GearArraySlot5" to="HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer2/HBoxContainer/GearArraySlot5" to="HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_exited"]
-[connection signal="button_down" from="HBoxContainer2/Button" to="." method="onForgeClick"]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1750166814]
+layout_mode = 2
+text = "Skip"
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" to="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" to="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot4" method="_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" to="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" to="VBoxContainer/HBoxContainer2/HBoxContainer/GearArraySlot5" method="_mouse_exited"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer2/Button" to="." method="onForgeClick"]

@@ -31,6 +31,8 @@ func initLoc() -> void:
 	await get_tree().process_frame
 	iconRect.pivot_offset = iconRect.size / 2
 	explosionOnGear.position = iconRect.size / 2
+	if isShop:
+		tooltip_manager.is_shop = true
 	
 func _process(delta: float) -> void:
 	if spinContent:

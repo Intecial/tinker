@@ -12,9 +12,10 @@
 [ext_resource type="Script" path="res://_Scripts/UI/canvasLayer.gd" id="13_mhdvt"]
 [ext_resource type="PackedScene" uid="uid://cyaa0e6o5j35f" path="res://Scenes/UIScenes/LeftUIDraft.tscn" id="14_puj3s"]
 [ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="14_qaclo"]
+[ext_resource type="PackedScene" uid="uid://ca7gptyvxxgqv" path="res://Scenes/UIScenes/ShopPanel.tscn" id="19_7nvbf"]
 [ext_resource type="Script" path="res://_Scripts/Util/textContainer.gd" id="19_64u45"]
 [ext_resource type="Script" path="res://_Scripts/Util/FXLayer.gd" id="19_hn2o6"]
-[ext_resource type="Script" path="res://_Scripts/Route/routeState.gd" id="21_nmyln"]
+[ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://_Scripts/Route/routeState.gd" id="21_nmyln"]
 [ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="24_ttft5"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="28_sgbvm"]
 [ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteGenerator.tscn" id="29_qh8ww"]
@@ -59,8 +60,9 @@ script = ExtResource("7_ojolf")
 [node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
 script = ExtResource("8_8px1f")
 
-[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275]
+[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("shop_panel")]
 script = ExtResource("9_hn2o6")
+shop_panel = NodePath("../../CanvasLayer/ShopPanel")
 
 [node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
 script = ExtResource("24_ttft5")
@@ -146,3 +148,6 @@ grow_vertical = 0
 [node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("5_l55hy")]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="ShopPanel" parent="CanvasLayer" unique_id=698842130 instance=ExtResource("19_7nvbf")]
+visible = false

@@ -8,6 +8,7 @@ var ROUND_MANAGER: RoundManager
 var ENEMY_MANAGER: EnemyManager
 var SHOP_ARRAY: ShopArray
 var PANEL_MANAGER: PanelManager
+var ROUTE_GENERATOR: RouteGenerator
 
 var GEAR_DICT: Dictionary[String, GearResource] = {}
 

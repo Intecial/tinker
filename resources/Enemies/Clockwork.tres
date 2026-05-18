@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("2_t3anq")
 name = "Clockwork"
+health = 1
 icon = ExtResource("3_tm4xx")
 enemy_state_machine = ExtResource("1_tm4xx")
 metadata/_custom_type_script = "uid://bep6elq4ywc6q"

@@ -45,3 +45,4 @@ func transitionState(newStateName: String) -> void:
 
 func next_button_click() -> void:
 	currentState.onNextRound(self)
+

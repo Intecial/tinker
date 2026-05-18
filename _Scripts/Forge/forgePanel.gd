@@ -2,9 +2,10 @@ extends GamePanel
 class_name ForgePanel
 
 
-@onready var firstGearSlot: GearArraySlot = $HBoxContainer2/HBoxContainer/FirstGear
-@onready var secondGearSlot: GearArraySlot = $HBoxContainer2/HBoxContainer/SecondGear
-@onready var resultGear: GearArraySlot = $HBoxContainer2/HBoxContainer/Result
+@export var firstGearSlot: GearArraySlot
+@export var secondGearSlot: GearArraySlot
+@export var resultGear: GearArraySlot
+@export var skip_button: Button
 
 #func _enter_tree() -> void:
 #	Constant.FORGE_PANEL = self

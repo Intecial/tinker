@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://de7wesj4kcats"]
 
-[ext_resource type="Script" uid="uid://dhcu687uw1l0q" path="res://_Scripts/Enemy/enemyManager.gd" id="1_irqhs"]
+[ext_resource type="Script" path="res://_Scripts/Enemy/enemyManager.gd" id="1_irqhs"]
 [ext_resource type="PackedScene" uid="uid://cbi8jwvwrmel0" path="res://Scenes/Enemy/Enemy.tscn" id="2_2hr21"]
 
 [sub_resource type="Curve" id="Curve_ttft5"]

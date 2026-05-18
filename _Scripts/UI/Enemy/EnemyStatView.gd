@@ -24,10 +24,11 @@ func show_damage(amount: int) -> void:
 #	popUpManager.invoke(amount, popUpManager, "-")
 	
 func _exit_tree() -> void:
-	target.shield_changed.disconnect(shield.render)
-	target.health_changed.disconnect(health.render)
-	target.on_damage.disconnect(show_damage)
-	enemyName.text = ""
+	pass
+#	target.shield_changed.disconnect(shield.render)
+#	target.health_changed.disconnect(health.render)
+#	target.on_damage.disconnect(show_damage)
+#	enemyName.text = ""
 
 #func popGear() -> void:
 #	enemyActiveGear.removeGear()

@@ -11,12 +11,14 @@
 [ext_resource type="Script" uid="uid://c3gxfa2imechk" path="res://_Scripts/RoundManager/shopState.gd" id="9_6yy8h"]
 [ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="10_1h7ac"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="11_ipy2v"]
-[ext_resource type="Script" path="res://_Scripts/Route/routeState.gd" id="12_xycij"]
+[ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://_Scripts/Route/routeState.gd" id="12_xycij"]
 [ext_resource type="Script" path="res://_Scripts/UI/canvasLayer.gd" id="13_smlfu"]
 [ext_resource type="PackedScene" uid="uid://cyaa0e6o5j35f" path="res://Scenes/UIScenes/LeftUIDraft.tscn" id="14_3fhxl"]
 [ext_resource type="PackedScene" uid="uid://cn8dx18fxlwmt" path="res://Scenes/Gear/GearInventory.tscn" id="15_n7jsc"]
+[ext_resource type="PackedScene" uid="uid://dfwchs1x5324o" path="res://Scenes/UIScenes/ForgePanel.tscn" id="16_cnbp3"]
 [ext_resource type="Script" path="res://_Scripts/Util/FXLayer.gd" id="16_x25t8"]
 [ext_resource type="Script" path="res://_Scripts/Util/textContainer.gd" id="17_snmk3"]
+[ext_resource type="PackedScene" uid="uid://ca7gptyvxxgqv" path="res://Scenes/UIScenes/ShopPanel.tscn" id="18_86u5x"]
 
 [node name="MainUI" type="Node2D" unique_id=115053855]
 
@@ -39,7 +41,7 @@ script = ExtResource("5_4y86j")
 
 [node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "player_ui")]
 script = ExtResource("6_0llha")
-initialState = NodePath("PreparationState")
+initialState = NodePath("ForgeState")
 player_ui = NodePath("../CanvasLayer/Control2/PlayerUI")
 
 [node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274]
@@ -48,14 +50,16 @@ script = ExtResource("7_u2b04")
 [node name="CombatState" type="Node" parent="RoundManager" unique_id=194037541]
 script = ExtResource("8_62rs3")
 
-[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275]
+[node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("shop_panel")]
 script = ExtResource("9_6yy8h")
+shop_panel = NodePath("../../CanvasLayer/Control2/ShopPanel")
 
 [node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
 script = ExtResource("10_1h7ac")
 
-[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761]
+[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761 node_paths=PackedStringArray("forge_panel")]
 script = ExtResource("11_ipy2v")
+forge_panel = NodePath("../../CanvasLayer/Control2/ForgePanel")
 
 [node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589 node_paths=PackedStringArray("route_parent")]
 script = ExtResource("12_xycij")
@@ -77,6 +81,32 @@ layout_mode = 1
 offset_top = -340.5
 offset_right = 150.0
 offset_bottom = 340.5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control2" unique_id=1371757342]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -114.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("15_n7jsc")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ForgePanel" parent="CanvasLayer/Control2" unique_id=1111267457 instance=ExtResource("16_cnbp3")]
+visible = false
+layout_mode = 1
+
+[node name="ShopPanel" parent="CanvasLayer/Control2" unique_id=698842130 instance=ExtResource("18_86u5x")]
+visible = false
+layout_mode = 1
 
 [node name="Control" type="Control" parent="CanvasLayer/Control2" unique_id=1502615002]
 layout_mode = 1
@@ -114,21 +144,3 @@ theme_override_font_sizes/normal_font_size = 56
 theme_override_font_sizes/bold_font_size = 56
 bbcode_enabled = true
 fit_content = true
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control2" unique_id=1371757342]
-custom_minimum_size = Vector2(700, 100)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -350.0
-offset_top = -114.0
-offset_right = 350.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("15_n7jsc")]
-layout_mode = 2
-size_flags_vertical = 4

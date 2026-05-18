@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 class_name GamePanel
 
 @export var panelResource: PanelResource

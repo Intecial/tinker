@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="5_jl10e"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_2fj6y"]
 [ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="6_281my"]
-[ext_resource type="Resource" uid="uid://cnxpjnuljvfcn" path="res://resources/SFXResource/RetainShield.tres" id="7_2fj6y"]
+[ext_resource type="Resource" uid="uid://qafrbild6rki" path="res://resources/SFXResource/RetainShield.tres" id="7_2fj6y"]
 [ext_resource type="Script" uid="uid://suvg5dk1br0u" path="res://_Scripts/Enemy/Clockwork/initState.gd" id="7_6gb4i"]
 [ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="8_7qsou"]
 [ext_resource type="Script" uid="uid://c2kv2pa7lyhqr" path="res://_Scripts/Enemy/Clockwork/explodeState.gd" id="9_qgw6b"]
@@ -22,7 +22,6 @@ metadata/_custom_type_script = "uid://4x2n8t7kk2ng"
 [sub_resource type="Resource" id="Resource_6gb4i"]
 script = ExtResource("5_jl10e")
 status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
-num_of_effects = 2
 metadata/_custom_type_script = "uid://d026v135owew7"
 
 [sub_resource type="Resource" id="Resource_0tw1n"]
@@ -38,13 +37,12 @@ metadata/_custom_type_script = "uid://5wjyyook1xrr"
 
 [sub_resource type="Resource" id="Resource_b5pqt"]
 script = ExtResource("8_7qsou")
-shieldAmount = 25
+shieldAmount = 1
 metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
 
 [sub_resource type="Resource" id="Resource_7qsou"]
 script = ExtResource("5_jl10e")
 status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
-num_of_effects = 2
 metadata/_custom_type_script = "uid://d026v135owew7"
 
 [sub_resource type="Resource" id="Resource_sqayf"]

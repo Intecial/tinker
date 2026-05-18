@@ -12,14 +12,13 @@
 [node name="RouteParent" type="Node2D" unique_id=1694749728]
 script = ExtResource("1_socn3")
 
-[node name="RouteGenerator" type="Node2D" parent="." unique_id=690507080]
-position = Vector2(317, 199)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=818639120]
+texture = ExtResource("8_lucqb")
+
+[node name="RouteGenerator" type="Node2D" parent="." unique_id=690507080 node_paths=PackedStringArray("player_sprite")]
 script = ExtResource("1_1vy2n")
+player_sprite = NodePath("../Sprite2D")
 route_icon = ExtResource("2_7sb8h")
 tree_height = 3
 encounter_routes = Array[ExtResource("4_f1fct")]([ExtResource("7_htoh4")])
 misc_routes = Array[ExtResource("4_f1fct")]([ExtResource("6_13jo0"), ExtResource("5_lucqb")])
-
-[node name="Sprite2D" type="Sprite2D" parent="RouteGenerator" unique_id=818639120]
-position = Vector2(-317, -199)
-texture = ExtResource("8_lucqb")

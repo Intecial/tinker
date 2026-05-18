@@ -17,39 +17,43 @@ offset_bottom = 349.5
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_6sue2")
-next_round_button = NodePath("HBoxContainer/VBoxContainer/ButtonContainer/NextRoundButton")
+next_round_button = NodePath("VBoxContainer/ButtonContainer/NextRoundButton")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1351018960]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1657443587]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1017771605]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1351018960]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1017771605]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="PlayerStatContainer" parent="HBoxContainer/VBoxContainer" unique_id=1317212470 instance=ExtResource("1_qcrk5")]
+[node name="PlayerStatContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317212470 instance=ExtResource("1_qcrk5")]
 layout_mode = 2
 size_flags_stretch_ratio = 0.2
 
-[node name="PanelContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=932958320]
+[node name="PanelContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=932958320]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
+[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
 layout_mode = 2
 
-[node name="ButtonContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1122527746]
-layout_mode = 2
-size_flags_stretch_ratio = 0.2
-
-[node name="NextRoundButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer" unique_id=2037859536]
-layout_mode = 2
-text = "Fight"
-
-[node name="SFXContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=353107045]
+[node name="SFXContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=353107045]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
 script = ExtResource("4_qwi8f")
 sfx_icon = ExtResource("5_gdnqw")
+
+[node name="ButtonContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1122527746]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+
+[node name="NextRoundButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=2037859536]
+layout_mode = 2
+text = "Fight"

@@ -1,7 +1,7 @@
 extends GridContainer
 class_name ShopArray
 
-
+@export var shopPanel: ShopPanel
 func _enter_tree() -> void:
 	Constant.SHOP_ARRAY = self
 	
@@ -13,7 +13,6 @@ func populateShop() -> void:
 		await gearArrSlot.setGear(duplicatedResource)
 
 func clearShop() -> void:
-	var shopPanel: ShopPanel = Constant.PANEL_MANAGER.getPanel("Shop")
 	shopPanel.initSellSlot()
 	for gearArrSlot: GearArraySlot in get_children():
 		await gearArrSlot.initLoc()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbi8jwvwrmel0"]
 
-[ext_resource type="Script" uid="uid://nm3ksp6tnoj2" path="res://_Scripts/Enemy/EnemyActor.gd" id="1_02vxf"]
+[ext_resource type="Script" path="res://_Scripts/Enemy/EnemyActor.gd" id="1_02vxf"]
 [ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="2_fw0yv"]
 [ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="3_seemo"]
 [ext_resource type="Script" uid="uid://bd8piesxivsbe" path="res://_Scripts/Player/gearPouch.gd" id="4_fw0yv"]
