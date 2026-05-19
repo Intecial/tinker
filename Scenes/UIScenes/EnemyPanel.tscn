@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://cb8an3miecq65"]
 
-[ext_resource type="Script" path="res://_Scripts/UI/enemyPanel.gd" id="1_602w5"]
 [ext_resource type="Script" uid="uid://dkxyh2es4knef" path="res://_Scripts/UI/Enemy/EnemyStatView.gd" id="2_rg3p2"]
 [ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://Scenes/UIScenes/DamagePopUp.tscn" id="4_b8wqs"]
 [ext_resource type="PackedScene" uid="uid://bsw1aixygmbh7" path="res://Scenes/UIScenes/Stat.tscn" id="4_o37cp"]
 [ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="5_qv0nu"]
-[ext_resource type="Script" uid="uid://bve6esw0b120r" path="res://_Scripts/Util/popUpManager.gd" id="7_602w5"]
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="7_b8wqs"]
+[ext_resource type="Script" path="res://_Scripts/Util/popUpManager.gd" id="7_602w5"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="7_b8wqs"]
 
 [node name="EnemyPanel" type="Panel" unique_id=2080467824]
 clip_contents = true
@@ -17,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 mouse_filter = 2
-script = ExtResource("1_602w5")
 
 [node name="GearArraySlot" parent="." unique_id=1224456143 instance=ExtResource("7_b8wqs")]
 visible = false
@@ -105,7 +103,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_602w5")
 popUp = ExtResource("4_b8wqs")
-metadata/_custom_type_script = "uid://bve6esw0b120r"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer" unique_id=439923457]
 layout_mode = 2

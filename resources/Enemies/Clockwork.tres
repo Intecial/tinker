@@ -4,11 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dvkmw1k6y08lf" path="res://Scenes/EnemySM/ClockworkSm.tscn" id="1_tm4xx"]
 [ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="2_t3anq"]
 [ext_resource type="Texture2D" uid="uid://bh3lm34cv6g4d" path="res://assets/Skeleton.png" id="3_tm4xx"]
+[ext_resource type="Resource" uid="uid://bwus5g2cx50e0" path="res://resources/gears/FullDrive.tres" id="3_ycqtu"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="5_0f024"]
+[ext_resource type="Resource" uid="uid://b0dlvebq0udu5" path="res://resources/Actions/PermanentActions/RetainShields.tres" id="6_qax8x"]
 
 [resource]
 script = ExtResource("2_t3anq")
 name = "Clockwork"
-health = 1
+health = 25
+gears = Array[ExtResource("1_gihhn")]([ExtResource("3_ycqtu")])
+permanent_actions = Array[ExtResource("5_0f024")]([ExtResource("6_qax8x")])
 icon = ExtResource("3_tm4xx")
 enemy_state_machine = ExtResource("1_tm4xx")
 metadata/_custom_type_script = "uid://bep6elq4ywc6q"

@@ -9,12 +9,15 @@
 [ext_resource type="Script" uid="uid://bjarnxaksrsad" path="res://_Scripts/RoundManager/preparationState.gd" id="7_ojolf"]
 [ext_resource type="Script" uid="uid://ctowd4yydc0cn" path="res://_Scripts/RoundManager/combatState.gd" id="8_8px1f"]
 [ext_resource type="Script" uid="uid://c3gxfa2imechk" path="res://_Scripts/RoundManager/shopState.gd" id="9_hn2o6"]
+[ext_resource type="Script" uid="uid://c0sdvod7yb0cf" path="res://_Scripts/RoundManager/enemyDropState.gd" id="13_84qcs"]
 [ext_resource type="Script" path="res://_Scripts/UI/canvasLayer.gd" id="13_mhdvt"]
 [ext_resource type="PackedScene" uid="uid://cyaa0e6o5j35f" path="res://Scenes/UIScenes/LeftUIDraft.tscn" id="14_puj3s"]
 [ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="14_qaclo"]
+[ext_resource type="PackedScene" uid="uid://bd186b6nenctw" path="res://Scenes/UIScenes/Enemy/EnemyDrop.tscn" id="16_32fpi"]
 [ext_resource type="PackedScene" uid="uid://ca7gptyvxxgqv" path="res://Scenes/UIScenes/ShopPanel.tscn" id="19_7nvbf"]
 [ext_resource type="Script" path="res://_Scripts/Util/textContainer.gd" id="19_64u45"]
 [ext_resource type="Script" path="res://_Scripts/Util/FXLayer.gd" id="19_hn2o6"]
+[ext_resource type="PackedScene" uid="uid://dfwchs1x5324o" path="res://Scenes/UIScenes/ForgePanel.tscn" id="20_t5ccl"]
 [ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://_Scripts/Route/routeState.gd" id="21_nmyln"]
 [ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="24_ttft5"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="28_sgbvm"]
@@ -62,17 +65,22 @@ script = ExtResource("8_8px1f")
 
 [node name="ShopState" type="Node" parent="RoundManager" unique_id=538150275 node_paths=PackedStringArray("shop_panel")]
 script = ExtResource("9_hn2o6")
-shop_panel = NodePath("../../CanvasLayer/ShopPanel")
+shop_panel = NodePath("../../CanvasLayer/Control2/ShopPanel")
 
 [node name="GameOverState" type="Node" parent="RoundManager" unique_id=981158430]
 script = ExtResource("24_ttft5")
 
-[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761]
+[node name="ForgeState" type="Node" parent="RoundManager" unique_id=186423761 node_paths=PackedStringArray("forge_panel")]
 script = ExtResource("28_sgbvm")
+forge_panel = NodePath("../../CanvasLayer/Control2/ForgePanel")
 
 [node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589 node_paths=PackedStringArray("route_parent")]
 script = ExtResource("21_nmyln")
 route_parent = NodePath("../../RouteGenerator")
+
+[node name="EnemyDropState" type="Node" parent="RoundManager" unique_id=449296058 node_paths=PackedStringArray("enemy_drop_panel")]
+script = ExtResource("13_84qcs")
+enemy_drop_panel = NodePath("../../CanvasLayer/Control2/EnemyDrop")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367755293]
 script = ExtResource("13_mhdvt")
@@ -86,6 +94,22 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("14_qaclo")
+
+[node name="ShopPanel" parent="CanvasLayer/Control2" unique_id=698842130 instance=ExtResource("19_7nvbf")]
+visible = false
+layout_mode = 1
+
+[node name="EnemyDrop" parent="CanvasLayer/Control2" unique_id=418833832 instance=ExtResource("16_32fpi")]
+visible = false
+layout_mode = 1
+offset_left = -61.5
+offset_top = -98.0
+offset_right = 61.5
+offset_bottom = 98.0
+
+[node name="ForgePanel" parent="CanvasLayer/Control2" unique_id=1111267457 instance=ExtResource("20_t5ccl")]
+visible = false
+layout_mode = 1
 
 [node name="PlayerUI" parent="CanvasLayer/Control2" unique_id=1141615010 instance=ExtResource("14_puj3s")]
 layout_mode = 1
@@ -148,6 +172,3 @@ grow_vertical = 0
 [node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("5_l55hy")]
 layout_mode = 2
 size_flags_vertical = 4
-
-[node name="ShopPanel" parent="CanvasLayer" unique_id=698842130 instance=ExtResource("19_7nvbf")]
-visible = false

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://b8y13m0hov0rr"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_d2x25"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="2_6rqx2"]
+[ext_resource type="Script" uid="uid://cs5adc4o6apjq" path="res://_Scripts/ActionScripts/DamageByCounterAction.gd" id="2_dlya0"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_gmyvs"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_dlya0"]
+
+[sub_resource type="Resource" id="Resource_6rqx2"]
+script = ExtResource("2_dlya0")
+counter_tag = "Bet"
+sfx_on = 1
+consume_mode = 2
+icon = ExtResource("2_6rqx2")
+metadata/_custom_type_script = "uid://cs5adc4o6apjq"
+
+[resource]
+script = ExtResource("3_dlya0")
+gearName = "Cash Out"
+actions = Array[ExtResource("1_d2x25")]([SubResource("Resource_6rqx2")])
+color = Color(0.9191123, 0.33318287, 0.30417463, 1)
+isConsumable = true
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

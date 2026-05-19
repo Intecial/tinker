@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://djyl8mmjkaui7"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_ssfwt"]
+[ext_resource type="Script" uid="uid://brdw2t667qpk4" path="res://_Scripts/EnemySM/TheGambler/raiseState.gd" id="2_y88uu"]
+[ext_resource type="Resource" uid="uid://b224avev1pwlv" path="res://resources/gears/Enemy/TheGambler/Raise.tres" id="3_3a504"]
+[ext_resource type="Script" uid="uid://dkup4gmbq4g4e" path="res://Scenes/EnemySM/cashOutState.gd" id="4_5wra6"]
+[ext_resource type="Script" uid="uid://cm7jp1tlmg8mb" path="res://Scenes/EnemySM/fortifyOddState.gd" id="4_oddvh"]
+[ext_resource type="Resource" uid="uid://b8y13m0hov0rr" path="res://resources/gears/Enemy/TheGambler/CashOut.tres" id="5_u2iwc"]
+[ext_resource type="Resource" uid="uid://bbq0d6mq34t0m" path="res://resources/gears/Enemy/TheGambler/FortifyOdds.tres" id="6_wbt6p"]
+
+[node name="TheGamblerSM" type="Node" unique_id=614928486 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_ssfwt")
+initialState = NodePath("FortifyOddState")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="RaiseState" type="Node" parent="." unique_id=1341269565]
+script = ExtResource("2_y88uu")
+gear = ExtResource("3_3a504")
+
+[node name="CashOutState" type="Node" parent="." unique_id=1256291636]
+script = ExtResource("4_5wra6")
+gear = ExtResource("5_u2iwc")
+
+[node name="FortifyOddState" type="Node" parent="." unique_id=413575313]
+script = ExtResource("4_oddvh")
+gear = ExtResource("6_wbt6p")

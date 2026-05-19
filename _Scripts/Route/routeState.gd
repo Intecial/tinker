@@ -9,6 +9,7 @@ func onEnter(roundManager: RoundManager) -> void:
 	if Constant.ROUTE_GENERATOR.is_last_route():
 		Constant.ROUTE_GENERATOR.regenerate()
 	route_parent.visible = true
+	route_parent.recenter()
 #	var routePanel: RoutePanel = Constant.PANEL_MANAGER.getPanel("Route")
 #	routePanel.initializeRoutes(roundManager)
 #	Constant.PANEL_MANAGER.switchPanel("Route")

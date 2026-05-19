@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bd186b6nenctw"]
+
+[ext_resource type="Script" uid="uid://b68ifgufhlf5h" path="res://_Scripts/Enemy/enemyDrop.gd" id="1_0q57l"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_yaj7r"]
+
+[node name="EnemyDrop" type="PanelContainer" unique_id=418833832 node_paths=PackedStringArray("drop_slot", "skip_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -90.5
+offset_right = 55.5
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0q57l")
+drop_slot = NodePath("VBoxContainer/GearArraySlot")
+skip_button = NodePath("VBoxContainer/Button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1021229986]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=316798341]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer" unique_id=992807804]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enemy Drop"
+fit_content = true
+autowrap_mode = 0
+
+[node name="GearArraySlot" parent="VBoxContainer" unique_id=1224456143 instance=ExtResource("1_yaj7r")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=258175841]
+layout_mode = 2
+text = "Skip"

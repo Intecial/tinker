@@ -6,7 +6,6 @@ enum StatType {HEALTH, SHIELD, KNOWLEDGE}
 
 func execute(actor: Actor) -> void:
 	action.damage = self.resolveType(Constant.PLAYER, stat)
-	print(action.damage)
 	action.execute(actor)
 
 func resolveType(actor: Actor, statUsed: StatType) -> int:

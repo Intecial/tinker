@@ -6,6 +6,8 @@ class_name Actor
 var target: Actor
 @export var statusEffects: Array[StatusEffectResource] = []
 var next_round_sfx: Array[StatusEffectResource] = []
+
+@export var permanentAction: Array[ActionResource] = []
 @onready var gear_pouch: GearPouch = $GearPouch
 @onready var actorContext: ActorContext = $ActorContext
 signal on_status_effects_changed(arr: Array[StatusEffectResource])
@@ -43,7 +45,6 @@ func _ready() -> void:
 	if isPlayer:
 		Constant.PLAYER = self
 	actorContext.init(self)
-	print("initializing actor context"+ str(actorContext))
 	await get_tree().process_frame
 	health_changed.emit(_health)
 	shield_changed.emit(_shield)
@@ -72,12 +73,10 @@ func resolveDamage(amt: int) -> void:
 	on_damage.emit(amt)
 
 func dealDamage(amt: int) -> void:
-	print("Player Dealing Damage")
 	var extra_damage: int = actorContext.try_get_data("extra_damage") if actorContext.try_get_data("extra_damage") else 0
 	var damage: int = amt + extra_damage
 	var mult_damage: float = actorContext.try_get_data("damage_multiplier") if actorContext.try_get_data("damage_multiplier") else 1.0
 	damage = int(damage * mult_damage)
-	print(damage)
 	target.resolveDamage(damage)
 	
 func hurtShield(amt: int) -> void:
@@ -102,8 +101,12 @@ func perform_gear(gear: GearResource) -> void:
 
 # Upkeep
 func upkeep() -> void:
-	statusEffects += next_round_sfx
+	var temp_next_sfx: Array[StatusEffectResource] = next_round_sfx.duplicate_deep(true)
 	next_round_sfx.clear()
+	for action: ActionResource in permanentAction:
+		action.execute(self)
+	
+	statusEffects += next_round_sfx + temp_next_sfx
 	triggerStatusEffects(true)
 	if !actorContext.try_get_data("maintain_shields"):
 		resetShields()

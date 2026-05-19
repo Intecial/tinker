@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Strength" format=3 uid="uid://5b6k7vk5u1a4"]
+
+[ext_resource type="Script" uid="uid://b0l0r3wgrre1v" path="res://_Scripts/StatusEffects/strength.gd" id="1_8cj78"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="1_mfg35"]
+
+[resource]
+script = ExtResource("1_8cj78")
+damage_mult = 1.5
+icon = ExtResource("1_mfg35")
+name = "Sharp"
+unique_consumption = true
+description = "Increases damage multiplier by 0.5"
+metadata/_custom_type_script = "uid://b0l0r3wgrre1v"

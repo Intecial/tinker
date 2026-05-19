@@ -31,7 +31,7 @@ func set_player_pos(route_icon: RouteIcon) -> void:
 	
 func generate_routes() -> void:
 	var root: RouteIcon = create_route_icon()
-#	var total_misc_per_branch: int = int(tree_height / 2)
+	var total_misc_per_branch: int = int(tree_height / 2)
 	root.position = Vector2(0, horizontal_spacing + vertical_spacing)
 	root.is_root = true
 	root.is_active = true
@@ -50,9 +50,9 @@ func generate_routes() -> void:
 		var current_node: RouteIcon = branch	
 		for height: int in range(tree_height):
 			var child: RouteIcon = create_route_icon()
-#			if total_misc_per_branch == height:
-#				free_icon(child)
-#				child = create_route_icon(false)
+			if total_misc_per_branch == height:
+				free_icon(child)
+				child = create_route_icon(false)
 			child.position = Vector2((height + 2) * horizontal_spacing, height_space)
 			draw_line_between_routes(current_node, child)
 			current_node.add_child_route(child)

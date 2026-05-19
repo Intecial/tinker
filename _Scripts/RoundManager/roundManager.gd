@@ -9,6 +9,12 @@ var gearArray: GearArray
 var stateDict : Dictionary[String, RoundState]
 
 var next_round: Button
+var current_dead_enemy : EnemyResource 
+
+func on_enemy_die(enemy_resource: EnemyResource) -> void:
+	current_dead_enemy = enemy_resource
+	transitionState("ENEMYDROPSTATE")
+
 func _ready() -> void:
 	Constant.ROUND_MANAGER = self
 	next_round = player_ui.get_next_round_button()

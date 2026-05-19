@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://qubk1t1xyckq" path="res://resources/MainTheme.tres" id="1_lq66d"]
 [ext_resource type="Script" uid="uid://bxqbw0inbe2xh" path="res://Scenes/UIScenes/Enemy/enemyUI.gd" id="1_qkd1k"]
 [ext_resource type="PackedScene" uid="uid://chotrqv260b0j" path="res://Scenes/UIScenes/Enemy/EnemyStatContainer.tscn" id="1_qs2gu"]
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_qkd1k"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_qkd1k"]
 [ext_resource type="Script" path="res://_Scripts/Enemy/enemy_sfx_container.gd" id="4_e83k8"]
 [ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_g2nxl"]
 

@@ -13,6 +13,7 @@ func connect_actor(enemy_actor: EnemyActor) -> void:
 	enemy_actor.gear_prepared.connect(renderGear)
 	enemy_actor.on_gear_performed.connect(popGear)
 	enemy_sfx_container.init_cont(enemy_actor)
+	enemy_slot.isDisabled = true
 
 func _exit_tree() -> void:
 	target.gear_prepared.disconnect(renderGear)

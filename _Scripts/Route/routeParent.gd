@@ -24,3 +24,6 @@ func _input(event: InputEvent) -> void:
 			clamp(target.x, bounds_min.x, bounds_max.x),
 			clamp(target.y, bounds_min.y, bounds_max.y)
 		)
+
+func recenter() -> void:
+	position = Vector2.ZERO

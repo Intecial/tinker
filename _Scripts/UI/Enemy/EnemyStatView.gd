@@ -20,7 +20,7 @@ func connectTarget(actor: EnemyActor) -> void:
 	enemyName.text = actor.enemyResource.name
 #	
 func show_damage(amount: int) -> void:
-	print("test")
+	pass
 #	popUpManager.invoke(amount, popUpManager, "-")
 	
 func _exit_tree() -> void:
