@@ -41,7 +41,7 @@ script = ExtResource("5_4y86j")
 
 [node name="RoundManager" type="Node" parent="." unique_id=973862254 node_paths=PackedStringArray("initialState", "player_ui")]
 script = ExtResource("6_0llha")
-initialState = NodePath("ForgeState")
+initialState = NodePath("PreparationState")
 player_ui = NodePath("../CanvasLayer/Control2/PlayerUI")
 
 [node name="PreparationState" type="Node" parent="RoundManager" unique_id=376139274]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_1u4py"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_t287u"]
-[ext_resource type="Script" path="res://_Scripts/ActionScripts/ApplyDebuffAction.gd" id="2_v3y5e"]
+[ext_resource type="Script" uid="uid://deokm5b6s04wh" path="res://_Scripts/ActionScripts/ApplyDebuffAction.gd" id="2_v3y5e"]
 [ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_d76rp"]
 [ext_resource type="Resource" uid="uid://ds0sgw2pdeur2" path="res://resources/SFXResource/Oil.tres" id="4_4qove"]
 [ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_v3y5e"]

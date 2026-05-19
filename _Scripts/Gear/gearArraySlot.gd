@@ -166,7 +166,6 @@ func removeGear() -> void:
 
 
 func _on_mouse_exited() -> void:
-	print("Test")
 	self._mouse_exited()
 
 func _on_mouse_entered() -> void:

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://dq0bsy8yi2bmx"]
+
+[ext_resource type="PackedScene" uid="uid://ba3kmixtgq3d3" path="res://_Scripts/EnemySM/SentientWrench/SentientWrenchSm.tscn" id="1_34wos"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="1_dox1f"]
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="2_34wos"]
+[ext_resource type="Resource" uid="uid://bo1b6ymtjyxil" path="res://resources/gears/Enemy/SentientWrench/Sharpen.tres" id="3_2bro3"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="3_eog71"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="4_0fy0d"]
+[ext_resource type="Resource" uid="uid://dymwh11v8os0w" path="res://resources/gears/Enemy/SentientWrench/Bonk.tres" id="4_gocwp"]
+[ext_resource type="Resource" uid="uid://2gdaorgwytje" path="res://resources/gears/Enemy/SentientWrench/Whack.tres" id="5_2ca2n"]
+[ext_resource type="Resource" uid="uid://ebw77gx25d7p" path="res://resources/gears/Enemy/SentientWrench/Smack.tres" id="6_hugyf"]
+
+[resource]
+script = ExtResource("4_0fy0d")
+name = "Sentient Wrench"
+health = 30
+gears = Array[ExtResource("1_dox1f")]([ExtResource("3_2bro3"), ExtResource("4_gocwp"), ExtResource("5_2ca2n"), ExtResource("6_hugyf")])
+icon = ExtResource("2_34wos")
+enemy_state_machine = ExtResource("1_34wos")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

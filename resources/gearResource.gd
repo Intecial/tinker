@@ -19,7 +19,6 @@ var isMerged: bool = false
 
 func _init() -> void:
 	for action: ActionResource in actions:
-		print(action)
 		action.gear = self
 
 func evaluate(target: Actor) -> void:

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://b224avev1pwlv"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_svw0c"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_dj7wb"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_kkeke"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_4k6xr"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_33fdn"]
+[ext_resource type="Resource" uid="uid://bqfu1lcqw3ehh" path="res://resources/SFXResource/EnemySFX/Bet.tres" id="4_4d2el"]
+
+[sub_resource type="Resource" id="Resource_xehlb"]
+script = ExtResource("2_dj7wb")
+status_effects = Array[ExtResource("3_4k6xr")]([ExtResource("4_4d2el"), ExtResource("4_4d2el"), ExtResource("4_4d2el")])
+is_instant = true
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[resource]
+script = ExtResource("3_33fdn")
+gearName = "Raise"
+gearType = 3
+actions = Array[ExtResource("1_svw0c")]([SubResource("Resource_xehlb")])
+color = Color(0.8725096, 0.8121528, 0.18503305, 1)
+isConsumable = true
+description = "Raises your Bet by 1"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

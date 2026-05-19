@@ -1,5 +1,5 @@
 extends ActionResource
-class_name DamageByCounterAction
+class_name ShieldByCounterAction
 
 enum ConsumeMode { NONE, ONE, HALF, ALL }
 enum StatOn { TARGET, SELF }
@@ -20,7 +20,7 @@ func execute(actor: Actor) -> void:
 		func(x: StatusEffectResource) -> bool: return x.name == counter_tag
 	)
 	var amount: int = sfx.size()
-	actor.dealDamage(amount)
+	actor.addShield(amount)
 	_consume(chosen_actor, sfx)
 
 func _consume(actor: Actor, sfx: Array[StatusEffectResource]) -> void:
@@ -40,6 +40,6 @@ func _consume(actor: Actor, sfx: Array[StatusEffectResource]) -> void:
 		return
 
 	for fx: StatusEffectResource in to_remove:
-		actor.statusEffects.erase(fx)
-	actor.triggerStatusEffects()
+		actor.target.statusEffects.erase(fx)
+	actor.target.triggerStatusEffects()
 	

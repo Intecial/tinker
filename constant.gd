@@ -41,9 +41,9 @@ var TEXT_CONTAINER: TextContainer
 var animSpeed: float = 0.8
 
 var ENEMY_RESOURCES: Array[EnemyResource] = [
-	preload("uid://b8sssqoufa74d"), 
-#	preload("uid://ck14shu7bawrs"),
-#	preload("uid://8bxpxc5ux5iv")
+	preload("uid://b8sssqoufa74d"), # Clockwork
+	preload("uid://bx6gyv0i5xcu4"), # The Gambler
+	preload("uid://dq0bsy8yi2bmx") # Sentient Wrench
 	]
 # Constant.gd
 var CAMERA: Camera2D

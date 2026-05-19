@@ -5,10 +5,7 @@
 [ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="3_av87t"]
 [ext_resource type="Script" uid="uid://4x2n8t7kk2ng" path="res://_Scripts/ActionScripts/doNothingAction.gd" id="4_jl10e"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="5_281my"]
-[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="5_jl10e"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_2fj6y"]
-[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="6_281my"]
-[ext_resource type="Resource" uid="uid://qafrbild6rki" path="res://resources/SFXResource/RetainShield.tres" id="7_2fj6y"]
 [ext_resource type="Script" uid="uid://suvg5dk1br0u" path="res://_Scripts/Enemy/Clockwork/initState.gd" id="7_6gb4i"]
 [ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="8_7qsou"]
 [ext_resource type="Script" uid="uid://c2kv2pa7lyhqr" path="res://_Scripts/Enemy/Clockwork/explodeState.gd" id="9_qgw6b"]
@@ -19,17 +16,12 @@
 script = ExtResource("4_jl10e")
 metadata/_custom_type_script = "uid://4x2n8t7kk2ng"
 
-[sub_resource type="Resource" id="Resource_6gb4i"]
-script = ExtResource("5_jl10e")
-status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
-metadata/_custom_type_script = "uid://d026v135owew7"
-
 [sub_resource type="Resource" id="Resource_0tw1n"]
 script = ExtResource("6_2fj6y")
 gearName = "Tick"
 gearType = 1
 icon = ExtResource("5_281my")
-actions = Array[ExtResource("3_av87t")]([SubResource("Resource_f74pp"), SubResource("Resource_6gb4i")])
+actions = Array[ExtResource("3_av87t")]([SubResource("Resource_f74pp")])
 color = Color(0.52310544, 0.33565754, 0.4857192, 1)
 isConsumable = true
 description = "Waiting..."
@@ -40,17 +32,12 @@ script = ExtResource("8_7qsou")
 shieldAmount = 1
 metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
 
-[sub_resource type="Resource" id="Resource_7qsou"]
-script = ExtResource("5_jl10e")
-status_effects = Array[ExtResource("6_281my")]([ExtResource("7_2fj6y")])
-metadata/_custom_type_script = "uid://d026v135owew7"
-
 [sub_resource type="Resource" id="Resource_sqayf"]
 script = ExtResource("6_2fj6y")
 gearName = "Init"
 gearType = 1
 icon = ExtResource("5_281my")
-actions = Array[ExtResource("3_av87t")]([SubResource("Resource_b5pqt"), SubResource("Resource_7qsou")])
+actions = Array[ExtResource("3_av87t")]([SubResource("Resource_b5pqt")])
 color = Color(0.48923755, 0.4005624, 0.5795518, 1)
 description = "Initializing Destructive Sequence..."
 metadata/_custom_type_script = "uid://5wjyyook1xrr"

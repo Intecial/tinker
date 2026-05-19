@@ -36,10 +36,10 @@ func initEnemy(initEnemyResource: EnemyResource) -> void:
 	self.shield = 0
 	self.target = Constant.PLAYER
 	self.sprite.texture = initEnemyResource.icon
+	self.permanentAction = initEnemyResource.permanent_actions.duplicate_deep(true)
 	enemy_ui_panel.connect_actor(self)
 	_place_ui_panel()
 	var create_sm: EnemyStateMachine = initEnemyResource.enemy_state_machine.instantiate()
-	print("Is Actor Context available?" + str(self.actorContext))
 	self.add_child(create_sm)
 	create_sm.init_sm(self)
 	self.enemyStateMachine = create_sm

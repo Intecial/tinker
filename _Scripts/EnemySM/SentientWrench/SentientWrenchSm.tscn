@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ba3kmixtgq3d3"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_cj33h"]
+[ext_resource type="Script" uid="uid://cvlbnjlmio02o" path="res://_Scripts/EnemySM/GoToNextState.gd" id="2_4ewg8"]
+[ext_resource type="Resource" uid="uid://bo1b6ymtjyxil" path="res://resources/gears/Enemy/SentientWrench/Sharpen.tres" id="3_v6spo"]
+[ext_resource type="Resource" uid="uid://dymwh11v8os0w" path="res://resources/gears/Enemy/SentientWrench/Bonk.tres" id="4_1qk1q"]
+[ext_resource type="Resource" uid="uid://2gdaorgwytje" path="res://resources/gears/Enemy/SentientWrench/Whack.tres" id="5_454i8"]
+[ext_resource type="Resource" uid="uid://ebw77gx25d7p" path="res://resources/gears/Enemy/SentientWrench/Smack.tres" id="6_sjfsy"]
+
+[node name="SentientWrenchSM" type="Node" unique_id=1446478563 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_cj33h")
+initialState = NodePath("SharpenState")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="SharpenState" type="Node" parent="." unique_id=814078651 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_4ewg8")
+next_state = NodePath("../BonkState")
+gear = ExtResource("3_v6spo")
+
+[node name="BonkState" type="Node" parent="." unique_id=1050851419 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_4ewg8")
+next_state = NodePath("../WhackState")
+gear = ExtResource("4_1qk1q")
+
+[node name="WhackState" type="Node" parent="." unique_id=1574667812 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_4ewg8")
+next_state = NodePath("../SmackState")
+gear = ExtResource("5_454i8")
+
+[node name="SmackState" type="Node" parent="." unique_id=551045275 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_4ewg8")
+next_state = NodePath("../SharpenState")
+gear = ExtResource("6_sjfsy")

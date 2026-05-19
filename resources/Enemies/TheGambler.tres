@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bx6gyv0i5xcu4"]
+
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="1_o7uvi"]
+[ext_resource type="PackedScene" uid="uid://djyl8mmjkaui7" path="res://Scenes/EnemySM/TheGamblerSm.tscn" id="1_u2h1t"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="2_dpjrr"]
+[ext_resource type="Texture2D" uid="uid://3ja2xrm014pu" path="res://assets/hog.png" id="2_u2h1t"]
+[ext_resource type="Resource" uid="uid://bbq0d6mq34t0m" path="res://resources/gears/Enemy/TheGambler/FortifyOdds.tres" id="3_8p653"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="3_u2h1t"]
+[ext_resource type="Resource" uid="uid://b224avev1pwlv" path="res://resources/gears/Enemy/TheGambler/Raise.tres" id="4_jcebs"]
+[ext_resource type="Resource" uid="uid://b0dlvebq0udu5" path="res://resources/Actions/PermanentActions/RetainShields.tres" id="5_bcfor"]
+[ext_resource type="Resource" uid="uid://b8y13m0hov0rr" path="res://resources/gears/Enemy/TheGambler/CashOut.tres" id="5_xiv0g"]
+
+[resource]
+script = ExtResource("3_u2h1t")
+name = "The Gambler"
+health = 40
+gears = Array[ExtResource("1_o7uvi")]([ExtResource("3_8p653"), ExtResource("4_jcebs"), ExtResource("5_xiv0g")])
+permanent_actions = Array[ExtResource("2_dpjrr")]([ExtResource("5_bcfor")])
+icon = ExtResource("2_u2h1t")
+enemy_state_machine = ExtResource("1_u2h1t")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

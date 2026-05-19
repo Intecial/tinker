@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://bbq0d6mq34t0m"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_cx8qn"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_js7lt"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_lbs6b"]
+[ext_resource type="Texture2D" uid="uid://bbixd1xsd3nhi" path="res://assets/Shield.png" id="2_pmey6"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_kduyw"]
+[ext_resource type="Script" uid="uid://ctcv80xcmfq77" path="res://_Scripts/ActionScripts/shieldByCounterAction.gd" id="3_ngd6l"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_pmey6"]
+[ext_resource type="Resource" uid="uid://bqfu1lcqw3ehh" path="res://resources/SFXResource/EnemySFX/Bet.tres" id="4_x8f1e"]
+
+[sub_resource type="Resource" id="Resource_qqucu"]
+script = ExtResource("2_lbs6b")
+status_effects = Array[ExtResource("3_kduyw")]([ExtResource("4_x8f1e"), ExtResource("4_x8f1e"), ExtResource("4_x8f1e"), ExtResource("4_x8f1e"), ExtResource("4_x8f1e")])
+is_instant = true
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[sub_resource type="Resource" id="Resource_kwdgq"]
+script = ExtResource("3_ngd6l")
+counter_tag = "Bet"
+sfx_on = 1
+icon = ExtResource("2_pmey6")
+metadata/_custom_type_script = "uid://ctcv80xcmfq77"
+
+[resource]
+script = ExtResource("3_pmey6")
+gearName = "Fortify Odds"
+gearType = 1
+actions = Array[ExtResource("1_cx8qn")]([SubResource("Resource_qqucu"), SubResource("Resource_kwdgq")])
+color = Color(0.37450087, 0.41771862, 0.7018749, 1)
+isConsumable = true
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
