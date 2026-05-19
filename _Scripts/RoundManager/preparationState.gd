@@ -10,6 +10,8 @@ func onEnter(roundManager: RoundManager) -> void:
 		Constant.PLAYER.target = null
 	if Constant.PLAYER.target == null:
 		Constant.PLAYER.target = Constant.ENEMY_MANAGER.spawnEnemy()
+		var enemy_actor: EnemyActor = Constant.PLAYER.target
+		enemy_actor.on_enemy_die.connect(roundManager.on_enemy_die)
 		
 	await Constant.TEXT_CONTAINER.showText("[center] [b]Preparation [center] [b]Phase")
 	

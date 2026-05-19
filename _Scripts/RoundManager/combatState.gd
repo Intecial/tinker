@@ -10,10 +10,7 @@ func onEnter(roundManager: RoundManager) -> void:
 		await Constant.TEXT_CONTAINER.showText("[center] [b]Enemy [center] [b]Phase")
 		await Constant.ENEMY_MANAGER.performAction()
 		Constant.PLAYER.target.upkeep()
-	if Constant.PLAYER.target == null:	
-		roundManager.transitionState("ROUTESTATE")
-		return
-	else:
+	
 		roundManager.transitionState("PREPARATIONSTATE")
 	
 	

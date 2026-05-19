@@ -7,7 +7,7 @@ class_name EnemyActor
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var enemy_ui_panel: EnemyUI = $CanvasLayer/EnemyUIPanel
 var enemyStateMachine: EnemyStateMachine
-
+signal on_enemy_die(enemy_resource: EnemyResource)
 
 
 signal gear_prepared(value: GearResource)
@@ -21,17 +21,19 @@ var preparedGear: GearResource :
 
 signal on_gear_performed()
 
-#func _ready() -> void:
-#	if is_debug:
-#		self.initEnemy(enemyResource)
-#
+func _ready() -> void:
+	self.onDeath.connect(on_enemy_actor_die)
+	
+func _exit_tree() -> void:
+	self.onDeath.disconnect(on_enemy_actor_die)
 
-#func _input(event: InputEvent) -> void:
-#	if event.is_action_pressed("space") and is_debug:
-#		print(enemyStateMachine.get_evaluated_gear().gearName)
+func on_enemy_actor_die() -> void:
+	on_enemy_die.emit(enemyResource)
+	
 func initEnemy(initEnemyResource: EnemyResource) -> void:
 	self.enemyResource = initEnemyResource
 	self.health = initEnemyResource.health
+	self.shield = 0
 	self.target = Constant.PLAYER
 	self.sprite.texture = initEnemyResource.icon
 	enemy_ui_panel.connect_actor(self)

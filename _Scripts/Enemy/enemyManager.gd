@@ -55,6 +55,7 @@ func spawnEnemy() -> EnemyActor:
 	var resource :EnemyResource = Constant.ENEMY_RESOURCES[randomInt]
 	actor.initEnemy(resource)
 	actor.health = calculateEnemyHealth(actor)
+	actor.shield = 0
 	self.activeEnemy = actor
 	actor.onDeath.connect(increaseRound.bind(actor))
 	return actor
