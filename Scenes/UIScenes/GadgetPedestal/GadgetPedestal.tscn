@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://df24jm2hj52ej"]
+
+[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="1_ilsdr"]
+[ext_resource type="Script" uid="uid://b85n8d5da1j12" path="res://_Scripts/GadgetPedestal/gadgetPedestal.gd" id="1_wjbw4"]
+[ext_resource type="Resource" uid="uid://dw0xqprq0f1j6" path="res://resources/Gadgets/SampleGadget.tres" id="2_3frr5"]
+[ext_resource type="PackedScene" uid="uid://bo7lmegj05gov" path="res://Scenes/UIScenes/GadgetPedestal/GadgetGearSlot.tscn" id="2_wjbw4"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="4_ejv41"]
+[ext_resource type="Script" uid="uid://dunnwnbbchmaa" path="res://_Scripts/GadgetPedestal/pedestalDropContainer.gd" id="5_l7axs"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://_Scripts/ToolTipManager.gd" id="7_tp3vb"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="8_r4x8o"]
+
+[node name="GadgetPedestal" type="PanelContainer" unique_id=713833656 node_paths=PackedStringArray("gadget_gear_slot_container", "active_icon", "tooltipManager")]
+offset_right = 95.0
+offset_bottom = 122.0
+script = ExtResource("1_wjbw4")
+gadget_resource = ExtResource("2_3frr5")
+gadget_gear_slot = ExtResource("2_wjbw4")
+gadget_gear_slot_container = NodePath("VBoxContainer2/MarginContainer/VBoxContainer")
+active_icon = NodePath("VBoxContainer2/ActiveIcon")
+tooltipManager = NodePath("ToolTipManager")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1791796986]
+layout_mode = 2
+
+[node name="ActiveIcon" type="TextureRect" parent="VBoxContainer2" unique_id=486182243]
+layout_mode = 2
+texture = ExtResource("4_ejv41")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=655279945]
+layout_mode = 2
+texture = ExtResource("1_ilsdr")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1045343438 node_paths=PackedStringArray("gadgetPedestal")]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 12
+script = ExtResource("5_l7axs")
+gadgetPedestal = NodePath("../..")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer" unique_id=159279694]
+layout_mode = 2
+
+[node name="ToolTipManager" type="Control" parent="." unique_id=501090847]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_tp3vb")
+toolTipScene = ExtResource("8_r4x8o")
+metadata/_custom_type_script = "uid://xhg2oixelk2k"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/TextureRect" to="ToolTipManager" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer2/TextureRect" to="ToolTipManager" method="_on_mouse_exited"]
