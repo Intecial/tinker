@@ -17,9 +17,11 @@ func on_show() -> void:
 	self.visible = true
 	init_display([])
 	is_open = true
-	init_display(Constant.PLAYER.gear_pouch.discarded_gears)
+	init_display(gears_to_show)
 	
 func toggle_button() -> void:
+	if Constant.PLAYER:
+		gears_to_show = Constant.PLAYER.gear_pouch.discarded_gears
 	if is_open:
 		on_hide()
 	else:

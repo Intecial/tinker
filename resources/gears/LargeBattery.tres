@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://belmqjy4vpu8k"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_18shj"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_t8wen"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_ly06m"]
+[ext_resource type="Resource" uid="uid://bnsdh6xvmyvjb" path="res://resources/SFXResource/Energy.tres" id="4_waexs"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_aejv2"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_dghmj"]
+
+[sub_resource type="Resource" id="Resource_wrs18"]
+script = ExtResource("2_t8wen")
+status_effects = Array[ExtResource("3_ly06m")]([ExtResource("4_waexs"), ExtResource("4_waexs"), ExtResource("4_waexs")])
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[resource]
+script = ExtResource("6_dghmj")
+gearName = "Large Battery"
+gearType = 2
+actions = Array[ExtResource("1_18shj")]([SubResource("Resource_wrs18")])
+color = Color(0.27250132, 0.425415, 0.776405, 1)
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

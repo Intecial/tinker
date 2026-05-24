@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://il7s187dnmhr"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_w7qc0"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_b8nxq"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_l8t7k"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_l8t7k"]
+[ext_resource type="Script" uid="uid://cs5adc4o6apjq" path="res://_Scripts/ActionScripts/DamageByCounterAction.gd" id="3_qgasp"]
+
+[sub_resource type="Resource" id="Resource_qgasp"]
+script = ExtResource("2_l8t7k")
+damage = 10
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[sub_resource type="Resource" id="Resource_0gkfi"]
+script = ExtResource("3_qgasp")
+counter_tag = "Oil"
+consume_mode = 3
+metadata/_custom_type_script = "uid://cs5adc4o6apjq"
+
+[resource]
+script = ExtResource("3_l8t7k")
+gearName = "Ignite"
+actions = Array[ExtResource("1_w7qc0")]([SubResource("Resource_qgasp"), SubResource("Resource_0gkfi")])
+color = Color(0.9450614, 0.2912961, 0, 1)
+isConsumable = true
+description = "Deals 10 damage and Deals damage based on Oil applied on target"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
