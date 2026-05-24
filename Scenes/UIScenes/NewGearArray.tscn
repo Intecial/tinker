@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgea4mnhbn65a"]
 
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_6ba18"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_6ba18"]
 [ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="1_lq8eq"]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=1003889804 node_paths=PackedStringArray("gear_slots")]

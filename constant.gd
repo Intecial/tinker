@@ -27,7 +27,8 @@ func _ready() -> void:
 		"GainStrength": load("uid://bbmgqusjnl1q"),
 		"Overload": load("uid://cwnc3tvdcr2lt"),
 		"ApplyLubricant": load("uid://cy6ovmh6a21p8"),
-		"Spark": load("uid://tg2ype0wbiad")
+		"Spark": load("uid://tg2ype0wbiad"),
+		"Raise": load("uid://b224avev1pwlv")
 	}
 var BASIC_GEAR_DICT: Dictionary[String, GearResource] = {
 	"Strike": preload("uid://dt1eu36i6lpyk"),

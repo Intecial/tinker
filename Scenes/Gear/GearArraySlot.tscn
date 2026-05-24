@@ -16,9 +16,9 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
 [node name="GearArraySlot" type="PanelContainer" unique_id=1224456143 node_paths=PackedStringArray("explosionOnGear", "tooltip_manager")]
-custom_minimum_size = Vector2(32, 32)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(100, 100)
+offset_right = 239.0
+offset_bottom = 239.0
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3n8ad")
@@ -46,7 +46,8 @@ theme_override_constants/margin_bottom = 30
 modulate = Color(0.16862746, 0.13333334, 0.27058825, 1)
 layout_mode = 2
 texture = ExtResource("2_umybr")
-expand_mode = 5
+expand_mode = 1
+stretch_mode = 5
 
 [node name="DisabledTexture" type="TextureRect" parent="MarginContainer" unique_id=488879534]
 visible = false
@@ -54,9 +55,13 @@ layout_mode = 2
 texture = ExtResource("4_5mgy8")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1534103480]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1359667262]
 layout_mode = 2
-expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=1534103480]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=26338371]
 position = Vector2(4, 4)

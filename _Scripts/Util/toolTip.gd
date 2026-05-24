@@ -15,9 +15,9 @@ func set_gear_info(gear_resource: GearResource, is_shop: bool = false) -> void:
 	display_name.visible = true
 	icon.visible = true
 	display_name.text = gear_resource.gearName
-	icon.modulate = gear_resource.color
+#	icon.modulate = gear_resource.color
 	label.text = gear_resource.description
-	icon.texture = gear_resource.icon
+	icon.texture = gear_resource.gear_icon
 	if gear_resource.isConsumable:
 		permanent_panel.visible = false
 	else:

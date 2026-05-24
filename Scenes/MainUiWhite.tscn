@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cxchd6jnjpoh2" path="res://_Scripts/Route/routeState.gd" id="21_nmyln"]
 [ext_resource type="PackedScene" uid="uid://df24jm2hj52ej" path="res://Scenes/UIScenes/GadgetPedestal/GadgetPedestal.tscn" id="24_iredp"]
 [ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="24_ttft5"]
+[ext_resource type="PackedScene" uid="uid://qtybb8clrcvn" path="res://Scenes/UIScenes/DisplayGears.tscn" id="25_d6eqb"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="28_sgbvm"]
 [ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteGenerator.tscn" id="29_qh8ww"]
 
@@ -100,6 +101,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("14_qaclo")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control2" unique_id=454685839]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Discard Pile"
+
+[node name="DisplayGears" parent="CanvasLayer/Control2" unique_id=910648313 instance=ExtResource("25_d6eqb")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopPanel" parent="CanvasLayer/Control2" unique_id=698842130 instance=ExtResource("19_7nvbf")]
 visible = false
@@ -192,3 +218,5 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[connection signal="button_down" from="CanvasLayer/Control2/Button" to="CanvasLayer/Control2/DisplayGears" method="toggle_button"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_4k6xr"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_33fdn"]
 [ext_resource type="Resource" uid="uid://bqfu1lcqw3ehh" path="res://resources/SFXResource/EnemySFX/Bet.tres" id="4_4d2el"]
+[ext_resource type="Texture2D" uid="uid://ddyg4osdyjxtf" path="res://assets/GearActionIcons/RaiseBet.png" id="5_4k6xr"]
 
 [sub_resource type="Resource" id="Resource_xehlb"]
 script = ExtResource("2_dj7wb")
@@ -17,6 +18,7 @@ metadata/_custom_type_script = "uid://d026v135owew7"
 script = ExtResource("3_33fdn")
 gearName = "Raise"
 gearType = 3
+gear_icon = ExtResource("5_4k6xr")
 actions = Array[ExtResource("1_svw0c")]([SubResource("Resource_xehlb")])
 color = Color(0.8725096, 0.8121528, 0.18503305, 1)
 isConsumable = true

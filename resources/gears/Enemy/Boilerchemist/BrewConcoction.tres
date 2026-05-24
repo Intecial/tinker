@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://dcmy45dxid5q3"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_ipgir"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_kgwjw"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_x86c4"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_fp5x6"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_r2r06"]
+[ext_resource type="Resource" uid="uid://i8fubca7fgc4" path="res://resources/SFXResource/EnemySFX/Combustion.tres" id="4_fsjmu"]
+
+[sub_resource type="Resource" id="Resource_xn3k4"]
+script = ExtResource("2_x86c4")
+status_effects = Array[ExtResource("3_fp5x6")]([ExtResource("4_fsjmu"), ExtResource("4_fsjmu"), ExtResource("4_fsjmu")])
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[resource]
+script = ExtResource("3_r2r06")
+gearName = "Brew Concoction (Combustion)"
+actions = Array[ExtResource("1_ipgir")]([SubResource("Resource_xn3k4")])
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

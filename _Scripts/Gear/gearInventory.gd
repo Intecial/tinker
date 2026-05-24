@@ -11,6 +11,7 @@ func _ready() -> void:
 	
 	await get_tree().process_frame
 	self.add_gear(Constant.GEAR_DICT["Income"])
+	self.add_gear(Constant.GEAR_DICT["Raise"])
 
 func add_gear(gear: GearResource) -> void:
 	for i: GearArraySlot in inventory:

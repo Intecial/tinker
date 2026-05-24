@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DrawStatusEffect" format=3 uid="uid://bnsdh6xvmyvjb"]
 
-[ext_resource type="Script" path="res://_Scripts/StatusEffects/drawStatusEffect.gd" id="1_r7amr"]
-[ext_resource type="Texture2D" uid="uid://g4njt8ea6vgm" path="res://assets/Knowledge.png" id="1_veb8d"]
+[ext_resource type="Script" uid="uid://bii0meo1rse70" path="res://_Scripts/StatusEffects/drawStatusEffect.gd" id="1_r7amr"]
+[ext_resource type="Texture2D" uid="uid://1oxfso4e7ejc" path="res://assets/StatusEffects/Energy.png" id="1_veb8d"]
 
 [resource]
 script = ExtResource("1_r7amr")
