@@ -27,7 +27,8 @@ func _ready() -> void:
 		"GainStrength": load("uid://bbmgqusjnl1q"),
 		"Overload": load("uid://cwnc3tvdcr2lt"),
 		"ApplyLubricant": load("uid://cy6ovmh6a21p8"),
-		"Spark": load("uid://tg2ype0wbiad")
+		"Spark": load("uid://tg2ype0wbiad"),
+		"Raise": load("uid://b224avev1pwlv")
 	}
 var BASIC_GEAR_DICT: Dictionary[String, GearResource] = {
 	"Strike": preload("uid://dt1eu36i6lpyk"),
@@ -41,9 +42,11 @@ var TEXT_CONTAINER: TextContainer
 var animSpeed: float = 0.8
 
 var ENEMY_RESOURCES: Array[EnemyResource] = [
-	preload("uid://b8sssqoufa74d"), # Clockwork
+#	preload("uid://b8sssqoufa74d"), # Clockwork
 	preload("uid://bx6gyv0i5xcu4"), # The Gambler
-	preload("uid://dq0bsy8yi2bmx") # Sentient Wrench
+#	preload("uid://dq0bsy8yi2bmx"), # Sentient Wrench
+#	preload("uid://vhp321tapj5p"), # Oiley
+#	preload("uid://dhj03qpqdqvqo"), # Forge Mender
 	]
 # Constant.gd
 var CAMERA: Camera2D

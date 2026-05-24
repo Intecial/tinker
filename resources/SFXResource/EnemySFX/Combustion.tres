@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PoisonStatusEffect" format=3 uid="uid://i8fubca7fgc4"]
+
+[ext_resource type="Script" uid="uid://ckq2rl7aj0t0u" path="res://_Scripts/StatusEffects/poisonStatusEffect.gd" id="1_al4qo"]
+[ext_resource type="Texture2D" uid="uid://bh3lm34cv6g4d" path="res://assets/Skeleton.png" id="1_h5yoj"]
+
+[resource]
+script = ExtResource("1_al4qo")
+effect_on = 1
+is_blockable = true
+icon = ExtResource("1_h5yoj")
+name = "Combustion (Concoction)"
+unique_consumption = true
+description = "Deals Damage to target"
+metadata/_custom_type_script = "uid://ckq2rl7aj0t0u"

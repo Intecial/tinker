@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://vhp321tapj5p"]
+
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="1_fgse7"]
+[ext_resource type="PackedScene" uid="uid://bgysbgsmy4qv5" path="res://Scenes/EnemySM/OileySm.tscn" id="1_vtusb"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="2_5bxlq"]
+[ext_resource type="Resource" uid="uid://il7s187dnmhr" path="res://resources/gears/Enemy/Oiley/Ignite.tres" id="3_dol06"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="3_g2xk2"]
+[ext_resource type="Resource" uid="uid://dp2nw3a4ssk4t" path="res://resources/gears/Enemy/Oiley/OiledPipe.tres" id="4_yy3bt"]
+[ext_resource type="Resource" uid="uid://b5wea2rp8la5v" path="res://resources/gears/Enemy/Oiley/OiledGuard.tres" id="5_omjgg"]
+[ext_resource type="Resource" uid="uid://tg2ype0wbiad" path="res://resources/gears/Spark.tres" id="6_6pvmw"]
+[ext_resource type="Resource" uid="uid://cy6ovmh6a21p8" path="res://resources/gears/ApplyLubricant.tres" id="7_gusd6"]
+[ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="8_pxjot"]
+
+[resource]
+script = ExtResource("3_g2xk2")
+name = "Oiley"
+health = 35
+gears = Array[ExtResource("1_fgse7")]([ExtResource("3_dol06"), ExtResource("4_yy3bt"), ExtResource("5_omjgg"), ExtResource("6_6pvmw"), ExtResource("7_gusd6")])
+icon = ExtResource("8_pxjot")
+enemy_state_machine = ExtResource("1_vtusb")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

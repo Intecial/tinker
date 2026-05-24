@@ -6,26 +6,29 @@ class_name ToolTipManager
 var tooltip_instance: Control
 var gear_resource: GearResource
 var sfx_resource: StatusEffectResource
+var gadget_resource: GadgetResource
+
 var is_shop: bool = false
-
-
 func _on_mouse_entered() -> void:
-	if gear_resource:
-		tooltip_instance = toolTipScene.instantiate()
-		self.add_child(tooltip_instance)  # add to root so it's on top
-		if tooltip_instance is ToolTip:
-			tooltip_instance.move_to_front()
-			var toolTip: ToolTip = tooltip_instance as ToolTip
-			toolTip.set_gear_info(gear_resource, is_shop)
+	var tooltip : ToolTip = _create_tooltip()
+	if not tooltip:
+		return
 	
-	if sfx_resource:
-		tooltip_instance = toolTipScene.instantiate()
-		self.add_child(tooltip_instance)  # add to root so it's on top
-		if tooltip_instance is ToolTip:
-			tooltip_instance.move_to_front()
-			var toolTip: ToolTip = tooltip_instance as ToolTip
-			toolTip.set_sfx_info(sfx_resource)
-		
+	if gear_resource:
+		tooltip.set_gear_info(gear_resource, is_shop)
+	elif sfx_resource:
+		tooltip.set_sfx_info(sfx_resource)
+	elif gadget_resource:
+		tooltip.set_gadget_info(gadget_resource)
+
+func _create_tooltip() -> ToolTip:
+	tooltip_instance = toolTipScene.instantiate()
+	add_child(tooltip_instance)
+	if tooltip_instance is ToolTip:
+		tooltip_instance.move_to_front()
+		return tooltip_instance as ToolTip
+	return null
+
 func _on_mouse_exited() -> void:
 	if tooltip_instance:
 		tooltip_instance.queue_free()

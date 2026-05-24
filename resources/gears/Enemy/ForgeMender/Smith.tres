@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://igpl83wiqry"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_xbmrl"]
+[ext_resource type="Resource" uid="uid://c1t68rtteoty8" path="res://resources/Actions/HealAction.tres" id="2_43giq"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="3_uhi24"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="4_4v62g"]
+[ext_resource type="Resource" uid="uid://0fqmhwd5q0aw" path="res://resources/SFXResource/Repair.tres" id="5_25n48"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="6_o7dbo"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="7_v6ul8"]
+
+[sub_resource type="Resource" id="Resource_xbmrl"]
+script = ExtResource("3_uhi24")
+status_effects = Array[ExtResource("4_4v62g")]([ExtResource("5_25n48"), ExtResource("5_25n48"), ExtResource("5_25n48")])
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[resource]
+script = ExtResource("7_v6ul8")
+gearName = "Smith"
+gearType = 2
+actions = Array[ExtResource("1_xbmrl")]([ExtResource("2_43giq"), SubResource("Resource_xbmrl")])
+color = Color(0.26841903, 0.44609964, 0.52114457, 1)
+isConsumable = true
+description = "Heals for 5 and Gain 3 Repairs"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

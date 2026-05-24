@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CounterStatusEffect" format=3 uid="uid://bqfu1lcqw3ehh"]
 
 [ext_resource type="Script" uid="uid://bis0c8mh2m5an" path="res://_Scripts/StatusEffects/counterStatusEffect.gd" id="1_3de7v"]
-[ext_resource type="Texture2D" uid="uid://g4njt8ea6vgm" path="res://assets/Knowledge.png" id="1_wesbw"]
+[ext_resource type="Texture2D" uid="uid://da3i2k0dty7ri" path="res://assets/GearActionIcons/RaiseBet.png" id="1_wesbw"]
 
 [resource]
 script = ExtResource("1_3de7v")

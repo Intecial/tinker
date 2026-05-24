@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b2j363f0egjxd"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_4q2bf"]
+[ext_resource type="Script" uid="uid://cvlbnjlmio02o" path="res://_Scripts/EnemySM/GoToNextState.gd" id="2_4dp3y"]
+
+[node name="BoilerchemistSM" type="Node" unique_id=1882321192]
+script = ExtResource("1_4q2bf")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="mal" type="Node" parent="." unique_id=372530771]
+
+[node name="BrewConcoctionState" type="Node" parent="." unique_id=305324073]
+script = ExtResource("2_4dp3y")
+
+[node name="ImproveRecipeState" type="Node" parent="." unique_id=2135668318]
+script = ExtResource("2_4dp3y")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bo7lmegj05gov"]
+
+[ext_resource type="Script" uid="uid://btc2rjwe6a42e" path="res://_Scripts/GadgetPedestal/gadgetGearSlot.gd" id="1_citsy"]
+[ext_resource type="Texture2D" uid="uid://cl62lhmr0ymni" path="res://icon.svg" id="1_emaws"]
+
+[node name="GadgetGearSlot" type="PanelContainer" unique_id=602209522 node_paths=PackedStringArray("gadget_texture")]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("1_citsy")
+gadget_texture = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1882442585]
+layout_mode = 2
+texture = ExtResource("1_emaws")
+expand_mode = 5

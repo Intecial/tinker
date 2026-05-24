@@ -18,7 +18,7 @@ signal onExit
 signal onGearSet(slot: GearArraySlot)
 signal onGearRemoved(slot: GearArraySlot)
 
-@onready var iconRect: TextureRect = $TextureRect
+@onready var iconRect: TextureRect = $AspectRatioContainer/TextureRect
 @onready var disabledRect: TextureRect = $MarginContainer/DisabledTexture
 @onready var borderRect: TextureRect = $MarginContainer/MarginContainer/BorderRect
 @onready var disabledColorRect: ColorRect = $ColorRect

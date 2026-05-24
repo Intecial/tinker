@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://bhwdox7y4as20"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_fj6ov"]
+[ext_resource type="Script" uid="uid://d026v135owew7" path="res://_Scripts/ActionScripts/statusEffectAplicator.gd" id="2_1spgj"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_krjax"]
+[ext_resource type="Resource" uid="uid://0fqmhwd5q0aw" path="res://resources/SFXResource/Repair.tres" id="4_jwr3a"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_5e453"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="6_fo1ik"]
+
+[sub_resource type="Resource" id="Resource_hm02c"]
+script = ExtResource("2_1spgj")
+status_effects = Array[ExtResource("3_krjax")]([ExtResource("4_jwr3a"), ExtResource("4_jwr3a"), ExtResource("4_jwr3a"), ExtResource("4_jwr3a"), ExtResource("4_jwr3a")])
+metadata/_custom_type_script = "uid://d026v135owew7"
+
+[resource]
+script = ExtResource("6_fo1ik")
+gearName = "Mend"
+actions = Array[ExtResource("1_fj6ov")]([SubResource("Resource_hm02c")])
+color = Color(0.7400366, 0.39343473, 0.4610399, 1)
+isConsumable = true
+description = "Gain 5 stacks of Repair"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

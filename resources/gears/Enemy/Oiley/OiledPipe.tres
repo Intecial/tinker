@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://dp2nw3a4ssk4t"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_w4k8c"]
+[ext_resource type="Script" uid="uid://deokm5b6s04wh" path="res://_Scripts/ActionScripts/ApplyDebuffAction.gd" id="2_0hcb1"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_k4q8s"]
+[ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_bnbdj"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_yfgmn"]
+[ext_resource type="Resource" uid="uid://ds0sgw2pdeur2" path="res://resources/SFXResource/Oil.tres" id="4_l0oe1"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="5_84a4f"]
+[ext_resource type="Texture2D" uid="uid://dhs8hj28cvl0h" path="res://assets/GearActionIcons/ApplyLubricant.png" id="6_bnbdj"]
+
+[sub_resource type="Resource" id="Resource_42ri4"]
+script = ExtResource("2_0hcb1")
+status_effects = Array[ExtResource("3_bnbdj")]([ExtResource("4_l0oe1"), ExtResource("4_l0oe1"), ExtResource("4_l0oe1"), ExtResource("4_l0oe1"), ExtResource("4_l0oe1")])
+is_instant = true
+metadata/_custom_type_script = "uid://deokm5b6s04wh"
+
+[sub_resource type="Resource" id="Resource_hu4p3"]
+script = ExtResource("5_84a4f")
+damage = 10
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[resource]
+script = ExtResource("3_yfgmn")
+gearName = "Oiled Pipe"
+gear_icon = ExtResource("6_bnbdj")
+actions = Array[ExtResource("1_w4k8c")]([SubResource("Resource_42ri4"), SubResource("Resource_hu4p3")])
+color = Color(0.4384152, 0.16617921, 0.11696256, 1)
+isConsumable = true
+description = "Applies 5 Oil and deal 10 damage"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

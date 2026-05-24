@@ -38,7 +38,7 @@ size_flags_stretch_ratio = 0.2
 [node name="PanelContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=932958320]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
+size_flags_stretch_ratio = 0.35
 
 [node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
 layout_mode = 2

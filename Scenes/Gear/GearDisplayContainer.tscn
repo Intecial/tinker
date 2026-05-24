@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://2n0ntghde0kk"]
+
+[ext_resource type="Script" uid="uid://5wckx4wk6t2p" path="res://_Scripts/UI/gear_display_container.gd" id="1_cc2yy"]
+[ext_resource type="Script" uid="uid://xhg2oixelk2k" path="res://_Scripts/ToolTipManager.gd" id="2_vj14f"]
+[ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="3_cyiyr"]
+
+[node name="GearDisplayContainer" type="PanelContainer" unique_id=2004864438 node_paths=PackedStringArray("texture_rect", "tooltip_manager")]
+custom_minimum_size = Vector2(100, 100)
+script = ExtResource("1_cc2yy")
+texture_rect = NodePath("TextureRect")
+tooltip_manager = NodePath("ToolTipManager")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1821261433]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ToolTipManager" type="Control" parent="." unique_id=1430158498]
+layout_mode = 2
+script = ExtResource("2_vj14f")
+toolTipScene = ExtResource("3_cyiyr")
+metadata/_custom_type_script = "uid://xhg2oixelk2k"

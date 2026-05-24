@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="GadgetResource" format=3 uid="uid://dw0xqprq0f1j6"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_jgy1q"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_osohu"]
+[ext_resource type="Script" uid="uid://ida04v675dll" path="res://_Scripts/ActionScripts/damageAction.gd" id="2_yjbmo"]
+[ext_resource type="Script" uid="uid://blpenprrfgw4w" path="res://_Scripts/GadgetPedestal/GadgetResource.gd" id="3_varfi"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="4_4gtqp"]
+[ext_resource type="Texture2D" uid="uid://c8sck6ehn5ew8" path="res://assets/Gear 3 - Silver_00.png" id="6_k8u5r"]
+
+[sub_resource type="Resource" id="Resource_4gtqp"]
+script = ExtResource("2_yjbmo")
+damage = 100
+metadata/_custom_type_script = "uid://ida04v675dll"
+
+[sub_resource type="Resource" id="Resource_ui2n2"]
+script = ExtResource("2_osohu")
+metadata/_custom_type_script = "uid://5wjyyook1xrr"
+
+[resource]
+script = ExtResource("3_varfi")
+name = "Sample Weapon"
+sprite = ExtResource("6_k8u5r")
+actions = Array[ExtResource("1_jgy1q")]([SubResource("Resource_4gtqp")])
+gear_requirements = Array[ExtResource("2_osohu")]([SubResource("Resource_ui2n2")])
+description = "Test"
+metadata/_custom_type_script = "uid://blpenprrfgw4w"

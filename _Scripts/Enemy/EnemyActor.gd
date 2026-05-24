@@ -22,6 +22,7 @@ var preparedGear: GearResource :
 signal on_gear_performed()
 
 func _ready() -> void:
+	super._ready()
 	self.onDeath.connect(on_enemy_actor_die)
 	
 func _exit_tree() -> void:

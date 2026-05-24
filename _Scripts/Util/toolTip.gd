@@ -15,9 +15,9 @@ func set_gear_info(gear_resource: GearResource, is_shop: bool = false) -> void:
 	display_name.visible = true
 	icon.visible = true
 	display_name.text = gear_resource.gearName
-	icon.modulate = gear_resource.color
+#	icon.modulate = gear_resource.color
 	label.text = gear_resource.description
-	icon.texture = gear_resource.icon
+	icon.texture = gear_resource.gear_icon
 	if gear_resource.isConsumable:
 		permanent_panel.visible = false
 	else:
@@ -30,8 +30,17 @@ func set_gear_info(gear_resource: GearResource, is_shop: bool = false) -> void:
 func set_sfx_info(sfx_resource: StatusEffectResource) -> void:
 	display_name.visible = true
 	icon.visible = true
+	permanent_panel.visible = false
+	price.visible = false
 	display_name.text = sfx_resource.name
 	label.text = sfx_resource.description
 	icon.texture = sfx_resource.icon
 
+func set_gadget_info(gadget_resource: GadgetResource) -> void:
+	display_name.visible = true
+	permanent_panel.visible = false
+	price.visible = false
+	icon.visible = false
+	display_name.text = gadget_resource.name
+	label.text = gadget_resource.description
 	

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cswtlw4q58ruc" path="res://Scenes/UIScenes/ToolTip.tscn" id="5_sau87"]
 
 [node name="SFXIcon" type="PanelContainer" unique_id=1313490192 node_paths=PackedStringArray("tooltipManager")]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("1_nxtdj")
@@ -16,7 +17,8 @@ tooltipManager = NodePath("ToolTipManager")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=910053588]
 layout_mode = 2
 texture = ExtResource("1_hvl12")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 5
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1366753157]
 layout_mode = 2

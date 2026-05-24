@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://deokm5b6s04wh" path="res://_Scripts/ActionScripts/ApplyDebuffAction.gd" id="2_v3y5e"]
 [ext_resource type="Script" uid="uid://bim8aifcgtb13" path="res://_Scripts/StatusEffects/statusEffectResource.gd" id="3_d76rp"]
 [ext_resource type="Resource" uid="uid://ds0sgw2pdeur2" path="res://resources/SFXResource/Oil.tres" id="4_4qove"]
+[ext_resource type="Texture2D" uid="uid://dhs8hj28cvl0h" path="res://assets/GearActionIcons/ApplyLubricant.png" id="5_d76rp"]
 [ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="5_v3y5e"]
 
 [sub_resource type="Resource" id="Resource_d76rp"]
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://deokm5b6s04wh"
 [resource]
 script = ExtResource("2_t287u")
 gearName = "Apply Lubricant"
+gear_icon = ExtResource("5_d76rp")
 actions = Array[ExtResource("1_1u4py")]([SubResource("Resource_d76rp")])
 color = Color(0.40145466, 0.15077958, 0.038424775, 1)
 isConsumable = true

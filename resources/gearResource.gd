@@ -6,6 +6,7 @@ enum GearType { DAMAGE, SHIELD, HEAL, MONEY }
 @export var gearName: String = ""
 @export var gearType: GearType = GearType.DAMAGE
 @export var icon: Texture2D = preload("uid://cny81hpwe5fq4")
+@export var gear_icon: Texture2D
 @export var actions: Array[ActionResource]
 @export var color: Color
 @export var isConsumable: bool = false

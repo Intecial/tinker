@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bgysbgsmy4qv5"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_vmka5"]
+[ext_resource type="Script" uid="uid://cvlbnjlmio02o" path="res://_Scripts/EnemySM/GoToNextState.gd" id="2_7d42l"]
+[ext_resource type="Resource" uid="uid://b5wea2rp8la5v" path="res://resources/gears/Enemy/Oiley/OiledGuard.tres" id="3_0xfqd"]
+[ext_resource type="Resource" uid="uid://dp2nw3a4ssk4t" path="res://resources/gears/Enemy/Oiley/OiledPipe.tres" id="4_cllnm"]
+[ext_resource type="Resource" uid="uid://il7s187dnmhr" path="res://resources/gears/Enemy/Oiley/Ignite.tres" id="5_7kh2e"]
+
+[node name="OileySM" type="Node" unique_id=33459812 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_vmka5")
+initialState = NodePath("OiledGuardState")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="OiledGuardState" type="Node" parent="." unique_id=125103543 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_7d42l")
+next_state = NodePath("../OiledPipeState")
+gear = ExtResource("3_0xfqd")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"
+
+[node name="OiledPipeState" type="Node" parent="." unique_id=1121426146 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_7d42l")
+next_state = NodePath("../IgniteState")
+gear = ExtResource("4_cllnm")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"
+
+[node name="IgniteState" type="Node" parent="." unique_id=1882191428 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_7d42l")
+next_state = NodePath("../OiledGuardState")
+gear = ExtResource("5_7kh2e")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"
