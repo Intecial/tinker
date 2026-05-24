@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chyxk6l8i8rhc"
-path="res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"
+uid="uid://c3e6nsk2730y7"
+path="res://.godot/imported/Investment.png-f37a7e98c1d74a217c4240930eebc6b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatusEffects/Energy.png"
-dest_files=["res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"]
+source_file="res://assets/GearActionIcons/Investment.png"
+dest_files=["res://.godot/imported/Investment.png-f37a7e98c1d74a217c4240930eebc6b4.ctex"]
 
 [params]
 

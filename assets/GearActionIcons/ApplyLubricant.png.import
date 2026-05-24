@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chyxk6l8i8rhc"
-path="res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"
+uid="uid://dhs8hj28cvl0h"
+path="res://.godot/imported/ApplyLubricant.png-4ce7e807ce79f99aacca6d6766a41894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatusEffects/Energy.png"
-dest_files=["res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"]
+source_file="res://assets/GearActionIcons/ApplyLubricant.png"
+dest_files=["res://.godot/imported/ApplyLubricant.png-4ce7e807ce79f99aacca6d6766a41894.ctex"]
 
 [params]
 

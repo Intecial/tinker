@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RegenStatusEffect" format=3 uid="uid://0fqmhwd5q0aw"]
 
 [ext_resource type="Script" uid="uid://d3w2q3lhwheht" path="res://_Scripts/StatusEffects/regenStatusEffect.gd" id="1_cu8is"]
-[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_k8wrb"]
+[ext_resource type="Texture2D" uid="uid://m1tdx7w1fnvr" path="res://assets/StatusEffects/Repair.png" id="1_k8wrb"]
 
 [resource]
 script = ExtResource("1_cu8is")

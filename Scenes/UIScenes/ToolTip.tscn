@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cswtlw4q58ruc"]
 
 [ext_resource type="Script" uid="uid://dwrjxcn7fvth3" path="res://_Scripts/Util/toolTip.gd" id="1_ulxpo"]
-[ext_resource type="Texture2D" uid="uid://ddyg4osdyjxtf" path="res://assets/GearActionIcons/RaiseBet.png" id="2_m411f"]
+[ext_resource type="Texture2D" uid="uid://da3i2k0dty7ri" path="res://assets/GearActionIcons/RaiseBet.png" id="2_m411f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m411f"]
-bg_color = Color(0.4453122, 0.7218154, 0.7945788, 1)
+bg_color = Color(0.21267575, 0.35788167, 0.5621183, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4

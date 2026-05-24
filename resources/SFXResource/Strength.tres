@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Strength" format=3 uid="uid://dv782ngqkgu1n"]
 
 [ext_resource type="Script" uid="uid://b0l0r3wgrre1v" path="res://_Scripts/StatusEffects/strength.gd" id="1_ih1hb"]
-[ext_resource type="Texture2D" uid="uid://cqo0vxpiabrfo" path="res://assets/attackIcon.png" id="1_pseuw"]
+[ext_resource type="Texture2D" uid="uid://yi3ve1jajs4a" path="res://assets/StatusEffects/Strength.png" id="1_pseuw"]
 
 [resource]
 script = ExtResource("1_ih1hb")

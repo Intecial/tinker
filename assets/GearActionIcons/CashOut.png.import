@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chyxk6l8i8rhc"
-path="res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"
+uid="uid://dhrvw3xpsafhf"
+path="res://.godot/imported/CashOut.png-394ea2bbe3e232235c0e8b782bf123a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatusEffects/Energy.png"
-dest_files=["res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"]
+source_file="res://assets/GearActionIcons/CashOut.png"
+dest_files=["res://.godot/imported/CashOut.png-394ea2bbe3e232235c0e8b782bf123a9.ctex"]
 
 [params]
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_gf7lk"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="2_bqkkn"]
 [ext_resource type="Resource" uid="uid://4umo44va5mbj" path="res://resources/Actions/DefendAction.tres" id="2_v2tfo"]
+[ext_resource type="Texture2D" uid="uid://bp56dh723mqhp" path="res://assets/StatusEffects/Shield.png" id="3_5kdnq"]
 [ext_resource type="Texture2D" uid="uid://blsa4v356vm2x" path="res://assets/PixelGear.png" id="3_v2tfo"]
 
 [resource]
@@ -10,6 +11,7 @@ script = ExtResource("2_bqkkn")
 gearName = "Defend"
 gearType = 1
 icon = ExtResource("3_v2tfo")
+gear_icon = ExtResource("3_5kdnq")
 actions = Array[ExtResource("1_gf7lk")]([ExtResource("2_v2tfo")])
 color = Color(1.732707e-06, 0.7314445, 0.7525827, 1)
 isConsumable = true

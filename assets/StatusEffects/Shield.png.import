@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chyxk6l8i8rhc"
-path="res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"
+uid="uid://bp56dh723mqhp"
+path="res://.godot/imported/Shield.png-e4a83d4d31ed74d7b0911aca09500760.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatusEffects/Energy.png"
-dest_files=["res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"]
+source_file="res://assets/StatusEffects/Shield.png"
+dest_files=["res://.godot/imported/Shield.png-e4a83d4d31ed74d7b0911aca09500760.ctex"]
 
 [params]
 

@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ds0sgw2pdeur2" path="res://resources/SFXResource/Oil.tres" id="4_jx27d"]
 [ext_resource type="Script" uid="uid://cyxv4cpv66pq5" path="res://_Scripts/ActionScripts/shieldAction.gd" id="5_8nfod"]
 [ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="6_0ry3c"]
+[ext_resource type="Texture2D" uid="uid://dhs8hj28cvl0h" path="res://assets/GearActionIcons/ApplyLubricant.png" id="6_tmpne"]
 [ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="7_a1mjt"]
 
 [sub_resource type="Resource" id="Resource_42ri4"]
@@ -23,6 +24,7 @@ metadata/_custom_type_script = "uid://cyxv4cpv66pq5"
 script = ExtResource("7_a1mjt")
 gearName = "Oiled Pipe"
 gearType = 1
+gear_icon = ExtResource("6_tmpne")
 actions = Array[ExtResource("1_8nfod")]([SubResource("Resource_42ri4"), SubResource("Resource_tmpne")])
 color = Color(0.4091159, 0.18050373, 0.04727988, 1)
 isConsumable = true

@@ -42,11 +42,11 @@ var TEXT_CONTAINER: TextContainer
 var animSpeed: float = 0.8
 
 var ENEMY_RESOURCES: Array[EnemyResource] = [
-	preload("uid://b8sssqoufa74d"), # Clockwork
+#	preload("uid://b8sssqoufa74d"), # Clockwork
 	preload("uid://bx6gyv0i5xcu4"), # The Gambler
-	preload("uid://dq0bsy8yi2bmx"), # Sentient Wrench
-	preload("uid://vhp321tapj5p"), # Oiley
-	preload("uid://dhj03qpqdqvqo"), # Forge Mender
+#	preload("uid://dq0bsy8yi2bmx"), # Sentient Wrench
+#	preload("uid://vhp321tapj5p"), # Oiley
+#	preload("uid://dhj03qpqdqvqo"), # Forge Mender
 	]
 # Constant.gd
 var CAMERA: Camera2D

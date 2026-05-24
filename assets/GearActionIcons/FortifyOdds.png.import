@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chyxk6l8i8rhc"
-path="res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"
+uid="uid://bp5eanuu0is3i"
+path="res://.godot/imported/FortifyOdds.png-aec64cab160b29f3df64e8895060fd92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatusEffects/Energy.png"
-dest_files=["res://.godot/imported/Energy.png-94cd0b539407e38c4df94270051b8f9f.ctex"]
+source_file="res://assets/GearActionIcons/FortifyOdds.png"
+dest_files=["res://.godot/imported/FortifyOdds.png-aec64cab160b29f3df64e8895060fd92.ctex"]
 
 [params]
 
