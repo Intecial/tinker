@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_53bl3")
-amount = 1
 icon = ExtResource("1_j24sr")
 color = Color(0.61949146, 0.76581734, 0.17663914, 1)
 metadata/_custom_type_script = "uid://tpaac6g2141q"

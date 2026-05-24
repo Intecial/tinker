@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://cq4p13ifcud7m"]
+
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="1_rijh8"]
+[ext_resource type="Script" uid="uid://cs5adc4o6apjq" path="res://_Scripts/ActionScripts/DamageByCounterAction.gd" id="2_7ltxk"]
+[ext_resource type="Texture2D" uid="uid://cny81hpwe5fq4" path="res://assets/NewGear.png" id="2_cmdwf"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="3_7ltxk"]
+
+[sub_resource type="Resource" id="Resource_epsuv"]
+script = ExtResource("2_7ltxk")
+counter_tag = "Repair"
+sfx_on = 1
+consume_mode = 3
+metadata/_custom_type_script = "uid://cs5adc4o6apjq"
+
+[resource]
+script = ExtResource("3_7ltxk")
+gearName = "Overclock"
+actions = Array[ExtResource("1_rijh8")]([SubResource("Resource_epsuv")])
+color = Color(0.5794904, 0.49336076, 0.36531037, 1)
+isConsumable = true
+description = "Deals damage based on the number of Repairs"
+metadata/_custom_type_script = "uid://5wjyyook1xrr"

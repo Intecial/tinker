@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://dhj03qpqdqvqo"]
+
+[ext_resource type="PackedScene" uid="uid://cid3cq5i5yayj" path="res://Scenes/EnemySM/ForgeMenderSM.tscn" id="1_5cw2t"]
+[ext_resource type="Script" uid="uid://5wjyyook1xrr" path="res://resources/gearResource.gd" id="1_8c47g"]
+[ext_resource type="Script" uid="uid://deaajqq55wedl" path="res://_Scripts/ActionScripts/actionResource.gd" id="2_uitkc"]
+[ext_resource type="Script" uid="uid://bep6elq4ywc6q" path="res://resources/enemyResource.gd" id="3_axk52"]
+[ext_resource type="Resource" uid="uid://igpl83wiqry" path="res://resources/gears/Enemy/ForgeMender/Smith.tres" id="3_y7ruf"]
+[ext_resource type="Resource" uid="uid://bhwdox7y4as20" path="res://resources/gears/Enemy/ForgeMender/Mend.tres" id="4_v3c6b"]
+[ext_resource type="Resource" uid="uid://cq4p13ifcud7m" path="res://resources/gears/Enemy/ForgeMender/Overclock.tres" id="5_nle1y"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="6_81tpf"]
+
+[resource]
+script = ExtResource("3_axk52")
+name = "Forge Mender"
+health = 30
+gears = Array[ExtResource("1_8c47g")]([ExtResource("3_y7ruf"), ExtResource("4_v3c6b"), ExtResource("5_nle1y")])
+icon = ExtResource("6_81tpf")
+enemy_state_machine = ExtResource("1_5cw2t")
+metadata/_custom_type_script = "uid://bep6elq4ywc6q"

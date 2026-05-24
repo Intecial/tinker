@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RegenStatusEffect" format=3 uid="uid://0fqmhwd5q0aw"]
+
+[ext_resource type="Script" uid="uid://d3w2q3lhwheht" path="res://_Scripts/StatusEffects/regenStatusEffect.gd" id="1_cu8is"]
+[ext_resource type="Texture2D" uid="uid://cjgfhdke1eino" path="res://assets/Heart.png" id="1_k8wrb"]
+
+[resource]
+script = ExtResource("1_cu8is")
+icon = ExtResource("1_k8wrb")
+name = "Repair"
+unique_consumption = true
+description = "Heal yourself with the stack amount"
+metadata/_custom_type_script = "uid://d3w2q3lhwheht"

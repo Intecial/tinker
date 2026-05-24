@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cid3cq5i5yayj"]
+
+[ext_resource type="Script" uid="uid://bwtk5q1wcoqud" path="res://_Scripts/EnemySM/EnemyStateMachine.gd" id="1_5oo0m"]
+[ext_resource type="Script" uid="uid://cvlbnjlmio02o" path="res://_Scripts/EnemySM/GoToNextState.gd" id="2_80fw7"]
+[ext_resource type="Resource" uid="uid://bhwdox7y4as20" path="res://resources/gears/Enemy/ForgeMender/Mend.tres" id="3_jesv7"]
+[ext_resource type="Resource" uid="uid://igpl83wiqry" path="res://resources/gears/Enemy/ForgeMender/Smith.tres" id="4_vov08"]
+[ext_resource type="Resource" uid="uid://cq4p13ifcud7m" path="res://resources/gears/Enemy/ForgeMender/Overclock.tres" id="5_c7a5f"]
+
+[node name="ForgeMender" type="Node" unique_id=1389251443 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_5oo0m")
+initialState = NodePath("MendState")
+metadata/_custom_type_script = "uid://bwtk5q1wcoqud"
+
+[node name="MendState" type="Node" parent="." unique_id=2044290800 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_80fw7")
+next_state = NodePath("../SmithState")
+gear = ExtResource("3_jesv7")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"
+
+[node name="SmithState" type="Node" parent="." unique_id=1640833401 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_80fw7")
+next_state = NodePath("../OverclockState")
+gear = ExtResource("4_vov08")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"
+
+[node name="OverclockState" type="Node" parent="." unique_id=1290950069 node_paths=PackedStringArray("next_state")]
+script = ExtResource("2_80fw7")
+next_state = NodePath("../MendState")
+gear = ExtResource("5_c7a5f")
+metadata/_custom_type_script = "uid://cvlbnjlmio02o"

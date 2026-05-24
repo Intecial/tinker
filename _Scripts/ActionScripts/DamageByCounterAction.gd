@@ -19,9 +19,19 @@ func execute(actor: Actor) -> void:
 	sfx = chosen_actor.statusEffects.filter(
 		func(x: StatusEffectResource) -> bool: return x.name == counter_tag
 	)
+	
+	
 	var amount: int = sfx.size()
 	actor.dealDamage(amount)
 	_consume(chosen_actor, sfx)
+	
+func filt(x: StatusEffectResource) -> bool:
+	print(x.name)
+	print(counter_tag)
+	print(x.name == counter_tag)
+	if x.name == counter_tag:
+		return true
+	return false
 
 func _consume(actor: Actor, sfx: Array[StatusEffectResource]) -> void:
 	var to_remove: Array[StatusEffectResource] = []
