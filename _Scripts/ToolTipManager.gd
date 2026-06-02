@@ -10,6 +10,8 @@ var gadget_resource: GadgetResource
 
 var is_shop: bool = false
 func _on_mouse_entered() -> void:
+	if not gear_resource and not sfx_resource and not gadget_resource:
+		return
 	var tooltip : ToolTip = _create_tooltip()
 	if not tooltip:
 		return
@@ -24,6 +26,7 @@ func _on_mouse_entered() -> void:
 func _create_tooltip() -> ToolTip:
 	tooltip_instance = toolTipScene.instantiate()
 	add_child(tooltip_instance)
+	tooltip_instance.scale = Vector2.ONE / get_global_transform().get_scale()
 	if tooltip_instance is ToolTip:
 		tooltip_instance.move_to_front()
 		return tooltip_instance as ToolTip

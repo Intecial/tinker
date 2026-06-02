@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://f8uu267t5uy3"]
+
+[ext_resource type="Texture2D" uid="uid://bd5s56a3c8uc8" path="res://assets/ui/play.png" id="1_8q3mj"]
+[ext_resource type="Texture2D" uid="uid://dxk13we8n4l30" path="res://assets/ui/play_behind.png" id="2_l5mxs"]
+
+[node name="Control" type="Control" unique_id=2023690668]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1355201693]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+texture = ExtResource("1_8q3mj")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2029599067]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+texture = ExtResource("2_l5mxs")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="." unique_id=1269184214]
+layout_mode = 1
+anchor_left = 0.0625
+anchor_top = 0.0055555557
+anchor_right = 0.2078125
+anchor_bottom = 0.20555556
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

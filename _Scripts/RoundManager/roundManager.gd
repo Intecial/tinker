@@ -8,7 +8,7 @@ var currentState: RoundState
 var gearArray: GearArray
 var stateDict : Dictionary[String, RoundState]
 
-var next_round: Button
+var next_round: TextureButton
 var current_dead_enemy : EnemyResource 
 
 func on_enemy_die(enemy_resource: EnemyResource) -> void:

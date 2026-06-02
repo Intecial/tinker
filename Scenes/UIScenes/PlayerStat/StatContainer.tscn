@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://_Scripts/Util/popUpManager.gd" id="4_sloqj"]
 [ext_resource type="PackedScene" uid="uid://ciqjogj860rf7" path="res://Scenes/UIScenes/DamagePopUp.tscn" id="5_1vknw"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50hhy"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lyllg"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
@@ -13,6 +15,7 @@ gravity = Vector3(0, 98, 0)
 [node name="StatContainer" type="PanelContainer" unique_id=401459813]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_50hhy")
 script = ExtResource("1_dh74d")
 icon = ExtResource("1_bpd0c")
 color = Color(0.91561425, 0.42305318, 0.4595003, 1)
@@ -46,4 +49,3 @@ script = ExtResource("3_kwwkm")
 layout_mode = 2
 script = ExtResource("4_sloqj")
 popUp = ExtResource("5_1vknw")
-metadata/_custom_type_script = "uid://bve6esw0b120r"

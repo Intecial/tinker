@@ -18,9 +18,9 @@ signal onExit
 signal onGearSet(slot: GearArraySlot)
 signal onGearRemoved(slot: GearArraySlot)
 
-@onready var iconRect: TextureRect = $AspectRatioContainer/TextureRect
-@onready var disabledRect: TextureRect = $MarginContainer/DisabledTexture
-@onready var borderRect: TextureRect = $MarginContainer/MarginContainer/BorderRect
+@onready var iconRect: TextureRect = $CenterContainer/TextureRect
+@onready var disabledRect: TextureRect = $DisabledTexture
+@onready var borderRect: TextureRect = $BorderRect
 @onready var disabledColorRect: ColorRect = $ColorRect
 
 func _ready() -> void:

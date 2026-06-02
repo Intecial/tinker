@@ -8,7 +8,7 @@ class_name GearDetails
 
 func _ready() -> void:
 	await get_tree().process_frame
-	for gearArrSlot : GearArraySlot in Constant.GEAR_INVENTORY.get_children():
+	for gearArrSlot : GearArraySlot in Constant.GEAR_INVENTORY.inventory:
 		gearArrSlot.onHovered.connect(showDetails)
 		gearArrSlot.onExit.connect(clearDetails)
 	

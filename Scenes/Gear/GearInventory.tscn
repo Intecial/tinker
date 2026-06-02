@@ -1,29 +1,85 @@
 [gd_scene format=3 uid="uid://cn8dx18fxlwmt"]
 
 [ext_resource type="Script" uid="uid://cpr32lovfq7g0" path="res://_Scripts/Gear/gearInventory.gd" id="1_0jeqm"]
-[ext_resource type="PackedScene" uid="uid://cecwk11wuv0gn" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_7pm4x"]
+[ext_resource type="Texture2D" uid="uid://c0obgro5bqtir" path="res://assets/ui/hand.png" id="1_hand"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="2_7pm4x"]
+[ext_resource type="Texture2D" uid="uid://c1n01bic0vdhf" path="res://assets/ui/hand_behind.png" id="2_handbehind"]
 
-[node name="GearInventory" type="GridContainer" unique_id=1515899103]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-columns = 6
+[node name="GearInventory" type="Control" unique_id=627801576]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0jeqm")
 
-[node name="GearArraySlot" parent="." unique_id=1224456143 instance=ExtResource("2_7pm4x")]
-layout_mode = 2
+[node name="HandBehind" type="TextureRect" parent="." unique_id=894645314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_handbehind")
+stretch_mode = 5
 
-[node name="GearArraySlot2" parent="." unique_id=947392165 instance=ExtResource("2_7pm4x")]
-layout_mode = 2
+[node name="HandOverlay" type="TextureRect" parent="." unique_id=841983691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_hand")
+stretch_mode = 5
 
-[node name="GearArraySlot3" parent="." unique_id=2012823542 instance=ExtResource("2_7pm4x")]
-layout_mode = 2
+[node name="SlotGrid" type="GridContainer" parent="." unique_id=1515899103]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.99999
+offset_top = -20.0
+offset_right = 120.00001
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.86, 0.86)
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+columns = 6
 
-[node name="GearArraySlot4" parent="." unique_id=679693094 instance=ExtResource("2_7pm4x")]
+[node name="GearArraySlot" parent="SlotGrid" unique_id=1224456143 instance=ExtResource("2_7pm4x")]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="GearArraySlot5" parent="." unique_id=1326179496 instance=ExtResource("2_7pm4x")]
+[node name="GearArraySlot2" parent="SlotGrid" unique_id=947392165 instance=ExtResource("2_7pm4x")]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="GearArraySlot6" parent="." unique_id=2061299979 instance=ExtResource("2_7pm4x")]
+[node name="GearArraySlot3" parent="SlotGrid" unique_id=2012823542 instance=ExtResource("2_7pm4x")]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GearArraySlot4" parent="SlotGrid" unique_id=679693094 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GearArraySlot5" parent="SlotGrid" unique_id=1326179496 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GearArraySlot6" parent="SlotGrid" unique_id=2061299979 instance=ExtResource("2_7pm4x")]
+layout_mode = 2
+size_flags_horizontal = 3
