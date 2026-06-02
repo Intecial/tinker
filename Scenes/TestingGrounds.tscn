@@ -82,8 +82,7 @@ offset_top = -340.5
 offset_right = 150.0
 offset_bottom = 340.5
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control2" unique_id=1371757342]
-custom_minimum_size = Vector2(700, 100)
+[node name="GearInventory" parent="CanvasLayer/Control2" unique_id=1515899103 instance=ExtResource("15_n7jsc")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -95,10 +94,6 @@ offset_top = -114.0
 offset_right = 350.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="GearInventory" parent="CanvasLayer/Control2/PanelContainer" unique_id=1515899103 instance=ExtResource("15_n7jsc")]
-layout_mode = 2
-size_flags_vertical = 4
 
 [node name="ForgePanel" parent="CanvasLayer/Control2" unique_id=1111267457 instance=ExtResource("16_cnbp3")]
 visible = false

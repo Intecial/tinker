@@ -1,4 +1,4 @@
-extends GridContainer
+extends Control
 class_name GearInventory
 
 @export var income: int = 3
@@ -6,7 +6,7 @@ var inventory : Array[GearArraySlot]
 
 func _ready() -> void:
 	Constant.GEAR_INVENTORY = self
-	for gearArraySlot: GearArraySlot in get_children():
+	for gearArraySlot: GearArraySlot in $SlotGrid.get_children():
 		inventory.append(gearArraySlot)
 	
 	await get_tree().process_frame

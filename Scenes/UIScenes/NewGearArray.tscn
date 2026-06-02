@@ -3,66 +3,70 @@
 [ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_6ba18"]
 [ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="1_lq8eq"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=1003889804 node_paths=PackedStringArray("gear_slots")]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = -12
+[node name="HBoxContainer" type="HBoxContainer" unique_id=2084608929 node_paths=PackedStringArray("gear_slots")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_lq8eq")
-gear_slots = [NodePath("MarginContainer/GearArraySlot"), NodePath("MarginContainer2/GearArraySlot"), NodePath("MarginContainer3/GearArraySlot"), NodePath("MarginContainer5/GearArraySlot"), NodePath("MarginContainer4/GearArraySlot"), NodePath("MarginContainer6/GearArraySlot")]
+gear_slots = [NodePath("MarginContainer2/VBoxContainer2/First"), NodePath("MarginContainer/VBoxContainer3/Second"), NodePath("MarginContainer2/VBoxContainer2/Third"), NodePath("MarginContainer/VBoxContainer3/Fourth"), NodePath("MarginContainer2/VBoxContainer2/Fifth"), NodePath("MarginContainer/VBoxContainer3/Sixth")]
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1553285887]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1355433234]
 layout_mode = 2
-theme_override_constants/margin_left = 12
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 92
 
-[node name="GearArraySlot" parent="MarginContainer" unique_id=1224456143 instance=ExtResource("1_6ba18")]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer" unique_id=960248413]
 layout_mode = 2
-shakeScreen = true
-activateExplosion = true
+size_flags_horizontal = 3
+theme_override_constants/separation = 27
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1919790433]
-layout_mode = 2
-theme_override_constants/margin_right = 12
-
-[node name="GearArraySlot" parent="MarginContainer2" unique_id=986381994 instance=ExtResource("1_6ba18")]
+[node name="Second" parent="MarginContainer/VBoxContainer3" unique_id=1224456143 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(32, 80)
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
-[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1455046441]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-
-[node name="GearArraySlot" parent="MarginContainer3" unique_id=157404782 instance=ExtResource("1_6ba18")]
-layout_mode = 2
-shakeScreen = true
-activateExplosion = true
-
-[node name="MarginContainer5" type="MarginContainer" parent="." unique_id=156519171]
-layout_mode = 2
-theme_override_constants/margin_right = 12
-
-[node name="GearArraySlot" parent="MarginContainer5" unique_id=1878894066 instance=ExtResource("1_6ba18")]
+[node name="Fourth" parent="MarginContainer/VBoxContainer3" unique_id=621594482 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(32, 80)
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="." unique_id=1461140280]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-
-[node name="GearArraySlot" parent="MarginContainer4" unique_id=1589216709 instance=ExtResource("1_6ba18")]
-layout_mode = 2
-shakeScreen = true
-activateExplosion = true
-
-[node name="MarginContainer6" type="MarginContainer" parent="." unique_id=1944598829]
-layout_mode = 2
-theme_override_constants/margin_right = 12
-
-[node name="GearArraySlot" parent="MarginContainer6" unique_id=650411614 instance=ExtResource("1_6ba18")]
+[node name="Sixth" parent="MarginContainer/VBoxContainer3" unique_id=2131407229 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(32, 80)
 layout_mode = 2
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=30612666]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 39
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2" unique_id=1338181596]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 27
+
+[node name="First" parent="MarginContainer2/VBoxContainer2" unique_id=1956703172 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(33.23, 80)
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="Third" parent="MarginContainer2/VBoxContainer2" unique_id=1306956219 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(32, 80)
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true
+
+[node name="Fifth" parent="MarginContainer2/VBoxContainer2" unique_id=1294349110 instance=ExtResource("1_6ba18")]
+custom_minimum_size = Vector2(32, 80)
+layout_mode = 2
+shakeScreen = true
+activateExplosion = true

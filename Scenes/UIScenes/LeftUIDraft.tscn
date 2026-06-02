@@ -1,59 +1,124 @@
 [gd_scene format=3 uid="uid://cyaa0e6o5j35f"]
 
-[ext_resource type="Script" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
+[ext_resource type="Script" uid="uid://c0ghhr3v4bvgh" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
 [ext_resource type="PackedScene" uid="uid://1wdximxq6ijr" path="res://Scenes/UIScenes/PlayerStat/PlayerStatContainer.tscn" id="1_qcrk5"]
 [ext_resource type="PackedScene" uid="uid://cgea4mnhbn65a" path="res://Scenes/UIScenes/NewGearArray.tscn" id="3_pc4b6"]
+[ext_resource type="Texture2D" uid="uid://bd5s56a3c8uc8" path="res://assets/ui/play.png" id="4_m6jvp"]
 [ext_resource type="Script" uid="uid://ku7cd2nxebho" path="res://_Scripts/sfxContainer.gd" id="4_qwi8f"]
 [ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_gdnqw"]
+[ext_resource type="Texture2D" uid="uid://dxk13we8n4l30" path="res://assets/ui/play_behind.png" id="6_l0sf0"]
+[ext_resource type="Texture2D" uid="uid://cl0ccj625fnfn" path="res://assets/ui/scanlines.png" id="6_ta7qt"]
+[ext_resource type="Texture2D" uid="uid://bbj64coarq3bk" path="res://assets/ui/lever.png" id="9_pbryc"]
 
-[node name="PlayerUI" type="PanelContainer" unique_id=1141615010 node_paths=PackedStringArray("next_round_button")]
-custom_minimum_size = Vector2(150, 0)
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -349.5
-offset_right = 101.0
-offset_bottom = 349.5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbryc"]
+
+[node name="PlayerUI" type="Control" unique_id=963350367 node_paths=PackedStringArray("next_round_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_6sue2")
-next_round_button = NodePath("VBoxContainer/ButtonContainer/NextRoundButton")
+next_round_button = NodePath("ButtonContainer/NextRoundButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1657443587]
-layout_mode = 2
+[node name="ButtonContainer" type="PanelContainer" parent="." unique_id=1122527746]
+layout_mode = 1
+offset_left = 296.00006
+offset_top = 308.00003
+offset_right = 321.00006
+offset_bottom = 460.00003
+rotation = 0.20870575
+scale = Vector2(2.2398834, 2.37314)
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pbryc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1351018960]
+[node name="NextRoundButton" type="TextureButton" parent="ButtonContainer" unique_id=2036526852]
 layout_mode = 2
-size_flags_vertical = 3
+texture_normal = ExtResource("9_pbryc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1017771605]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=244523442]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+texture = ExtResource("4_m6jvp")
+stretch_mode = 5
 
-[node name="PlayerStatContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317212470 instance=ExtResource("1_qcrk5")]
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=810427554]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+texture = ExtResource("6_l0sf0")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="." unique_id=1163080007]
+clip_contents = true
+layout_mode = 1
+anchor_left = 0.0625
+anchor_top = 0.0055555557
+anchor_right = 0.2078125
+anchor_bottom = 0.20555556
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1326787326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+
+[node name="PlayerStatContainer" parent="Control/MarginContainer" unique_id=1317212470 instance=ExtResource("1_qcrk5")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.2
 
-[node name="PanelContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=932958320]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer" unique_id=789372534]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
+texture = ExtResource("6_ta7qt")
+stretch_mode = 5
 
-[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1003889804 instance=ExtResource("3_pc4b6")]
-layout_mode = 2
+[node name="Control2" type="Control" parent="." unique_id=129811859]
+layout_mode = 1
+anchor_left = 0.05078125
+anchor_top = 0.22361112
+anchor_right = 0.19453125
+anchor_bottom = 0.77916664
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="SFXContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=353107045]
-layout_mode = 2
+[node name="HBoxContainer" parent="Control2" unique_id=2084608929 instance=ExtResource("3_pc4b6")]
+layout_mode = 1
+
+[node name="Control3" type="Control" parent="." unique_id=532589715]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 291.0
+offset_top = 4.0
+offset_right = 339.0
+offset_bottom = -412.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="SFXContainer" type="VBoxContainer" parent="Control3" unique_id=353107045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
 script = ExtResource("4_qwi8f")
 sfx_icon = ExtResource("5_gdnqw")
-
-[node name="ButtonContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1122527746]
-layout_mode = 2
-size_flags_stretch_ratio = 0.2
-
-[node name="NextRoundButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=2037859536]
-layout_mode = 2
-text = "Fight"

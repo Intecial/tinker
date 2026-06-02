@@ -1,7 +1,7 @@
-extends PanelContainer
+extends Control
 class_name PlayerUI
 
-@export var next_round_button: Button
+@export var next_round_button: TextureButton
 
-func get_next_round_button() -> Button:
+func get_next_round_button() -> TextureButton:
 	return next_round_button
