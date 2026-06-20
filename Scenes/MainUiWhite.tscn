@@ -24,11 +24,11 @@
 [ext_resource type="Script" path="res://_Scripts/RoundManager/gameOverState.gd" id="24_ttft5"]
 [ext_resource type="PackedScene" uid="uid://qtybb8clrcvn" path="res://Scenes/UIScenes/DisplayGears.tscn" id="25_d6eqb"]
 [ext_resource type="Script" uid="uid://cybqkolluq8rg" path="res://_Scripts/Forge/forgeState.gd" id="28_sgbvm"]
-[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteGenerator.tscn" id="29_qh8ww"]
+[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteScene.tscn" id="29_qh8ww"]
 
 [node name="MainUI" type="Node2D" unique_id=115053855]
 
-[node name="RouteGenerator" parent="." unique_id=690507080 instance=ExtResource("29_qh8ww")]
+[node name="RouteScene" parent="." unique_id=872567097 instance=ExtResource("29_qh8ww")]
 visible = false
 
 [node name="EnemyManager" parent="." unique_id=566227468 instance=ExtResource("2_ldkep")]
@@ -70,7 +70,7 @@ forge_panel = NodePath("../../CanvasLayer/Control2/ForgePanel")
 
 [node name="RouteState" type="Node" parent="RoundManager" unique_id=480640589 node_paths=PackedStringArray("route_parent")]
 script = ExtResource("21_nmyln")
-route_parent = NodePath("../../RouteGenerator")
+route_parent = NodePath("../../RouteScene")
 
 [node name="EnemyDropState" type="Node" parent="RoundManager" unique_id=449296058 node_paths=PackedStringArray("enemy_drop_panel")]
 script = ExtResource("13_84qcs")

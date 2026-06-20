@@ -4,6 +4,11 @@ class_name GearArray
 var assignedGears : Array[GearResource] = [] 
 @export var gear_slots: Array[GearArraySlot] = []
 
+var is_hovered: bool = false
+var closest_slot: GearArraySlot = null
+
+signal closest_gear_changed(slot: GearArraySlot)
+
 func _enter_tree() -> void:
 	Constant.GEAR_ARRAY = self
 
@@ -43,3 +48,33 @@ func resolveGears() -> void:
 func onGearArrayChange(gear: GearArraySlot) -> void:
 	pass
 #	print(gear.name)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_left"):
+		print(closest_slot)
+
+func _process(_delta: float) -> void:
+	if not is_hovered:
+		return
+	_update_closest_slot()
+
+func _update_closest_slot() -> void:
+	var mouse_pos : Vector2 = get_global_mouse_position()
+	var new_closest: GearArraySlot = null
+	var closest_dist : float = INF
+	for slot: GearArraySlot in gear_slots:
+		var d : float = mouse_pos.distance_squared_to(slot.get_global_rect().get_center())
+		if d < closest_dist:
+			closest_dist = d
+			new_closest = slot
+	if new_closest != closest_slot:
+		closest_slot = new_closest
+		closest_gear_changed.emit(closest_slot)
+
+func _on_mouse_exited() -> void:
+	is_hovered = false
+	closest_slot = null
+	closest_gear_changed.emit(null)
+
+func _on_mouse_entered() -> void:
+	is_hovered = true

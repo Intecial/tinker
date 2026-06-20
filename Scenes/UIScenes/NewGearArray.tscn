@@ -3,70 +3,79 @@
 [ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="1_6ba18"]
 [ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="1_lq8eq"]
 
-[node name="HBoxContainer" type="HBoxContainer" unique_id=2084608929 node_paths=PackedStringArray("gear_slots")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="GearArray" type="Control" unique_id=1083465810 node_paths=PackedStringArray("gear_slots")]
+layout_mode = 3
+anchor_left = 0.05078125
+anchor_top = 0.22361112
+anchor_right = 0.19453125
+anchor_bottom = 0.77916664
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lq8eq")
-gear_slots = [NodePath("MarginContainer2/VBoxContainer2/First"), NodePath("MarginContainer/VBoxContainer3/Second"), NodePath("MarginContainer2/VBoxContainer2/Third"), NodePath("MarginContainer/VBoxContainer3/Fourth"), NodePath("MarginContainer2/VBoxContainer2/Fifth"), NodePath("MarginContainer/VBoxContainer3/Sixth")]
+gear_slots = [NodePath("First"), NodePath("Second"), NodePath("Third"), NodePath("Fourth"), NodePath("Fifth"), NodePath("Sixth")]
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1355433234]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 92
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer" unique_id=960248413]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 27
-
-[node name="Second" parent="MarginContainer/VBoxContainer3" unique_id=1224456143 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(32, 80)
-layout_mode = 2
+[node name="First" parent="." unique_id=1224456143 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = 47.0
+offset_right = 111.0
+offset_bottom = 64.0
+scale = Vector2(2.5284493, 2.5284493)
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
-[node name="Fourth" parent="MarginContainer/VBoxContainer3" unique_id=621594482 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(32, 80)
-layout_mode = 2
+[node name="Second" parent="." unique_id=2051200374 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 49.0
+offset_right = 35.0
+offset_bottom = 113.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+
+[node name="Third" parent="." unique_id=940031747 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 104.0
+offset_right = 109.0
+offset_bottom = 168.0
+scale = Vector2(2.5284493, 2.5284493)
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
-[node name="Sixth" parent="MarginContainer/VBoxContainer3" unique_id=2131407229 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(32, 80)
-layout_mode = 2
+[node name="Fourth" parent="." unique_id=228992393 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 158.0
+offset_right = 33.0
+offset_bottom = 222.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+
+[node name="Fifth" parent="." unique_id=243187723 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 212.0
+offset_right = 109.0
+offset_bottom = 276.0
+scale = Vector2(2.5284493, 2.5284493)
 shakeScreen = true
 activateExplosion = true
 isClockwise = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=30612666]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 39
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2" unique_id=1338181596]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 27
-
-[node name="First" parent="MarginContainer2/VBoxContainer2" unique_id=1956703172 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(33.23, 80)
-layout_mode = 2
+[node name="Sixth" parent="." unique_id=845846442 instance=ExtResource("1_6ba18")]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 265.00003
+offset_right = 64.0
+offset_bottom = 329.00003
+scale = Vector2(2.5284493, 2.5284493)
 shakeScreen = true
 activateExplosion = true
 
-[node name="Third" parent="MarginContainer2/VBoxContainer2" unique_id=1306956219 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(32, 80)
-layout_mode = 2
-shakeScreen = true
-activateExplosion = true
-
-[node name="Fifth" parent="MarginContainer2/VBoxContainer2" unique_id=1294349110 instance=ExtResource("1_6ba18")]
-custom_minimum_size = Vector2(32, 80)
-layout_mode = 2
-shakeScreen = true
-activateExplosion = true
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

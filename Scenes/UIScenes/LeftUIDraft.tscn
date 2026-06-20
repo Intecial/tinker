@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c0ghhr3v4bvgh" path="res://_Scripts/Player/PlayerUI.gd" id="1_6sue2"]
 [ext_resource type="PackedScene" uid="uid://1wdximxq6ijr" path="res://Scenes/UIScenes/PlayerStat/PlayerStatContainer.tscn" id="1_qcrk5"]
-[ext_resource type="PackedScene" uid="uid://cgea4mnhbn65a" path="res://Scenes/UIScenes/NewGearArray.tscn" id="3_pc4b6"]
 [ext_resource type="Texture2D" uid="uid://bd5s56a3c8uc8" path="res://assets/ui/play.png" id="4_m6jvp"]
 [ext_resource type="Script" uid="uid://ku7cd2nxebho" path="res://_Scripts/sfxContainer.gd" id="4_qwi8f"]
 [ext_resource type="PackedScene" uid="uid://dl8ci6de63s21" path="res://Scenes/UIScenes/SfxIcon.tscn" id="5_gdnqw"]
 [ext_resource type="Texture2D" uid="uid://dxk13we8n4l30" path="res://assets/ui/play_behind.png" id="6_l0sf0"]
 [ext_resource type="Texture2D" uid="uid://cl0ccj625fnfn" path="res://assets/ui/scanlines.png" id="6_ta7qt"]
+[ext_resource type="PackedScene" uid="uid://kg6kfa1fhrpu" path="res://Scenes/Gear/GearArraySlot.tscn" id="8_67ou5"]
+[ext_resource type="Script" uid="uid://vj7kjlv3xv6w" path="res://_Scripts/Gear/gearArray.gd" id="9_67ou5"]
 [ext_resource type="Texture2D" uid="uid://bbj64coarq3bk" path="res://assets/ui/lever.png" id="9_pbryc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbryc"]
@@ -87,7 +88,7 @@ layout_mode = 2
 texture = ExtResource("6_ta7qt")
 stretch_mode = 5
 
-[node name="Control2" type="Control" parent="." unique_id=129811859]
+[node name="GearArray" type="Control" parent="." unique_id=129811859 node_paths=PackedStringArray("gear_slots")]
 layout_mode = 1
 anchor_left = 0.05078125
 anchor_top = 0.22361112
@@ -95,10 +96,71 @@ anchor_right = 0.19453125
 anchor_bottom = 0.77916664
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_67ou5")
+gear_slots = [NodePath("First"), NodePath("Second"), NodePath("Third"), NodePath("Fourth"), NodePath("Fifth"), NodePath("Sixth")]
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" parent="Control2" unique_id=2084608929 instance=ExtResource("3_pc4b6")]
-layout_mode = 1
+[node name="First" parent="GearArray" unique_id=1224456143 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = 47.0
+offset_right = 111.0
+offset_bottom = 64.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="Second" parent="GearArray" unique_id=2107171350 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 49.0
+offset_right = 35.0
+offset_bottom = 113.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+
+[node name="Third" parent="GearArray" unique_id=248959054 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 104.0
+offset_right = 109.0
+offset_bottom = 168.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="Fourth" parent="GearArray" unique_id=567714937 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 158.0
+offset_right = 33.0
+offset_bottom = 222.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+
+[node name="Fifth" parent="GearArray" unique_id=1755649916 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 212.0
+offset_right = 109.0
+offset_bottom = 276.0
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
+isClockwise = true
+
+[node name="Sixth" parent="GearArray" unique_id=578843484 instance=ExtResource("8_67ou5")]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 265.00003
+offset_right = 64.0
+offset_bottom = 329.00003
+scale = Vector2(2.5284493, 2.5284493)
+shakeScreen = true
+activateExplosion = true
 
 [node name="Control3" type="Control" parent="." unique_id=532589715]
 layout_mode = 1
@@ -122,3 +184,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
 script = ExtResource("4_qwi8f")
 sfx_icon = ExtResource("5_gdnqw")
+
+[connection signal="mouse_entered" from="GearArray" to="GearArray" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GearArray" to="GearArray" method="_on_mouse_exited"]

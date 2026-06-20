@@ -129,10 +129,12 @@ func enableSlot() -> void:
 #	borderRect.visible = true
 
 func _mouse_entered() -> void:
-	onHovered.emit(self)
+#	onHovered.emit(self)
+	pass
 
 func _mouse_exited() -> void:
-	onExit.emit()
+#	onExit.emit()
+	pass
 	
 func explode() -> void:
 	explosionOnGear.burst(gear.color)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxdxtt5w12fa7"]
 
-[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteGenerator.tscn" id="1_p12hw"]
+[ext_resource type="PackedScene" uid="uid://d0t3sllpm5tk1" path="res://Scenes/Route/RouteScene.tscn" id="1_p12hw"]
 [ext_resource type="PackedScene" uid="uid://de7wesj4kcats" path="res://Scenes/Enemy/EnemyManager.tscn" id="2_86u5x"]
 [ext_resource type="Script" uid="uid://c1hgglc5rnr4v" path="res://_Scripts/actor.gd" id="3_cnbp3"]
 [ext_resource type="Script" uid="uid://4gnwqlxbknga" path="res://_Scripts/Player/actor_context.gd" id="4_24pqp"]

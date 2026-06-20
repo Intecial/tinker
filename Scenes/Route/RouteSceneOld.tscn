@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddbfkvjv0nlxa"]
+
+[ext_resource type="Script" uid="uid://dc2lse6tk86eb" path="res://_Scripts/Route/routeScene.gd" id="1_wdvv0"]
+[ext_resource type="PackedScene" uid="uid://db3l357wrowdp" path="res://Scenes/Route/CameraScript.tscn" id="2_5iu1a"]
+[ext_resource type="PackedScene" uid="uid://xgw6gj3vcxai" path="res://Scenes/Route/RouteGenerator.tscn" id="3_j7t6k"]
+[ext_resource type="PackedScene" uid="uid://585gtg0wygw8" path="res://Scenes/Route/RouteIcon.tscn" id="4_ay6ec"]
+[ext_resource type="PackedScene" uid="uid://bqnfg0v3d5yc2" path="res://Scenes/Route/RoutePlayerIcon.tscn" id="5_0vuvf"]
+
+[node name="RouteScene" type="Node2D" unique_id=872567097]
+script = ExtResource("1_wdvv0")
+cameraScriptPS = ExtResource("2_5iu1a")
+routeGeneratorPS = ExtResource("3_j7t6k")
+playerIconPS = ExtResource("4_ay6ec")
+
+[node name="CameraScript" parent="." unique_id=5881484 node_paths=PackedStringArray("root") instance=ExtResource("2_5iu1a")]
+root = NodePath("..")
+
+[node name="RoutePlayerIcon" parent="." unique_id=2119372767 instance=ExtResource("5_0vuvf")]
+
+[node name="RouteGenerator" parent="." unique_id=1275966655 node_paths=PackedStringArray("player_sprite") instance=ExtResource("3_j7t6k")]
+player_sprite = NodePath("../RoutePlayerIcon")

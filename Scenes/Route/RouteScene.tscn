@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0t3sllpm5tk1"]
+
+[ext_resource type="Script" uid="uid://dc2lse6tk86eb" path="res://_Scripts/Route/routeScene.gd" id="1_hviat"]
+[ext_resource type="PackedScene" uid="uid://db3l357wrowdp" path="res://Scenes/Route/CameraScript.tscn" id="2_p0632"]
+[ext_resource type="PackedScene" uid="uid://xgw6gj3vcxai" path="res://Scenes/Route/RouteGenerator.tscn" id="4_s3vts"]
+
+[node name="RouteScene" type="Node2D" unique_id=872567097]
+script = ExtResource("1_hviat")
+cameraScriptPS = ExtResource("2_p0632")
+routeGeneratorPS = ExtResource("4_s3vts")

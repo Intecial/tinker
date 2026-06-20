@@ -1,0 +1,9 @@
+func pseudo(x):
+    if x <= 1:
+      return absolute(x)
+    elif x == 2 || x == 4:
+      return factorial(x)
+    else:
+      return e**x
+
+

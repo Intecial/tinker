@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqnfg0v3d5yc2"]
+
+[ext_resource type="Texture2D" uid="uid://cwh3fwawdfxp4" path="res://assets/Character.png" id="1_61yuv"]
+
+[node name="RoutePlayerIcon" type="Sprite2D" unique_id=2119372767]
+texture = ExtResource("1_61yuv")

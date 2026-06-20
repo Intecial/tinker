@@ -23,9 +23,6 @@ var last_route: RouteIcon
 func _enter_tree() -> void:
 	Constant.ROUTE_GENERATOR = self
 
-func _ready() -> void:
-	generate_routes()
-
 func set_player_pos(route_icon: RouteIcon) -> void:
 	player_sprite.position = route_icon.position + player_pos_offset
 	
